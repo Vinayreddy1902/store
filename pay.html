@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apex Studio — Direct Client Settlement & Retainer Gateway</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@600;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #030712;
+      --card: #0f172a;
+      --border: rgba(255, 255, 255, 0.08);
+      --primary: #2563eb;
+      --accent: #38bdf8;
+      --green: #10b981;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 20px;
+      background-image: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.2) 0%, transparent 70%);
+    }
+    .pay-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      max-width: 580px;
+      width: 100%;
+      padding: 40px;
+      box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.7);
+      text-align: center;
+      backdrop-filter: blur(20px);
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: var(--green);
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    p {
+      font-size: 14.5px;
+      color: #94a3b8;
+      line-height: 1.5;
+      margin-bottom: 28px;
+    }
+    .tiers-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 24px;
+      text-align: left;
+    }
+    .tier-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .tier-box:hover, .tier-box.selected {
+      border-color: #38bdf8;
+      background: rgba(56, 189, 248, 0.12);
+      transform: translateY(-2px);
+    }
+    .tier-amt {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+    }
+    .tier-label {
+      font-size: 11.5px;
+      color: #94a3b8;
+      margin-top: 4px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .tier-detail {
+      font-size: 12px;
+      color: #cbd5e1;
+      margin-top: 6px;
+    }
+    .pay-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      background: linear-gradient(135deg, #0070ba, #003087);
+      color: white;
+      padding: 18px;
+      border-radius: 14px;
+      font-size: 17px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      margin-bottom: 16px;
+      box-shadow: 0 10px 25px rgba(0, 112, 186, 0.4);
+      border: none;
+      cursor: pointer;
+    }
+    .pay-btn:hover {
+      opacity: 0.95;
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(0, 112, 186, 0.55);
+    }
+    .trust-footer {
+      font-size: 12px;
+      color: #64748b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .guarantee-note {
+      font-size: 12.5px;
+      color: #94a3b8;
+      margin-bottom: 18px;
+      background: rgba(255,255,255,0.02);
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px dashed rgba(255,255,255,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="pay-card">
+    <div class="badge">🔒 Verified Merchant Checkout</div>
+    <h1>Apex Studio Payout Gateway</h1>
+    <p>Select your deliverable package below to complete upfront settlement with instant project onboarding and invoice generation.</p>
+
+    <div class="tiers-grid">
+      <!-- Tier 1: $2,500 Full-Stack Agency Retainer -->
+      <div class="tier-box selected" onclick="selectTier(2500, 'Enterprise Full-Stack YouTube & Video Retainer')">
+        <div class="tier-amt">$2,500</div>
+        <div class="tier-label">Full Agency Retainer</div>
+        <div class="tier-detail">60 High-Retention Reels + 4 Long-Form Documentaries + Full SEO Management</div>
+      </div>
+
+      <!-- Tier 2: $1,250 30-Day Video Retainer -->
+      <div class="tier-box" onclick="selectTier(1250, '30-Day Viral Video Production Retainer')">
+        <div class="tier-amt">$1,250</div>
+        <div class="tier-label">30-Day Reel Retainer</div>
+        <div class="tier-detail">30 Daily 9:16 Vertical Video Reels with 24h Turnaround</div>
+      </div>
+
+      <!-- Tier 3: $500 10-Pack Kickoff -->
+      <div class="tier-box" onclick="selectTier(500, '10-Pack High-Impact Viral Video Kickoff')">
+        <div class="tier-amt">$500</div>
+        <div class="tier-label">10-Reel Kickoff</div>
+        <div class="tier-detail">10 Flagship Viral Walkthroughs / Clips with Sound Design</div>
+      </div>
+
+      <!-- Tier 4: $250 Custom Audit -->
+      <div class="tier-box" onclick="selectTier(250, 'VIP Bespoke Automation & Funnel Audit')">
+        <div class="tier-amt">$250</div>
+        <div class="tier-label">Bespoke Audit</div>
+        <div class="tier-detail">15-Page Channel Blueprint + Script Frameworks + Private Video Review</div>
+      </div>
+    </div>
+
+    <div class="guarantee-note" id="tierSummary">
+      Selected: <strong>Enterprise Full-Stack YouTube & Video Retainer ($2,500.00)</strong><br>
+      Includes complete daily content production, rapid turnaround, and dedicated project manager.
+    </div>
+
+    <a id="payBtn" href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=svreddy9998@gmail.com&item_name=Enterprise+Full-Stack+YouTube+Video+Retainer&amount=2500.00&currency_code=USD" target="_blank" class="pay-btn">
+      💳 Pay $2,500.00 via PayPal
+    </a>
+
+    <div class="trust-footer">
+      <span>Official Payee: <strong>svreddy9998@gmail.com</strong></span> • 
+      <span>Instant Automated Digital Onboarding</span>
+    </div>
+  </div>
+
+  <script>
+    const descriptions = {
+      2500: "Enterprise Full-Stack YouTube & Video Retainer ($2,500.00) — Includes complete daily content production, rapid turnaround, and dedicated manager.",
+      1250: "30-Day Viral Video Production Retainer ($1,250.00) — 30 high-velocity vertical reels (1/day) with 24-hour delivery and full sound mastering.",
+      500: "10-Pack High-Impact Viral Video Kickoff ($500.00) — 10 bespoke edited vertical reels ready to publish to YouTube Shorts and Instagram.",
+      250: "VIP Bespoke Automation & Funnel Audit ($250.00) — Comprehensive 15-page channel teardown and tailored viral script frameworks delivered in 24h."
+    };
+
+    function selectTier(amt, itemName) {
+      document.querySelectorAll('.tier-box').forEach(b => b.classList.remove('selected'));
+      event.currentTarget.classList.add('selected');
+      
+      const btn = document.getElementById('payBtn');
+      btn.textContent = `💳 Pay $${amt.toLocaleString()}.00 via PayPal`;
+      const encodedItem = encodeURIComponent(itemName);
+      btn.href = `https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=svreddy9998@gmail.com&item_name=${encodedItem}&amount=${amt.toFixed(2)}&currency_code=USD`;
+      
+      document.getElementById('tierSummary').innerHTML = `Selected: <strong>${itemName} ($${amt.toLocaleString()}.00)</strong><br>${descriptions[amt] || ''}`;
+    }
+  </script>
+</body>
+</html>

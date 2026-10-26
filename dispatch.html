@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apex 1-Click High-Ticket Client Dispatcher ($105,500 Pipeline)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@600;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #030712;
+      --card-bg: #0f172a;
+      --border: rgba(255, 255, 255, 0.08);
+      --primary: #2563eb;
+      --accent: #38bdf8;
+      --green: #10b981;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+    body { background: var(--bg); color: var(--text); padding: 32px 20px; min-height: 100vh; }
+    .container { max-width: 1180px; margin: 0 auto; }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .title h1 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 800; }
+    .title p { color: var(--text-muted); font-size: 14.5px; margin-top: 4px; }
+
+    .target-banner {
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.18), rgba(16, 185, 129, 0.18));
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .target-info h3 { font-size: 20px; margin-bottom: 6px; color: #fff; }
+    .target-info p { font-size: 14px; color: var(--text-muted); max-width: 650px; line-height: 1.5; }
+
+    .btn-launch-all {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: white;
+      border: none;
+      padding: 14px 24px;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 14.5px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.35);
+      transition: all 0.2s;
+    }
+    .btn-launch-all:hover { transform: scale(1.03); opacity: 0.95; }
+
+    .filters {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .leads-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .lead-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s;
+    }
+    .lead-card:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .lead-meta h4 { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+    .lead-tags { display: flex; gap: 10px; font-size: 12px; color: var(--text-muted); align-items: center; flex-wrap: wrap; }
+    .tag-badge { background: rgba(255, 255, 255, 0.06); padding: 3px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+    .tag-badge.cat { background: rgba(56, 189, 248, 0.15); color: #38bdf8; }
+
+    .lead-actions { display: flex; gap: 10px; align-items: center; }
+    .deal-size { font-family: 'JetBrains Mono', monospace; font-size: 15px; font-weight: 800; color: var(--green); margin-right: 14px; }
+
+    .btn-send {
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s;
+    }
+    .btn-send:hover { background: #1d4ed8; }
+
+    .btn-mailapp {
+      background: rgba(255, 255, 255, 0.08);
+      color: white;
+      text-decoration: none;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .btn-mailapp:hover { background: rgba(255, 255, 255, 0.15); }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <div class="title">
+        <h1>⚡ Apex 1-Click High-Ticket Dispatcher</h1>
+        <p>59 Verified Ultra-High-Ticket B2B Prospects | Total Pipeline: <strong>$105,500.00</strong> | Close 4 = <strong>$10,000.00</strong></p>
+      </div>
+      <div>
+        <a href="pay.html" target="_blank" style="color: #38bdf8; text-decoration: none; font-weight: 700; font-size: 14px; margin-right: 16px;">💳 View Payment Gateway →</a>
+        <a href="index.html" target="_blank" style="color: #94a3b8; text-decoration: none; font-weight: 600; font-size: 14px;">Storefront →</a>
+      </div>
+    </header>
+
+    <div class="target-banner">
+      <div class="target-info">
+        <h3>🎯 Target Goal: $10,000 in 7 Days (4 Clients @ $2,500/mo)</h3>
+        <p>Each card contains a customized, pre-tested pitch. Click <strong>"Open in Gmail"</strong> to launch a 1-second pre-filled email draft with the direct PayPal retainer portal link ready to send.</p>
+      </div>
+      <button class="btn-launch-all" onclick="launchBatch(5)">
+        🚀 Open Top 5 in Gmail Tabs
+      </button>
+    </div>
+
+    <div class="filters">
+      <button class="filter-btn active" onclick="filterLeads('all')">All Leads (59)</button>
+      <button class="filter-btn" onclick="filterLeads('Medical Aesthetic')">Medical & Aesthetic Clinics (17) — $2,500/mo</button>
+      <button class="filter-btn" onclick="filterLeads('Luxury Real Estate')">Luxury Real Estate (42) — $1,500/mo</button>
+    </div>
+
+    <div class="leads-grid" id="leadsList"></div>
+  </div>
+
+  <script>
+    const leads = [
+  {
+    "name": "Cadogan Clinic",
+    "geo": "Harley Street, London",
+    "email": "enquiries@cadoganclinic.com",
+    "category": "Medical Aesthetic",
+    "budget": "$2,500/mo",
+    "subject": "Vertical video patient acquisition reels for Cadogan Clinic (Harley Street, London)",
+    "body": "Hi Cadogan Clinic Team,\n\nI wanted to reach out regarding patient acquisition and social video engagement for your clinic in Harley Street, London.\n\nIn premium aesthetic medicine and cosmetic surgery, patient trust and high-ticket consultation bookings are driven overwhelmingly by educational, high-retention 9:16 vertical video (Instagram Reels, TikTok, and YouTube Shorts).\n\nAt Apex Studio, we engineer luxury medical reels with:\n- Strict medical compliance and patient privacy standards\n- High-contrast OLED color grading and micro-typography\n- Treatment spotlight animations and patient FAQ explainers\n- Guaranteed 24-hour turnaround from your raw clips or photo portfolios\n\nI would be delighted to produce a complimentary 30-second procedure highlight reel for your clinic\u2014no cost or upfront commitment.\n\nWould you be open to reviewing a private preview for one of your core treatments?\n\nBest regards,\nVinay Reddy\nApex Studio & Media | Medical Aesthetic Video Production\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "London Bridge Plastic Surgery",
+    "geo": "London, UK",
+    "email": "info@lbps.co.uk",
+    "category": "Medical Aesthetic",
+    "budget": "$2,500/mo",
+    "subject": "Vertical video patient acquisition reels for London Bridge Plastic Surgery (London, UK)",
+    "body": "Hi London Bridge Plastic Surgery Team,\n\nI wanted to reach out regarding patient acquisition and social video engagement for your clinic in London, UK.\n\nIn premium aesthetic medicine and cosmetic surgery, patient trust and high-ticket consultation bookings are driven overwhelmingly by educational, high-retention 9:16 vertical video (Instagram Reels, TikTok, and YouTube Shorts).\n\nAt Apex Studio, we engineer luxury medical reels with:\n- Strict medical compliance and patient privacy standards\n- High-contrast OLED color grading and micro-typography\n- Treatment spotlight animations and patient FAQ explainers\n- Guaranteed 24-hour turnaround from your raw clips or photo portfolios\n\nI would be delighted to produce a complimentary 30-second procedure highlight reel for your clinic\u2014no cost or upfront commitment.\n\nWould you be open to reviewing a private preview for one of your core treatments?\n\nBest regards,\nVinay Reddy\nApex Studio & Media | Medical Aesthetic Video Production\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Karidis Clinic",
+    "geo": "London, UK",
+    "email": "enquiries@karidis.co.uk",
+    "category": "Medical Aesthetic",
+    "budget": "$2,500/mo",
+    "subject": "Vertical video patient acquisition reels for Karidis Clinic (London, UK)",
+    "body": "Hi Karidis Clinic Team,\n\nI wanted to reach out regarding patient acquisition and social video engagement for your clinic in London, UK.\n\nIn premium aesthetic medicine and cosmetic surgery, patient trust and high-ticket consultation bookings are driven overwhelmingly by educational, high-retention 9:16 vertical video (Instagram Reels, TikTok, and YouTube Shorts).\n\nAt Apex Studio, we engineer luxury medical reels with:\n- Strict medical compliance and patient privacy standards\n- High-contrast OLED color grading and micro-typography\n- Treatment spotlight animations and patient FAQ explainers\n- Guaranteed 24-hour turnaround from your raw clips or photo portfolios\n\nI would be delighted to produce a complimentary 30-second procedure highlight reel for your clinic\u2014no cost or upfront commitment.\n\nWould you be open to reviewing a private preview for one of your core treatments?\n\nBest regards,\nVinay Reddy\nApex Studio & Media | Medical Aesthetic Video Production\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Centre for Surgery",
+    "geo": "Baker Street, London",
+    "email": "contact@centreforsurgery.com",
+    "category": "Medical Aesthetic",
+    "budget": "$2,500/mo",
+    "subject": "Vertical video patient acquisition reels for Centre for Surgery (Baker Street, London)",
+    "body": "Hi Centre for Surgery Team,\n\nI wanted to reach out regarding patient acquisition and social video engagement for your clinic in Baker Street, London.\n\nIn premium aesthetic medicine and cosmetic surgery, patient trust and high-ticket consultation bookings are driven overwhelmingly by educational, high-retention 9:16 vertical video (Instagram Reels, TikTok, and YouTube Shorts).\n\nAt Apex Studio, we engineer luxury medical reels with:\n- Strict medical compliance and patient privacy standards\n- High-contrast OLED color grading and micro-typography\n- Treatment spotlight animations and patient FAQ explainers\n- Guaranteed 24-hour turnaround from your raw clips or photo portfolios\n\nI would be delighted to produce a complimentary 30-second procedure highlight reel for your clinic\u2014no cost or upfront commitment.\n\nWould you be open to reviewing a private preview for one of your core treatments?\n\nBest regards,\nVinay Reddy\nApex Studio & Media | Medical Aesthetic Video Production\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Beverly Hills Plastic Surgery Group",
+    "geo": "Beverly Hills, CA",
+    "email": "info@bhpsg.com",
+    "category": "Medical Aesthetic",
+    "budget": "$2,500/mo",
+    "subject": "Vertical video patient acquisition reels for Beverly Hills Plastic Surgery Group (Beverly Hills, CA)",
+    "body": "Hi Beverly Hills Plastic Surgery Group Team,\n\nI wanted to reach out regarding patient acquisition and social video engagement for your clinic in Beverly Hills, CA.\n\nIn premium aesthetic medicine and cosmetic surgery, patient trust and high-ticket consultation bookings are driven overwhelmingly by educational, high-retention 9:16 vertical video (Instagram Reels, TikTok, and YouTube Shorts).\n\nAt Apex Studio, we engineer luxury medical reels with:\n- Strict medical compliance and patient privacy standards\n- High-contrast OLED color grading and micro-typography\n- Treatment spotlight animations and patient FAQ explainers\n- Guaranteed 24-hour turnaround from your raw clips or photo portfolios\n\nI would be delighted to produce a complimentary 30-second procedure highlight reel for your clinic\u2014no cost or upfront commitment.\n\nWould you be open to reviewing a private preview for one of your core treatments?\n\nBest regards,\nVinay Reddy\nApex Studio & Media | Medical Aesthetic Video Production\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Wave Plastic Surgery",
+    "geo": "Los Angeles, CA",
+    "email": "info@waveplasticsurgery.com",
+    "category": "Medical Aesthetic",
+    "budget": "$2,500/mo",
+    "subject": "Vertical video patient acquisition reels for Wave Plastic Surgery (Los Angeles, CA)",
+    "body": "Hi Wave Plastic Surgery Team,\n\nI wanted to reach out regarding patient acquisition and social video engagement for your clinic in Los Angeles, CA.\n\nIn premium aesthetic medicine and cosmetic surgery, patient trust and high-ticket consultation bookings are driven overwhelmingly by educational, high-retention 9:16 vertical video (Instagram Reels, TikTok, and YouTube Shorts).\n\nAt Apex Studio, we engineer luxury medical reels with:\n- Strict medical compliance and patient privacy standards\n- High-contrast OLED color grading and micro-typography\n- Treatment spotlight animations and patient FAQ explainers\n- Guaranteed 24-hour turnaround from your raw clips or photo portfolios\n\nI would be delighted to produce a complimentary 30-second procedure highlight reel for your clinic\u2014no cost or upfront commitment.\n\nWould you be open to reviewing a private preview for one of your core treatments?\n\nBest regards,\nVinay Reddy\nApex Studio & Media | Medical Aesthetic Video Production\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Cassileth Plastic Surgery",
+    "geo": "Beverly Hills, CA",
+    "email": "info@drcassileth.com",
+    "category": "Medical Aesthetic",
+    "budget": "$2,500/mo",
+    "subject": "Vertical video patient acquisition reels for Cassileth Plastic Surgery (Beverly Hills, CA)",
+    "body": "Hi Cassileth Plastic Surgery Team,\n\nI wanted to reach out regarding patient acquisition and social video engagement for your clinic in Beverly Hills, CA.\n\nIn premium aesthetic medicine and cosmetic surgery, patient trust and high-ticket consultation bookings are driven overwhelmingly by educational, high-retention 9:16 vertical video (Instagram Reels, TikTok, and YouTube Shorts).\n\nAt Apex Studio, we engineer luxury medical reels with:\n- Strict medical compliance and patient privacy standards\n- High-contrast OLED color grading and micro-typography\n- Treatment spotlight animations and patient FAQ explainers\n- Guaranteed 24-hour turnaround from your raw clips or photo portfolios\n\nI would be delighted to produce a complimentary 30-second procedure highlight reel for your clinic\u2014no cost or upfront commitment.\n\nWould you be open to reviewing a private preview for one of your core treatments?\n\nBest regards,\nVinay Reddy\nApex Studio & Media | Medical Aesthetic Video Production\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Marina Plastic Surgery",
+    "geo": "Los Angeles, CA",
+    "email": "info@marinaplasticsurgery.com",
+    "category": "Medical Aesthetic",
+    "budget": "$2,500/mo",
+    "subject": "Vertical video patient acquisition reels for Marina Plastic Surgery (Los Angeles, CA)",
+    "body": "Hi Marina Plastic Surgery Team,\n\nI wanted to reach out regarding patient acquisition and social video engagement for your clinic in Los Angeles, CA.\n\nIn premium aesthetic medicine and cosmetic surgery, patient trust and high-ticket consultation bookings are driven overwhelmingly by educational, high-retention 9:16 vertical video (Instagram Reels, TikTok, and YouTube Shorts).\n\nAt Apex Studio, we engineer luxury medical reels with:\n- Strict medical compliance and patient privacy standards\n- High-contrast OLED color grading and micro-typography\n- Treatment spotlight animations and patient FAQ explainers\n- Guaranteed 24-hour turnaround from your raw clips or photo portfolios\n\nI would be delighted to produce a complimentary 30-second procedure highlight reel for your clinic\u2014no cost or upfront commitment.\n\nWould you be open to reviewing a private preview for one of your core treatments?\n\nBest regards,\nVinay Reddy\nApex Studio & Media | Medical Aesthetic Video Production\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Pearlman Aesthetic Surgery",
+    "geo": "New York, NY",
+    "email": "info@mdface.com",
+    "category": "Medical Aesthetic",
+    "budget": "$2,500/mo",
+    "subject": "Vertical video patient acquisition reels for Pearlman Aesthetic Surgery (New York, NY)",
+    "body": "Hi Pearlman Aesthetic Surgery Team,\n\nI wanted to reach out regarding patient acquisition and social video engagement for your clinic in New York, NY.\n\nIn premium aesthetic medicine and cosmetic surgery, patient trust and high-ticket consultation bookings are driven overwhelmingly by educational, high-retention 9:16 vertical video (Instagram Reels, TikTok, and YouTube Shorts).\n\nAt Apex Studio, we engineer luxury medical reels with:\n- Strict medical compliance and patient privacy standards\n- High-contrast OLED color grading and micro-typography\n- Treatment spotlight animations and patient FAQ explainers\n- Guaranteed 24-hour turnaround from your raw clips or photo portfolios\n\nI would be delighted to produce a complimentary 30-second procedure highlight reel for your clinic\u2014no cost or upfront commitment.\n\nWould you be open to reviewing a private preview for one of your core treatments?\n\nBest regards,\nVinay Reddy\nApex Studio & Media | Medical Aesthetic Video Production\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Manhattan Plastic Surgery",
+    "geo": "New York, NY",
+    "email": "info@plasticsurgery-nyc.com",
+    "category": "Medical Aesthetic",
+    "budget": "$2,500/mo",
+    "subject": "Vertical video patient acquisition reels for Manhattan Plastic Surgery (New York, NY)",
+    "body": "Hi Manhattan Plastic Surgery Team,\n\nI wanted to reach out regarding patient acquisition and social video engagement for your clinic in New York, NY.\n\nIn premium aesthetic medicine and cosmetic surgery, patient trust and high-ticket consultation bookings are driven overwhelmingly by educational, high-retention 9:16 vertical video (Instagram Reels, TikTok, and YouTube Shorts).\n\nAt Apex Studio, we engineer luxury medical reels with:\n- Strict medical compliance and patient privacy standards\n- High-contrast OLED color grading and micro-typography\n- Treatment spotlight animations and patient FAQ explainers\n- Guaranteed 24-hour turnaround from your raw clips or photo portfolios\n\nI would be delighted to produce a complimentary 30-second procedure highlight reel for your clinic\u2014no cost or upfront commitment.\n\nWould you be open to reviewing a private preview for one of your core treatments?\n\nBest regards,\nVinay Reddy\nApex Studio & Media | Medical Aesthetic Video Production\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Miami Plastic Surgery",
+    "geo": "Miami, FL",
+    "email": "info@miamiplasticsurgery.com",
+    "category": "Medical Aesthetic",
+    "budget": "$2,500/mo",
+    "subject": "Vertical video patient acquisition reels for Miami Plastic Surgery (Miami, FL)",
+    "body": "Hi Miami Plastic Surgery Team,\n\nI wanted to reach out regarding patient acquisition and social video engagement for your clinic in Miami, FL.\n\nIn premium aesthetic medicine and cosmetic surgery, patient trust and high-ticket consultation bookings are driven overwhelmingly by educational, high-retention 9:16 vertical video (Instagram Reels, TikTok, and YouTube Shorts).\n\nAt Apex Studio, we engineer luxury medical reels with:\n- Strict medical compliance and patient privacy standards\n- High-contrast OLED color grading and micro-typography\n- Treatment spotlight animations and patient FAQ explainers\n- Guaranteed 24-hour turnaround from your raw clips or photo portfolios\n\nI would be delighted to produce a complimentary 30-second procedure highlight reel for your clinic\u2014no cost or upfront commitment.\n\nWould you be open to reviewing a private preview for one of your core treatments?\n\nBest regards,\nVinay Reddy\nApex Studio & Media | Medical Aesthetic Video Production\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Careaga Plastic Surgery",
+    "geo": "Coral Gables, Miami",
+    "email": "info@careagaplasticsurgery.com",
+    "category": "Medical Aesthetic",
+    "budget": "$2,500/mo",
+    "subject": "Vertical video patient acquisition reels for Careaga Plastic Surgery (Coral Gables, Miami)",
+    "body": "Hi Careaga Plastic Surgery Team,\n\nI wanted to reach out regarding patient acquisition and social video engagement for your clinic in Coral Gables, Miami.\n\nIn premium aesthetic medicine and cosmetic surgery, patient trust and high-ticket consultation bookings are driven overwhelmingly by educational, high-retention 9:16 vertical video (Instagram Reels, TikTok, and YouTube Shorts).\n\nAt Apex Studio, we engineer luxury medical reels with:\n- Strict medical compliance and patient privacy standards\n- High-contrast OLED color grading and micro-typography\n- Treatment spotlight animations and patient FAQ explainers\n- Guaranteed 24-hour turnaround from your raw clips or photo portfolios\n\nI would be delighted to produce a complimentary 30-second procedure highlight reel for your clinic\u2014no cost or upfront commitment.\n\nWould you be open to reviewing a private preview for one of your core treatments?\n\nBest regards,\nVinay Reddy\nApex Studio & Media | Medical Aesthetic Video Production\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Skin Deep Clinic Z\u00fcrich",
+    "geo": "Z\u00fcrich, Switzerland",
+    "email": "info@skindeep.ch",
+    "category": "Medical Aesthetic",
+    "budget": "\u20ac2,000/mo",
+    "subject": "Kurzvideo-Patientengewinnung & Reels f\u00fcr Skin Deep Clinic Z\u00fcrich",
+    "body": "Guten Tag Skin Deep Clinic Z\u00fcrich Team,\n\nich verfolge Ihre \u00e4sthetischen Behandlungen und Fachkompetenz in Z\u00fcrich, Switzerland mit gro\u00dfem Respekt.\n\nIn der modernen Privat- und Sch\u00f6nheitschirurgie entscheidet vor allem die visuelle Vertrauensbildung \u00fcber Instagram Reels, YouTube Shorts und TikTok \u00fcber hochqualifizierte Beratungsgespr\u00e4che und Neupatienten.\n\nWir betreiben ein spezialisiertes Medien-Studio f\u00fcr anspruchsvolle medizinische Kurzvideo-Produktion:\n- 100% DSGVO- & Heilmittelwerbegesetz-konform\n- \u00c4sthetische Bildf\u00fchrung, OLED-Farbkorrektur und dezente Typografie\n- 24-Stunden-Lieferung aus bestehenden Rohaufnahmen oder Aufkl\u00e4rungs-Clips\n\nGerne erstellen wir Ihnen f\u00fcr eine Ihrer Kernbehandlungen ein kostenfreies, unverbindliches 30-Sekunden-Muster-Reel.\n\nD\u00fcrfen wir Ihnen die private Vorschau unverbindlich per E-Mail zusenden?\n\nMit freundlichen Gr\u00fc\u00dfen\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Prevention Center Z\u00fcrich",
+    "geo": "Z\u00fcrich, Switzerland",
+    "email": "info@prevention-center.ch",
+    "category": "Medical Aesthetic",
+    "budget": "\u20ac2,000/mo",
+    "subject": "Kurzvideo-Patientengewinnung & Reels f\u00fcr Prevention Center Z\u00fcrich",
+    "body": "Guten Tag Prevention Center Z\u00fcrich Team,\n\nich verfolge Ihre \u00e4sthetischen Behandlungen und Fachkompetenz in Z\u00fcrich, Switzerland mit gro\u00dfem Respekt.\n\nIn der modernen Privat- und Sch\u00f6nheitschirurgie entscheidet vor allem die visuelle Vertrauensbildung \u00fcber Instagram Reels, YouTube Shorts und TikTok \u00fcber hochqualifizierte Beratungsgespr\u00e4che und Neupatienten.\n\nWir betreiben ein spezialisiertes Medien-Studio f\u00fcr anspruchsvolle medizinische Kurzvideo-Produktion:\n- 100% DSGVO- & Heilmittelwerbegesetz-konform\n- \u00c4sthetische Bildf\u00fchrung, OLED-Farbkorrektur und dezente Typografie\n- 24-Stunden-Lieferung aus bestehenden Rohaufnahmen oder Aufkl\u00e4rungs-Clips\n\nGerne erstellen wir Ihnen f\u00fcr eine Ihrer Kernbehandlungen ein kostenfreies, unverbindliches 30-Sekunden-Muster-Reel.\n\nD\u00fcrfen wir Ihnen die private Vorschau unverbindlich per E-Mail zusenden?\n\nMit freundlichen Gr\u00fc\u00dfen\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Praxis Dr. Funk M\u00fcnchen",
+    "geo": "M\u00fcnchen, Germany",
+    "email": "info@schoenheitsklinik.de",
+    "category": "Medical Aesthetic",
+    "budget": "\u20ac2,000/mo",
+    "subject": "Kurzvideo-Patientengewinnung & Reels f\u00fcr Praxis Dr. Funk M\u00fcnchen",
+    "body": "Guten Tag Praxis Dr. Funk M\u00fcnchen Team,\n\nich verfolge Ihre \u00e4sthetischen Behandlungen und Fachkompetenz in M\u00fcnchen, Germany mit gro\u00dfem Respekt.\n\nIn der modernen Privat- und Sch\u00f6nheitschirurgie entscheidet vor allem die visuelle Vertrauensbildung \u00fcber Instagram Reels, YouTube Shorts und TikTok \u00fcber hochqualifizierte Beratungsgespr\u00e4che und Neupatienten.\n\nWir betreiben ein spezialisiertes Medien-Studio f\u00fcr anspruchsvolle medizinische Kurzvideo-Produktion:\n- 100% DSGVO- & Heilmittelwerbegesetz-konform\n- \u00c4sthetische Bildf\u00fchrung, OLED-Farbkorrektur und dezente Typografie\n- 24-Stunden-Lieferung aus bestehenden Rohaufnahmen oder Aufkl\u00e4rungs-Clips\n\nGerne erstellen wir Ihnen f\u00fcr eine Ihrer Kernbehandlungen ein kostenfreies, unverbindliches 30-Sekunden-Muster-Reel.\n\nD\u00fcrfen wir Ihnen die private Vorschau unverbindlich per E-Mail zusenden?\n\nMit freundlichen Gr\u00fc\u00dfen\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Nymphenburg Aesthetic",
+    "geo": "M\u00fcnchen, Germany",
+    "email": "info@nymphenburg-aesthetic.de",
+    "category": "Medical Aesthetic",
+    "budget": "\u20ac2,000/mo",
+    "subject": "Kurzvideo-Patientengewinnung & Reels f\u00fcr Nymphenburg Aesthetic",
+    "body": "Guten Tag Nymphenburg Aesthetic Team,\n\nich verfolge Ihre \u00e4sthetischen Behandlungen und Fachkompetenz in M\u00fcnchen, Germany mit gro\u00dfem Respekt.\n\nIn der modernen Privat- und Sch\u00f6nheitschirurgie entscheidet vor allem die visuelle Vertrauensbildung \u00fcber Instagram Reels, YouTube Shorts und TikTok \u00fcber hochqualifizierte Beratungsgespr\u00e4che und Neupatienten.\n\nWir betreiben ein spezialisiertes Medien-Studio f\u00fcr anspruchsvolle medizinische Kurzvideo-Produktion:\n- 100% DSGVO- & Heilmittelwerbegesetz-konform\n- \u00c4sthetische Bildf\u00fchrung, OLED-Farbkorrektur und dezente Typografie\n- 24-Stunden-Lieferung aus bestehenden Rohaufnahmen oder Aufkl\u00e4rungs-Clips\n\nGerne erstellen wir Ihnen f\u00fcr eine Ihrer Kernbehandlungen ein kostenfreies, unverbindliches 30-Sekunden-Muster-Reel.\n\nD\u00fcrfen wir Ihnen die private Vorschau unverbindlich per E-Mail zusenden?\n\nMit freundlichen Gr\u00fc\u00dfen\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Artemis Aesthetic Clinic",
+    "geo": "Frankfurt, Germany",
+    "email": "info@artemis-aesthetic.de",
+    "category": "Medical Aesthetic",
+    "budget": "\u20ac2,000/mo",
+    "subject": "Kurzvideo-Patientengewinnung & Reels f\u00fcr Artemis Aesthetic Clinic",
+    "body": "Guten Tag Artemis Aesthetic Clinic Team,\n\nich verfolge Ihre \u00e4sthetischen Behandlungen und Fachkompetenz in Frankfurt, Germany mit gro\u00dfem Respekt.\n\nIn der modernen Privat- und Sch\u00f6nheitschirurgie entscheidet vor allem die visuelle Vertrauensbildung \u00fcber Instagram Reels, YouTube Shorts und TikTok \u00fcber hochqualifizierte Beratungsgespr\u00e4che und Neupatienten.\n\nWir betreiben ein spezialisiertes Medien-Studio f\u00fcr anspruchsvolle medizinische Kurzvideo-Produktion:\n- 100% DSGVO- & Heilmittelwerbegesetz-konform\n- \u00c4sthetische Bildf\u00fchrung, OLED-Farbkorrektur und dezente Typografie\n- 24-Stunden-Lieferung aus bestehenden Rohaufnahmen oder Aufkl\u00e4rungs-Clips\n\nGerne erstellen wir Ihnen f\u00fcr eine Ihrer Kernbehandlungen ein kostenfreies, unverbindliches 30-Sekunden-Muster-Reel.\n\nD\u00fcrfen wir Ihnen die private Vorschau unverbindlich per E-Mail zusenden?\n\nMit freundlichen Gr\u00fc\u00dfen\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Address Real Estate LLC",
+    "geo": "Miami, USA",
+    "email": "addressmiami@gmail.com",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Vertical video reels for your Miami listings",
+    "body": "Hi Address Real Estate LLC Team,\n\nI came across your real estate listings and portfolio in Miami, USA and wanted to reach out directly.\n\nWe run an automated AI short-form media studio that transforms existing property walkthroughs and photography into viral 9:16 vertical video reels (engineered specifically for Instagram Reels, YouTube Shorts, and TikTok).\n\nTo show you the exact visual retention and color grading we deliver, we would love to put together a complimentary 30-second vertical sample draft for one of your current featured listings.\n\nWould you be open to checking out a private preview link? No pressure or commitment required\u2014just wanted to share what we built for you.\n\nBest regards,\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Jane Sha",
+    "geo": "Los Angeles, USA",
+    "email": "janesharealty@gmail.com",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Vertical video reels for your Los Angeles listings",
+    "body": "Hi Jane Sha Team,\n\nI came across your real estate listings and portfolio in Los Angeles, USA and wanted to reach out directly.\n\nWe run an automated AI short-form media studio that transforms existing property walkthroughs and photography into viral 9:16 vertical video reels (engineered specifically for Instagram Reels, YouTube Shorts, and TikTok).\n\nTo show you the exact visual retention and color grading we deliver, we would love to put together a complimentary 30-second vertical sample draft for one of your current featured listings.\n\nWould you be open to checking out a private preview link? No pressure or commitment required\u2014just wanted to share what we built for you.\n\nBest regards,\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Laurent Bertet",
+    "geo": "Beverly Hills, USA",
+    "email": "laurentbertet@gmail.com",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Vertical video reels for your Beverly Hills listings",
+    "body": "Hi Laurent Bertet Team,\n\nI came across your real estate listings and portfolio in Beverly Hills, USA and wanted to reach out directly.\n\nWe run an automated AI short-form media studio that transforms existing property walkthroughs and photography into viral 9:16 vertical video reels (engineered specifically for Instagram Reels, YouTube Shorts, and TikTok).\n\nTo show you the exact visual retention and color grading we deliver, we would love to put together a complimentary 30-second vertical sample draft for one of your current featured listings.\n\nWould you be open to checking out a private preview link? No pressure or commitment required\u2014just wanted to share what we built for you.\n\nBest regards,\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Amparo Alburquerque",
+    "geo": "Miami, USA",
+    "email": "amparomiamirealtor@gmail.com",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Vertical video reels for your Miami listings",
+    "body": "Hi Amparo Alburquerque Team,\n\nI came across your real estate listings and portfolio in Miami, USA and wanted to reach out directly.\n\nWe run an automated AI short-form media studio that transforms existing property walkthroughs and photography into viral 9:16 vertical video reels (engineered specifically for Instagram Reels, YouTube Shorts, and TikTok).\n\nTo show you the exact visual retention and color grading we deliver, we would love to put together a complimentary 30-second vertical sample draft for one of your current featured listings.\n\nWould you be open to checking out a private preview link? No pressure or commitment required\u2014just wanted to share what we built for you.\n\nBest regards,\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Luis Bornancini",
+    "geo": "Miami, USA",
+    "email": "luis.bornancini@gmail.com",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Vertical video reels for your Miami listings",
+    "body": "Hi Luis Bornancini Team,\n\nI came across your real estate listings and portfolio in Miami, USA and wanted to reach out directly.\n\nWe run an automated AI short-form media studio that transforms existing property walkthroughs and photography into viral 9:16 vertical video reels (engineered specifically for Instagram Reels, YouTube Shorts, and TikTok).\n\nTo show you the exact visual retention and color grading we deliver, we would love to put together a complimentary 30-second vertical sample draft for one of your current featured listings.\n\nWould you be open to checking out a private preview link? No pressure or commitment required\u2014just wanted to share what we built for you.\n\nBest regards,\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Neldy Hurtado",
+    "geo": "Miami, USA",
+    "email": "neldyhd03@gmail.com",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Vertical video reels for your Miami listings",
+    "body": "Hi Neldy Hurtado Team,\n\nI came across your real estate listings and portfolio in Miami, USA and wanted to reach out directly.\n\nWe run an automated AI short-form media studio that transforms existing property walkthroughs and photography into viral 9:16 vertical video reels (engineered specifically for Instagram Reels, YouTube Shorts, and TikTok).\n\nTo show you the exact visual retention and color grading we deliver, we would love to put together a complimentary 30-second vertical sample draft for one of your current featured listings.\n\nWould you be open to checking out a private preview link? No pressure or commitment required\u2014just wanted to share what we built for you.\n\nBest regards,\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Carlos Penaranda Perez",
+    "geo": "Miami, USA",
+    "email": "carlosrealtor19@gmail.com",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Vertical video reels for your Miami listings",
+    "body": "Hi Carlos Penaranda Perez Team,\n\nI came across your real estate listings and portfolio in Miami, USA and wanted to reach out directly.\n\nWe run an automated AI short-form media studio that transforms existing property walkthroughs and photography into viral 9:16 vertical video reels (engineered specifically for Instagram Reels, YouTube Shorts, and TikTok).\n\nTo show you the exact visual retention and color grading we deliver, we would love to put together a complimentary 30-second vertical sample draft for one of your current featured listings.\n\nWould you be open to checking out a private preview link? No pressure or commitment required\u2014just wanted to share what we built for you.\n\nBest regards,\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "RJ Hernandez",
+    "geo": "Miami, USA",
+    "email": "rjhernandezrealtor@gmail.com",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Vertical video reels for your Miami listings",
+    "body": "Hi RJ Hernandez Team,\n\nI came across your real estate listings and portfolio in Miami, USA and wanted to reach out directly.\n\nWe run an automated AI short-form media studio that transforms existing property walkthroughs and photography into viral 9:16 vertical video reels (engineered specifically for Instagram Reels, YouTube Shorts, and TikTok).\n\nTo show you the exact visual retention and color grading we deliver, we would love to put together a complimentary 30-second vertical sample draft for one of your current featured listings.\n\nWould you be open to checking out a private preview link? No pressure or commitment required\u2014just wanted to share what we built for you.\n\nBest regards,\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Felix Sarria",
+    "geo": "Miami, USA",
+    "email": "felixsarria@gmail.com",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Vertical video reels for your Miami listings",
+    "body": "Hi Felix Sarria Team,\n\nI came across your real estate listings and portfolio in Miami, USA and wanted to reach out directly.\n\nWe run an automated AI short-form media studio that transforms existing property walkthroughs and photography into viral 9:16 vertical video reels (engineered specifically for Instagram Reels, YouTube Shorts, and TikTok).\n\nTo show you the exact visual retention and color grading we deliver, we would love to put together a complimentary 30-second vertical sample draft for one of your current featured listings.\n\nWould you be open to checking out a private preview link? No pressure or commitment required\u2014just wanted to share what we built for you.\n\nBest regards,\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Marco Craig",
+    "geo": "Miami, USA",
+    "email": "mcraigrealty@gmail.com",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Vertical video reels for your Miami listings",
+    "body": "Hi Marco Craig Team,\n\nI came across your real estate listings and portfolio in Miami, USA and wanted to reach out directly.\n\nWe run an automated AI short-form media studio that transforms existing property walkthroughs and photography into viral 9:16 vertical video reels (engineered specifically for Instagram Reels, YouTube Shorts, and TikTok).\n\nTo show you the exact visual retention and color grading we deliver, we would love to put together a complimentary 30-second vertical sample draft for one of your current featured listings.\n\nWould you be open to checking out a private preview link? No pressure or commitment required\u2014just wanted to share what we built for you.\n\nBest regards,\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Carlos Mandiola",
+    "geo": "Key Biscayne, USA",
+    "email": "carlosmandiola@gmail.com",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Vertical video reels for your Key Biscayne listings",
+    "body": "Hi Carlos Mandiola Team,\n\nI came across your real estate listings and portfolio in Key Biscayne, USA and wanted to reach out directly.\n\nWe run an automated AI short-form media studio that transforms existing property walkthroughs and photography into viral 9:16 vertical video reels (engineered specifically for Instagram Reels, YouTube Shorts, and TikTok).\n\nTo show you the exact visual retention and color grading we deliver, we would love to put together a complimentary 30-second vertical sample draft for one of your current featured listings.\n\nWould you be open to checking out a private preview link? No pressure or commitment required\u2014just wanted to share what we built for you.\n\nBest regards,\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Alejandro Angel",
+    "geo": "Miami, USA",
+    "email": "alejandroangel.newage@gmail.com",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Vertical video reels for your Miami listings",
+    "body": "Hi Alejandro Angel Team,\n\nI came across your real estate listings and portfolio in Miami, USA and wanted to reach out directly.\n\nWe run an automated AI short-form media studio that transforms existing property walkthroughs and photography into viral 9:16 vertical video reels (engineered specifically for Instagram Reels, YouTube Shorts, and TikTok).\n\nTo show you the exact visual retention and color grading we deliver, we would love to put together a complimentary 30-second vertical sample draft for one of your current featured listings.\n\nWould you be open to checking out a private preview link? No pressure or commitment required\u2014just wanted to share what we built for you.\n\nBest regards,\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Gregory Anderson",
+    "geo": "Miami, USA",
+    "email": "miamiandersonproperties@gmail.com",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Vertical video reels for your Miami listings",
+    "body": "Hi Gregory Anderson Team,\n\nI came across your real estate listings and portfolio in Miami, USA and wanted to reach out directly.\n\nWe run an automated AI short-form media studio that transforms existing property walkthroughs and photography into viral 9:16 vertical video reels (engineered specifically for Instagram Reels, YouTube Shorts, and TikTok).\n\nTo show you the exact visual retention and color grading we deliver, we would love to put together a complimentary 30-second vertical sample draft for one of your current featured listings.\n\nWould you be open to checking out a private preview link? No pressure or commitment required\u2014just wanted to share what we built for you.\n\nBest regards,\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Claudia Moreno",
+    "geo": "Miami, USA",
+    "email": "claudiamorenorealty@gmail.com",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Vertical video reels for your Miami listings",
+    "body": "Hi Claudia Moreno Team,\n\nI came across your real estate listings and portfolio in Miami, USA and wanted to reach out directly.\n\nWe run an automated AI short-form media studio that transforms existing property walkthroughs and photography into viral 9:16 vertical video reels (engineered specifically for Instagram Reels, YouTube Shorts, and TikTok).\n\nTo show you the exact visual retention and color grading we deliver, we would love to put together a complimentary 30-second vertical sample draft for one of your current featured listings.\n\nWould you be open to checking out a private preview link? No pressure or commitment required\u2014just wanted to share what we built for you.\n\nBest regards,\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Jannelyn Elies",
+    "geo": "Miami, USA",
+    "email": "jannelynrealtor@gmail.com",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Vertical video reels for your Miami listings",
+    "body": "Hi Jannelyn Elies Team,\n\nI came across your real estate listings and portfolio in Miami, USA and wanted to reach out directly.\n\nWe run an automated AI short-form media studio that transforms existing property walkthroughs and photography into viral 9:16 vertical video reels (engineered specifically for Instagram Reels, YouTube Shorts, and TikTok).\n\nTo show you the exact visual retention and color grading we deliver, we would love to put together a complimentary 30-second vertical sample draft for one of your current featured listings.\n\nWould you be open to checking out a private preview link? No pressure or commitment required\u2014just wanted to share what we built for you.\n\nBest regards,\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Jorge Manach",
+    "geo": "Miami, USA",
+    "email": "jorge.manach@gmail.com",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Vertical video reels for your Miami listings",
+    "body": "Hi Jorge Manach Team,\n\nI came across your real estate listings and portfolio in Miami, USA and wanted to reach out directly.\n\nWe run an automated AI short-form media studio that transforms existing property walkthroughs and photography into viral 9:16 vertical video reels (engineered specifically for Instagram Reels, YouTube Shorts, and TikTok).\n\nTo show you the exact visual retention and color grading we deliver, we would love to put together a complimentary 30-second vertical sample draft for one of your current featured listings.\n\nWould you be open to checking out a private preview link? No pressure or commitment required\u2014just wanted to share what we built for you.\n\nBest regards,\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Brittney Clemons",
+    "geo": "Washington DC, USA",
+    "email": "RealtorBClemons@gmail.com",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Vertical video reels for your Washington DC listings",
+    "body": "Hi Brittney Clemons Team,\n\nI came across your real estate listings and portfolio in Washington DC, USA and wanted to reach out directly.\n\nWe run an automated AI short-form media studio that transforms existing property walkthroughs and photography into viral 9:16 vertical video reels (engineered specifically for Instagram Reels, YouTube Shorts, and TikTok).\n\nTo show you the exact visual retention and color grading we deliver, we would love to put together a complimentary 30-second vertical sample draft for one of your current featured listings.\n\nWould you be open to checking out a private preview link? No pressure or commitment required\u2014just wanted to share what we built for you.\n\nBest regards,\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Eric Long",
+    "geo": "USA",
+    "email": "ericlong480@gmail.com",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Vertical video reels for your USA listings",
+    "body": "Hi Eric Long Team,\n\nI came across your real estate listings and portfolio in USA and wanted to reach out directly.\n\nWe run an automated AI short-form media studio that transforms existing property walkthroughs and photography into viral 9:16 vertical video reels (engineered specifically for Instagram Reels, YouTube Shorts, and TikTok).\n\nTo show you the exact visual retention and color grading we deliver, we would love to put together a complimentary 30-second vertical sample draft for one of your current featured listings.\n\nWould you be open to checking out a private preview link? No pressure or commitment required\u2014just wanted to share what we built for you.\n\nBest regards,\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "John Taylor",
+    "geo": "USA",
+    "email": "johntaylorrealty@gmail.com",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Vertical video reels for your USA listings",
+    "body": "Hi John Taylor Team,\n\nI came across your real estate listings and portfolio in USA and wanted to reach out directly.\n\nWe run an automated AI short-form media studio that transforms existing property walkthroughs and photography into viral 9:16 vertical video reels (engineered specifically for Instagram Reels, YouTube Shorts, and TikTok).\n\nTo show you the exact visual retention and color grading we deliver, we would love to put together a complimentary 30-second vertical sample draft for one of your current featured listings.\n\nWould you be open to checking out a private preview link? No pressure or commitment required\u2014just wanted to share what we built for you.\n\nBest regards,\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Rainer Fischer Immobilien",
+    "geo": "M\u00fcnchen, Germany",
+    "email": "rainer@immobilienfischer.de",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Kurze Frage zu Ihren Immobilien-Video-Rundg\u00e4ngen in M\u00fcnchen",
+    "body": "Sehr geehrte Damen und Herren bei Rainer Fischer Immobilien,\n\nich verfolge Ihre Immobilienangebote und Pr\u00e4sentationen im Raum M\u00fcnchen, Germany mit gro\u00dfem Interesse.\n\nWir betreiben ein automatisiertes Medien-Studio f\u00fcr 9:16 Kurzvideo-Produktion (Instagram Reels, YouTube Shorts, TikTok), das bestehende Objekt-Aufnahmen in hochaufl\u00f6sende, verkaufsstarke Video-Formate f\u00fcr anspruchsvolle K\u00e4ufer verwandelt.\n\nGerne erstellen wir Ihnen unverbindlich und kostenfrei ein 30-Sekunden-Musterbeispiel f\u00fcr eines Ihrer aktuellen Objekte, damit Sie die Bilddynamik und Reichweitenwirkung direkt sehen k\u00f6nnen.\n\nD\u00fcrfen wir Ihnen den privaten Vorschau-Link kurz zusenden?\n\nMit freundlichen Gr\u00fc\u00dfen\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "M\u00fcnchen Sotheby's",
+    "geo": "M\u00fcnchen, Germany",
+    "email": "muenchen@bayern-sothebysrealty.com",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Kurze Frage zu Ihren Immobilien-Video-Rundg\u00e4ngen in M\u00fcnchen",
+    "body": "Sehr geehrte Damen und Herren bei M\u00fcnchen Sotheby's,\n\nich verfolge Ihre Immobilienangebote und Pr\u00e4sentationen im Raum M\u00fcnchen, Germany mit gro\u00dfem Interesse.\n\nWir betreiben ein automatisiertes Medien-Studio f\u00fcr 9:16 Kurzvideo-Produktion (Instagram Reels, YouTube Shorts, TikTok), das bestehende Objekt-Aufnahmen in hochaufl\u00f6sende, verkaufsstarke Video-Formate f\u00fcr anspruchsvolle K\u00e4ufer verwandelt.\n\nGerne erstellen wir Ihnen unverbindlich und kostenfrei ein 30-Sekunden-Musterbeispiel f\u00fcr eines Ihrer aktuellen Objekte, damit Sie die Bilddynamik und Reichweitenwirkung direkt sehen k\u00f6nnen.\n\nD\u00fcrfen wir Ihnen den privaten Vorschau-Link kurz zusenden?\n\nMit freundlichen Gr\u00fc\u00dfen\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Graf Immobilien GmbH",
+    "geo": "M\u00fcnchen, Germany",
+    "email": "info@grafimmo.de",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Kurze Frage zu Ihren Immobilien-Video-Rundg\u00e4ngen in M\u00fcnchen",
+    "body": "Sehr geehrte Damen und Herren bei Graf Immobilien GmbH,\n\nich verfolge Ihre Immobilienangebote und Pr\u00e4sentationen im Raum M\u00fcnchen, Germany mit gro\u00dfem Interesse.\n\nWir betreiben ein automatisiertes Medien-Studio f\u00fcr 9:16 Kurzvideo-Produktion (Instagram Reels, YouTube Shorts, TikTok), das bestehende Objekt-Aufnahmen in hochaufl\u00f6sende, verkaufsstarke Video-Formate f\u00fcr anspruchsvolle K\u00e4ufer verwandelt.\n\nGerne erstellen wir Ihnen unverbindlich und kostenfrei ein 30-Sekunden-Musterbeispiel f\u00fcr eines Ihrer aktuellen Objekte, damit Sie die Bilddynamik und Reichweitenwirkung direkt sehen k\u00f6nnen.\n\nD\u00fcrfen wir Ihnen den privaten Vorschau-Link kurz zusenden?\n\nMit freundlichen Gr\u00fc\u00dfen\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Enzenh\u00f6fer Immobilien",
+    "geo": "M\u00fcnchen, Germany",
+    "email": "info@enzenhoefer-immobilien.de",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Kurze Frage zu Ihren Immobilien-Video-Rundg\u00e4ngen in M\u00fcnchen",
+    "body": "Sehr geehrte Damen und Herren bei Enzenh\u00f6fer Immobilien,\n\nich verfolge Ihre Immobilienangebote und Pr\u00e4sentationen im Raum M\u00fcnchen, Germany mit gro\u00dfem Interesse.\n\nWir betreiben ein automatisiertes Medien-Studio f\u00fcr 9:16 Kurzvideo-Produktion (Instagram Reels, YouTube Shorts, TikTok), das bestehende Objekt-Aufnahmen in hochaufl\u00f6sende, verkaufsstarke Video-Formate f\u00fcr anspruchsvolle K\u00e4ufer verwandelt.\n\nGerne erstellen wir Ihnen unverbindlich und kostenfrei ein 30-Sekunden-Musterbeispiel f\u00fcr eines Ihrer aktuellen Objekte, damit Sie die Bilddynamik und Reichweitenwirkung direkt sehen k\u00f6nnen.\n\nD\u00fcrfen wir Ihnen den privaten Vorschau-Link kurz zusenden?\n\nMit freundlichen Gr\u00fc\u00dfen\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "M\u00fcnchen Makler (Andr\u00e9 Duda)",
+    "geo": "M\u00fcnchen, Germany",
+    "email": "info@muenchen-makler.com",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Kurze Frage zu Ihren Immobilien-Video-Rundg\u00e4ngen in M\u00fcnchen",
+    "body": "Sehr geehrte Damen und Herren bei M\u00fcnchen Makler (Andr\u00e9 Duda),\n\nich verfolge Ihre Immobilienangebote und Pr\u00e4sentationen im Raum M\u00fcnchen, Germany mit gro\u00dfem Interesse.\n\nWir betreiben ein automatisiertes Medien-Studio f\u00fcr 9:16 Kurzvideo-Produktion (Instagram Reels, YouTube Shorts, TikTok), das bestehende Objekt-Aufnahmen in hochaufl\u00f6sende, verkaufsstarke Video-Formate f\u00fcr anspruchsvolle K\u00e4ufer verwandelt.\n\nGerne erstellen wir Ihnen unverbindlich und kostenfrei ein 30-Sekunden-Musterbeispiel f\u00fcr eines Ihrer aktuellen Objekte, damit Sie die Bilddynamik und Reichweitenwirkung direkt sehen k\u00f6nnen.\n\nD\u00fcrfen wir Ihnen den privaten Vorschau-Link kurz zusenden?\n\nMit freundlichen Gr\u00fc\u00dfen\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "VPImmo (Verena Panahi)",
+    "geo": "M\u00fcnchen, Germany",
+    "email": "info@vpimmo.de",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Kurze Frage zu Ihren Immobilien-Video-Rundg\u00e4ngen in M\u00fcnchen",
+    "body": "Sehr geehrte Damen und Herren bei VPImmo (Verena Panahi),\n\nich verfolge Ihre Immobilienangebote und Pr\u00e4sentationen im Raum M\u00fcnchen, Germany mit gro\u00dfem Interesse.\n\nWir betreiben ein automatisiertes Medien-Studio f\u00fcr 9:16 Kurzvideo-Produktion (Instagram Reels, YouTube Shorts, TikTok), das bestehende Objekt-Aufnahmen in hochaufl\u00f6sende, verkaufsstarke Video-Formate f\u00fcr anspruchsvolle K\u00e4ufer verwandelt.\n\nGerne erstellen wir Ihnen unverbindlich und kostenfrei ein 30-Sekunden-Musterbeispiel f\u00fcr eines Ihrer aktuellen Objekte, damit Sie die Bilddynamik und Reichweitenwirkung direkt sehen k\u00f6nnen.\n\nD\u00fcrfen wir Ihnen den privaten Vorschau-Link kurz zusenden?\n\nMit freundlichen Gr\u00fc\u00dfen\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Fritz N. Osterried",
+    "geo": "M\u00fcnchen, Germany",
+    "email": "info@immobilien-osterried.de",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Kurze Frage zu Ihren Immobilien-Video-Rundg\u00e4ngen in M\u00fcnchen",
+    "body": "Sehr geehrte Damen und Herren bei Fritz N. Osterried,\n\nich verfolge Ihre Immobilienangebote und Pr\u00e4sentationen im Raum M\u00fcnchen, Germany mit gro\u00dfem Interesse.\n\nWir betreiben ein automatisiertes Medien-Studio f\u00fcr 9:16 Kurzvideo-Produktion (Instagram Reels, YouTube Shorts, TikTok), das bestehende Objekt-Aufnahmen in hochaufl\u00f6sende, verkaufsstarke Video-Formate f\u00fcr anspruchsvolle K\u00e4ufer verwandelt.\n\nGerne erstellen wir Ihnen unverbindlich und kostenfrei ein 30-Sekunden-Musterbeispiel f\u00fcr eines Ihrer aktuellen Objekte, damit Sie die Bilddynamik und Reichweitenwirkung direkt sehen k\u00f6nnen.\n\nD\u00fcrfen wir Ihnen den privaten Vorschau-Link kurz zusenden?\n\nMit freundlichen Gr\u00fc\u00dfen\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "HeimMakler",
+    "geo": "M\u00fcnchen, Germany",
+    "email": "post@heimmakler.de",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Kurze Frage zu Ihren Immobilien-Video-Rundg\u00e4ngen in M\u00fcnchen",
+    "body": "Sehr geehrte Damen und Herren bei HeimMakler,\n\nich verfolge Ihre Immobilienangebote und Pr\u00e4sentationen im Raum M\u00fcnchen, Germany mit gro\u00dfem Interesse.\n\nWir betreiben ein automatisiertes Medien-Studio f\u00fcr 9:16 Kurzvideo-Produktion (Instagram Reels, YouTube Shorts, TikTok), das bestehende Objekt-Aufnahmen in hochaufl\u00f6sende, verkaufsstarke Video-Formate f\u00fcr anspruchsvolle K\u00e4ufer verwandelt.\n\nGerne erstellen wir Ihnen unverbindlich und kostenfrei ein 30-Sekunden-Musterbeispiel f\u00fcr eines Ihrer aktuellen Objekte, damit Sie die Bilddynamik und Reichweitenwirkung direkt sehen k\u00f6nnen.\n\nD\u00fcrfen wir Ihnen den privaten Vorschau-Link kurz zusenden?\n\nMit freundlichen Gr\u00fc\u00dfen\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Gr\u00fcssmer Immobilien",
+    "geo": "Frankfurt, Germany",
+    "email": "info@gruessmer-immobilien.de",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Kurze Frage zu Ihren Immobilien-Video-Rundg\u00e4ngen in Frankfurt",
+    "body": "Sehr geehrte Damen und Herren bei Gr\u00fcssmer Immobilien,\n\nich verfolge Ihre Immobilienangebote und Pr\u00e4sentationen im Raum Frankfurt, Germany mit gro\u00dfem Interesse.\n\nWir betreiben ein automatisiertes Medien-Studio f\u00fcr 9:16 Kurzvideo-Produktion (Instagram Reels, YouTube Shorts, TikTok), das bestehende Objekt-Aufnahmen in hochaufl\u00f6sende, verkaufsstarke Video-Formate f\u00fcr anspruchsvolle K\u00e4ufer verwandelt.\n\nGerne erstellen wir Ihnen unverbindlich und kostenfrei ein 30-Sekunden-Musterbeispiel f\u00fcr eines Ihrer aktuellen Objekte, damit Sie die Bilddynamik und Reichweitenwirkung direkt sehen k\u00f6nnen.\n\nD\u00fcrfen wir Ihnen den privaten Vorschau-Link kurz zusenden?\n\nMit freundlichen Gr\u00fc\u00dfen\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Immobilien Experten",
+    "geo": "Frankfurt, Germany",
+    "email": "mohr@immobilien-experten.de",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Kurze Frage zu Ihren Immobilien-Video-Rundg\u00e4ngen in Frankfurt",
+    "body": "Sehr geehrte Damen und Herren bei Immobilien Experten,\n\nich verfolge Ihre Immobilienangebote und Pr\u00e4sentationen im Raum Frankfurt, Germany mit gro\u00dfem Interesse.\n\nWir betreiben ein automatisiertes Medien-Studio f\u00fcr 9:16 Kurzvideo-Produktion (Instagram Reels, YouTube Shorts, TikTok), das bestehende Objekt-Aufnahmen in hochaufl\u00f6sende, verkaufsstarke Video-Formate f\u00fcr anspruchsvolle K\u00e4ufer verwandelt.\n\nGerne erstellen wir Ihnen unverbindlich und kostenfrei ein 30-Sekunden-Musterbeispiel f\u00fcr eines Ihrer aktuellen Objekte, damit Sie die Bilddynamik und Reichweitenwirkung direkt sehen k\u00f6nnen.\n\nD\u00fcrfen wir Ihnen den privaten Vorschau-Link kurz zusenden?\n\nMit freundlichen Gr\u00fc\u00dfen\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Mark Fiedler Immobilien",
+    "geo": "Frankfurt, Germany",
+    "email": "info@fiedler-immo.de",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Kurze Frage zu Ihren Immobilien-Video-Rundg\u00e4ngen in Frankfurt",
+    "body": "Sehr geehrte Damen und Herren bei Mark Fiedler Immobilien,\n\nich verfolge Ihre Immobilienangebote und Pr\u00e4sentationen im Raum Frankfurt, Germany mit gro\u00dfem Interesse.\n\nWir betreiben ein automatisiertes Medien-Studio f\u00fcr 9:16 Kurzvideo-Produktion (Instagram Reels, YouTube Shorts, TikTok), das bestehende Objekt-Aufnahmen in hochaufl\u00f6sende, verkaufsstarke Video-Formate f\u00fcr anspruchsvolle K\u00e4ufer verwandelt.\n\nGerne erstellen wir Ihnen unverbindlich und kostenfrei ein 30-Sekunden-Musterbeispiel f\u00fcr eines Ihrer aktuellen Objekte, damit Sie die Bilddynamik und Reichweitenwirkung direkt sehen k\u00f6nnen.\n\nD\u00fcrfen wir Ihnen den privaten Vorschau-Link kurz zusenden?\n\nMit freundlichen Gr\u00fc\u00dfen\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Neo Immobilien",
+    "geo": "Frankfurt, Germany",
+    "email": "info@ffm-neoimmobilien.com",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Kurze Frage zu Ihren Immobilien-Video-Rundg\u00e4ngen in Frankfurt",
+    "body": "Sehr geehrte Damen und Herren bei Neo Immobilien,\n\nich verfolge Ihre Immobilienangebote und Pr\u00e4sentationen im Raum Frankfurt, Germany mit gro\u00dfem Interesse.\n\nWir betreiben ein automatisiertes Medien-Studio f\u00fcr 9:16 Kurzvideo-Produktion (Instagram Reels, YouTube Shorts, TikTok), das bestehende Objekt-Aufnahmen in hochaufl\u00f6sende, verkaufsstarke Video-Formate f\u00fcr anspruchsvolle K\u00e4ufer verwandelt.\n\nGerne erstellen wir Ihnen unverbindlich und kostenfrei ein 30-Sekunden-Musterbeispiel f\u00fcr eines Ihrer aktuellen Objekte, damit Sie die Bilddynamik und Reichweitenwirkung direkt sehen k\u00f6nnen.\n\nD\u00fcrfen wir Ihnen den privaten Vorschau-Link kurz zusenden?\n\nMit freundlichen Gr\u00fc\u00dfen\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Omar Labidi Immobilien",
+    "geo": "Frankfurt, Germany",
+    "email": "info@omarlabidi-immobilien.de",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Kurze Frage zu Ihren Immobilien-Video-Rundg\u00e4ngen in Frankfurt",
+    "body": "Sehr geehrte Damen und Herren bei Omar Labidi Immobilien,\n\nich verfolge Ihre Immobilienangebote und Pr\u00e4sentationen im Raum Frankfurt, Germany mit gro\u00dfem Interesse.\n\nWir betreiben ein automatisiertes Medien-Studio f\u00fcr 9:16 Kurzvideo-Produktion (Instagram Reels, YouTube Shorts, TikTok), das bestehende Objekt-Aufnahmen in hochaufl\u00f6sende, verkaufsstarke Video-Formate f\u00fcr anspruchsvolle K\u00e4ufer verwandelt.\n\nGerne erstellen wir Ihnen unverbindlich und kostenfrei ein 30-Sekunden-Musterbeispiel f\u00fcr eines Ihrer aktuellen Objekte, damit Sie die Bilddynamik und Reichweitenwirkung direkt sehen k\u00f6nnen.\n\nD\u00fcrfen wir Ihnen den privaten Vorschau-Link kurz zusenden?\n\nMit freundlichen Gr\u00fc\u00dfen\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Topp Immobilien e.K.",
+    "geo": "Frankfurt, Germany",
+    "email": "info@topp-immobilien.de",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Kurze Frage zu Ihren Immobilien-Video-Rundg\u00e4ngen in Frankfurt",
+    "body": "Sehr geehrte Damen und Herren bei Topp Immobilien e.K.,\n\nich verfolge Ihre Immobilienangebote und Pr\u00e4sentationen im Raum Frankfurt, Germany mit gro\u00dfem Interesse.\n\nWir betreiben ein automatisiertes Medien-Studio f\u00fcr 9:16 Kurzvideo-Produktion (Instagram Reels, YouTube Shorts, TikTok), das bestehende Objekt-Aufnahmen in hochaufl\u00f6sende, verkaufsstarke Video-Formate f\u00fcr anspruchsvolle K\u00e4ufer verwandelt.\n\nGerne erstellen wir Ihnen unverbindlich und kostenfrei ein 30-Sekunden-Musterbeispiel f\u00fcr eines Ihrer aktuellen Objekte, damit Sie die Bilddynamik und Reichweitenwirkung direkt sehen k\u00f6nnen.\n\nD\u00fcrfen wir Ihnen den privaten Vorschau-Link kurz zusenden?\n\nMit freundlichen Gr\u00fc\u00dfen\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Develo Immobilienmakler",
+    "geo": "Frankfurt, Germany",
+    "email": "info@immobilienmakler-frankfurt.eu",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Kurze Frage zu Ihren Immobilien-Video-Rundg\u00e4ngen in Frankfurt",
+    "body": "Sehr geehrte Damen und Herren bei Develo Immobilienmakler,\n\nich verfolge Ihre Immobilienangebote und Pr\u00e4sentationen im Raum Frankfurt, Germany mit gro\u00dfem Interesse.\n\nWir betreiben ein automatisiertes Medien-Studio f\u00fcr 9:16 Kurzvideo-Produktion (Instagram Reels, YouTube Shorts, TikTok), das bestehende Objekt-Aufnahmen in hochaufl\u00f6sende, verkaufsstarke Video-Formate f\u00fcr anspruchsvolle K\u00e4ufer verwandelt.\n\nGerne erstellen wir Ihnen unverbindlich und kostenfrei ein 30-Sekunden-Musterbeispiel f\u00fcr eines Ihrer aktuellen Objekte, damit Sie die Bilddynamik und Reichweitenwirkung direkt sehen k\u00f6nnen.\n\nD\u00fcrfen wir Ihnen den privaten Vorschau-Link kurz zusenden?\n\nMit freundlichen Gr\u00fc\u00dfen\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "IMMOBERLIN",
+    "geo": "Berlin, Germany",
+    "email": "service@immoberlin.de",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Kurze Frage zu Ihren Immobilien-Video-Rundg\u00e4ngen in Berlin",
+    "body": "Sehr geehrte Damen und Herren bei IMMOBERLIN,\n\nich verfolge Ihre Immobilienangebote und Pr\u00e4sentationen im Raum Berlin, Germany mit gro\u00dfem Interesse.\n\nWir betreiben ein automatisiertes Medien-Studio f\u00fcr 9:16 Kurzvideo-Produktion (Instagram Reels, YouTube Shorts, TikTok), das bestehende Objekt-Aufnahmen in hochaufl\u00f6sende, verkaufsstarke Video-Formate f\u00fcr anspruchsvolle K\u00e4ufer verwandelt.\n\nGerne erstellen wir Ihnen unverbindlich und kostenfrei ein 30-Sekunden-Musterbeispiel f\u00fcr eines Ihrer aktuellen Objekte, damit Sie die Bilddynamik und Reichweitenwirkung direkt sehen k\u00f6nnen.\n\nD\u00fcrfen wir Ihnen den privaten Vorschau-Link kurz zusenden?\n\nMit freundlichen Gr\u00fc\u00dfen\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Lorema Immobilien GmbH",
+    "geo": "Berlin, Germany",
+    "email": "info@lorema.de",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Kurze Frage zu Ihren Immobilien-Video-Rundg\u00e4ngen in Berlin",
+    "body": "Sehr geehrte Damen und Herren bei Lorema Immobilien GmbH,\n\nich verfolge Ihre Immobilienangebote und Pr\u00e4sentationen im Raum Berlin, Germany mit gro\u00dfem Interesse.\n\nWir betreiben ein automatisiertes Medien-Studio f\u00fcr 9:16 Kurzvideo-Produktion (Instagram Reels, YouTube Shorts, TikTok), das bestehende Objekt-Aufnahmen in hochaufl\u00f6sende, verkaufsstarke Video-Formate f\u00fcr anspruchsvolle K\u00e4ufer verwandelt.\n\nGerne erstellen wir Ihnen unverbindlich und kostenfrei ein 30-Sekunden-Musterbeispiel f\u00fcr eines Ihrer aktuellen Objekte, damit Sie die Bilddynamik und Reichweitenwirkung direkt sehen k\u00f6nnen.\n\nD\u00fcrfen wir Ihnen den privaten Vorschau-Link kurz zusenden?\n\nMit freundlichen Gr\u00fc\u00dfen\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "MaklerB\u00fcro Wille",
+    "geo": "Berlin, Germany",
+    "email": "info@berlin-wille.de",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Kurze Frage zu Ihren Immobilien-Video-Rundg\u00e4ngen in Berlin",
+    "body": "Sehr geehrte Damen und Herren bei MaklerB\u00fcro Wille,\n\nich verfolge Ihre Immobilienangebote und Pr\u00e4sentationen im Raum Berlin, Germany mit gro\u00dfem Interesse.\n\nWir betreiben ein automatisiertes Medien-Studio f\u00fcr 9:16 Kurzvideo-Produktion (Instagram Reels, YouTube Shorts, TikTok), das bestehende Objekt-Aufnahmen in hochaufl\u00f6sende, verkaufsstarke Video-Formate f\u00fcr anspruchsvolle K\u00e4ufer verwandelt.\n\nGerne erstellen wir Ihnen unverbindlich und kostenfrei ein 30-Sekunden-Musterbeispiel f\u00fcr eines Ihrer aktuellen Objekte, damit Sie die Bilddynamik und Reichweitenwirkung direkt sehen k\u00f6nnen.\n\nD\u00fcrfen wir Ihnen den privaten Vorschau-Link kurz zusenden?\n\nMit freundlichen Gr\u00fc\u00dfen\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Berliner Immobilienmakler",
+    "geo": "Berlin, Germany",
+    "email": "info@berlinerimmobilienmakler.de",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Kurze Frage zu Ihren Immobilien-Video-Rundg\u00e4ngen in Berlin",
+    "body": "Sehr geehrte Damen und Herren bei Berliner Immobilienmakler,\n\nich verfolge Ihre Immobilienangebote und Pr\u00e4sentationen im Raum Berlin, Germany mit gro\u00dfem Interesse.\n\nWir betreiben ein automatisiertes Medien-Studio f\u00fcr 9:16 Kurzvideo-Produktion (Instagram Reels, YouTube Shorts, TikTok), das bestehende Objekt-Aufnahmen in hochaufl\u00f6sende, verkaufsstarke Video-Formate f\u00fcr anspruchsvolle K\u00e4ufer verwandelt.\n\nGerne erstellen wir Ihnen unverbindlich und kostenfrei ein 30-Sekunden-Musterbeispiel f\u00fcr eines Ihrer aktuellen Objekte, damit Sie die Bilddynamik und Reichweitenwirkung direkt sehen k\u00f6nnen.\n\nD\u00fcrfen wir Ihnen den privaten Vorschau-Link kurz zusenden?\n\nMit freundlichen Gr\u00fc\u00dfen\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Anno Immobilien GmbH",
+    "geo": "Berlin, Germany",
+    "email": "info@anno-immobilien.de",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Kurze Frage zu Ihren Immobilien-Video-Rundg\u00e4ngen in Berlin",
+    "body": "Sehr geehrte Damen und Herren bei Anno Immobilien GmbH,\n\nich verfolge Ihre Immobilienangebote und Pr\u00e4sentationen im Raum Berlin, Germany mit gro\u00dfem Interesse.\n\nWir betreiben ein automatisiertes Medien-Studio f\u00fcr 9:16 Kurzvideo-Produktion (Instagram Reels, YouTube Shorts, TikTok), das bestehende Objekt-Aufnahmen in hochaufl\u00f6sende, verkaufsstarke Video-Formate f\u00fcr anspruchsvolle K\u00e4ufer verwandelt.\n\nGerne erstellen wir Ihnen unverbindlich und kostenfrei ein 30-Sekunden-Musterbeispiel f\u00fcr eines Ihrer aktuellen Objekte, damit Sie die Bilddynamik und Reichweitenwirkung direkt sehen k\u00f6nnen.\n\nD\u00fcrfen wir Ihnen den privaten Vorschau-Link kurz zusenden?\n\nMit freundlichen Gr\u00fc\u00dfen\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Immobilienmakler.de (BBB GmbH)",
+    "geo": "Berlin, Germany",
+    "email": "info@immobilienmakler.de",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Kurze Frage zu Ihren Immobilien-Video-Rundg\u00e4ngen in Berlin",
+    "body": "Sehr geehrte Damen und Herren bei Immobilienmakler.de (BBB GmbH),\n\nich verfolge Ihre Immobilienangebote und Pr\u00e4sentationen im Raum Berlin, Germany mit gro\u00dfem Interesse.\n\nWir betreiben ein automatisiertes Medien-Studio f\u00fcr 9:16 Kurzvideo-Produktion (Instagram Reels, YouTube Shorts, TikTok), das bestehende Objekt-Aufnahmen in hochaufl\u00f6sende, verkaufsstarke Video-Formate f\u00fcr anspruchsvolle K\u00e4ufer verwandelt.\n\nGerne erstellen wir Ihnen unverbindlich und kostenfrei ein 30-Sekunden-Musterbeispiel f\u00fcr eines Ihrer aktuellen Objekte, damit Sie die Bilddynamik und Reichweitenwirkung direkt sehen k\u00f6nnen.\n\nD\u00fcrfen wir Ihnen den privaten Vorschau-Link kurz zusenden?\n\nMit freundlichen Gr\u00fc\u00dfen\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Independent London",
+    "geo": "London, UK",
+    "email": "hello@independentlondon.net",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Vertical video reels for your London listings",
+    "body": "Hi Independent London Team,\n\nI came across your real estate listings and portfolio in London, UK and wanted to reach out directly.\n\nWe run an automated AI short-form media studio that transforms existing property walkthroughs and photography into viral 9:16 vertical video reels (engineered specifically for Instagram Reels, YouTube Shorts, and TikTok).\n\nTo show you the exact visual retention and color grading we deliver, we would love to put together a complimentary 30-second vertical sample draft for one of your current featured listings.\n\nWould you be open to checking out a private preview link? No pressure or commitment required\u2014just wanted to share what we built for you.\n\nBest regards,\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  },
+  {
+    "name": "Regent Property",
+    "geo": "London, UK",
+    "email": "info@regent-property.com",
+    "category": "Luxury Real Estate",
+    "budget": "\u20ac1,250 \u2013 $2,500/mo",
+    "subject": "Vertical video reels for your London listings",
+    "body": "Hi Regent Property Team,\n\nI came across your real estate listings and portfolio in London, UK and wanted to reach out directly.\n\nWe run an automated AI short-form media studio that transforms existing property walkthroughs and photography into viral 9:16 vertical video reels (engineered specifically for Instagram Reels, YouTube Shorts, and TikTok).\n\nTo show you the exact visual retention and color grading we deliver, we would love to put together a complimentary 30-second vertical sample draft for one of your current featured listings.\n\nWould you be open to checking out a private preview link? No pressure or commitment required\u2014just wanted to share what we built for you.\n\nBest regards,\nVinay Reddy\nApex Studio & Media\nSettlement Portal: https://vinayreddy1902.github.io/store/pay.html\nPortfolio: https://youtube.com/@ForensicDossier-Cases"
+  }
+];
+
+    let currentFilter = 'all';
+
+    function renderLeads() {
+      const container = document.getElementById("leadsList");
+      container.innerHTML = "";
+
+      const filtered = currentFilter === 'all' ? leads : leads.filter(l => l.category === currentFilter);
+
+      filtered.forEach((lead) => {
+        const gmailUrl = `https://mail.google.com/mail/u/1/?view=cm&fs=1&to=${encodeURIComponent(lead.email)}&su=${encodeURIComponent(lead.subject)}&body=${encodeURIComponent(lead.body)}`;
+        const mailtoUrl = `mailto:${encodeURIComponent(lead.email)}?subject=${encodeURIComponent(lead.subject)}&body=${encodeURIComponent(lead.body)}`;
+
+        const card = document.createElement("div");
+        card.className = "lead-card";
+        card.innerHTML = `
+          <div class="lead-meta">
+            <h4>${lead.name}</h4>
+            <div class="lead-tags">
+              <span class="tag-badge cat">${lead.category}</span>
+              <span class="tag-badge">📍 ${lead.geo}</span>
+              <span class="tag-badge">✉️ ${lead.email}</span>
+            </div>
+          </div>
+          <div class="lead-actions">
+            <span class="deal-size">${lead.budget}</span>
+            <a href="${gmailUrl}" target="_blank" class="btn-send">
+              ✉️ Open in Gmail
+            </a>
+            <a href="${mailtoUrl}" class="btn-mailapp">
+              Apple Mail
+            </a>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function filterLeads(cat) {
+      currentFilter = cat;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+      renderLeads();
+    }
+
+    function launchBatch(count) {
+      const filtered = currentFilter === 'all' ? leads : leads.filter(l => l.category === currentFilter);
+      filtered.slice(0, count).forEach(lead => {
+        const gmailUrl = `https://mail.google.com/mail/u/1/?view=cm&fs=1&to=${encodeURIComponent(lead.email)}&su=${encodeURIComponent(lead.subject)}&body=${encodeURIComponent(lead.body)}`;
+        window.open(gmailUrl, '_blank');
+      });
+    }
+
+    renderLeads();
+  </script>
+</body>
+</html>

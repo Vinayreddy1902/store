@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The 2026 AI Automation & YouTube Blueprint — Official Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --primary: #6366f1;
+      --primary-hover: #4f46e5;
+      --accent: #10b981;
+      --gold: #f59e0b;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      line-height: 1.6;
+      padding-bottom: 80px;
+    }
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(99, 102, 241, 0.15);
+      border: 1px solid rgba(99, 102, 241, 0.35);
+      color: #a5b4fc;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 24px;
+    }
+    .hero {
+      text-align: center;
+      padding: 30px 0 50px 0;
+    }
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 60%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .subtitle {
+      font-size: clamp(17px, 2.5vw, 20px);
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 36px auto;
+    }
+    .cta-card {
+      background: linear-gradient(180deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.9) 100%);
+      border: 1px solid rgba(99, 102, 241, 0.35);
+      border-radius: 24px;
+      padding: 36px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 30px rgba(99, 102, 241, 0.15);
+      margin-bottom: 60px;
+      text-align: center;
+    }
+    .price-box {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .current-price {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 52px;
+      font-weight: 800;
+      color: #fff;
+    }
+    .old-price {
+      font-size: 22px;
+      color: #64748b;
+      text-decoration: line-through;
+    }
+    .discount-tag {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .btn-buy {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      max-width: 480px;
+      background: linear-gradient(135deg, #6366f1, #4f46e5);
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 18px 32px;
+      border-radius: 16px;
+      transition: all 0.2s ease;
+      box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+      margin-bottom: 16px;
+    }
+    .btn-buy:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 35px rgba(99, 102, 241, 0.6);
+      opacity: 0.96;
+    }
+    .guarantee-note {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+    .feature-item {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px;
+    }
+    .feature-icon {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+    .feature-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+    .feature-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .chapters-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 32px;
+      margin-bottom: 60px;
+    }
+    .chapters-title {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 24px;
+      color: #fff;
+    }
+    .chapter-row {
+      display: flex;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .chapter-row:last-child { border-bottom: none; }
+    .ch-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary);
+      width: 40px;
+      flex-shrink: 0;
+    }
+    .ch-details h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .ch-details p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+    .audio-player-box {
+      background: rgba(99, 102, 241, 0.08);
+      border: 1px solid rgba(99, 102, 241, 0.25);
+      border-radius: 18px;
+      padding: 24px;
+      margin-bottom: 60px;
+    }
+    .audio-player-box h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    audio {
+      width: 100%;
+      height: 40px;
+      border-radius: 8px;
+      margin-top: 8px;
+    }
+    footer {
+      text-align: center;
+      color: #64748b;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="hero">
+      <span class="badge">🔥 2026 Edition • Instant Automated Access</span>
+      <h1>The AI Automation &<br>YouTube Cash-Cow Blueprint</h1>
+      <p class="subtitle">The definitive field guide to building autonomous content engines, scaling faceless channels to 100k+ views, and monetizing digital products on autopilot.</p>
+    </div>
+
+    <!-- Main CTA Card -->
+    <div class="cta-card">
+      <div class="price-box">
+        <span class="current-price">$29</span>
+        <span class="old-price">$79</span>
+        <span class="discount-tag">Save 63% Today</span>
+      </div>
+      <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 15px;">
+        Instant download includes: Full 8-Chapter eBook (Printable PDF & Interactive HTML) + Chapter 1 Audio Narration + CLI Bash Automation Script Library.
+      </p>
+      
+      <!-- 1-Click PayPal Buy Now Button -->
+      <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=svreddy9998@gmail.com&item_name=2026+AI+Automation+and+YouTube+Blueprint+eBook+Bundle&amount=29.00&currency_code=USD&return=https%3A%2F%2Fapexstan-vault.loca.lt%2Fproducts%2Fai_automation_blueprint%2Fdownload.html" target="_blank" class="btn-buy">
+        ⚡ Instant Checkout with PayPal — $29.00
+      </a>
+      
+      <p class="guarantee-note">
+        🔒 256-Bit SSL Encrypted • 30-Day Money-Back Guarantee • Instant Access
+      </p>
+    </div>
+
+    <!-- Audio Preview Section -->
+    <div class="audio-player-box">
+      <h3>🎧 Listen to Chapter 1 Audio Preview (Studio Neural Narration)</h3>
+      <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 12px;">
+        Hear how modern AI voice engines like <code>edge-tts</code> generate studio-quality, high-retention audio for faceless video channels at zero subscription cost:
+      </p>
+      <audio controls src="chapter1_preview.mp3">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
+    <!-- 3 Core Pillars -->
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="feature-icon">⚡</div>
+        <h3 class="feature-title">Zero-Human Editing</h3>
+        <p class="feature-desc">Learn how to run programmatic video generation pipelines using <code>ffmpeg</code>, <code>yt-dlp</code>, and CLI filters that produce higher retention than manual timelines.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">📈</div>
+        <h3 class="feature-title">The Loop Retention Law</h3>
+        <p class="feature-desc">Reverse-engineer the YouTube Shorts algorithm. Master the 0.0s instant visual hook, mobile OLED color calibration, and seamless endless loops (APV > 120%).</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">💰</div>
+        <h3 class="feature-title">High-Margin Digital Funnels</h3>
+        <p class="feature-desc">Stop relying on $0.15 Shorts RPM. Convert raw viewers into high-ticket buyers through closed-loop SEO playlists and 1-click digital storefronts.</p>
+      </div>
+    </div>
+
+    <!-- Chapter Outline -->
+    <div class="chapters-card">
+      <h2 class="chapters-title">📖 What's Inside the 8 Chapters</h2>
+      
+      <div class="chapter-row">
+        <div class="ch-num">01</div>
+        <div class="ch-details">
+          <h3>The New Era of Autonomous Content Creation</h3>
+          <p>The death of manual editing, the 2026 cash-cow blueprint, and the golden metric: Loop Retention (APV > 120%).</p>
+        </div>
+      </div>
+
+      <div class="chapter-row">
+        <div class="ch-num">02</div>
+        <div class="ch-details">
+          <h3>The Core Technical Stack</h3>
+          <p>Headless agents, MCP protocols, and terminal tooling: surgical clipping with <code>yt-dlp</code> and automated grading with <code>ffmpeg</code>.</p>
+        </div>
+      </div>
+
+      <div class="chapter-row">
+        <div class="ch-num">03</div>
+        <div class="ch-details">
+          <h3>Anatomy of an Unstoppable Short</h3>
+          <p>The 2.5-second anti-swipe hook, dynamic mobile centering, and engineering endless loop cadences that trick viewers into rewatching.</p>
+        </div>
+      </div>
+
+      <div class="chapter-row">
+        <div class="ch-num">04</div>
+        <div class="ch-details">
+          <h3>The Closed-Loop Funnel Strategy</h3>
+          <p>Linking Shorts into binge-watch sequences, algorithmic clustering via public SEO playlists, and funneling traffic into digital stores.</p>
+        </div>
+      </div>
+
+      <div class="chapter-row">
+        <div class="ch-num">05</div>
+        <div class="ch-details">
+          <h3>Bypassing the 24-Hour Indexing Lag</h3>
+          <p>How the YouTube test batch operates, the 3 seed acceleration signals, and avoiding copyright flags and upload velocity traps.</p>
+        </div>
+      </div>
+
+      <div class="chapter-row">
+        <div class="ch-num">06</div>
+        <div class="ch-details">
+          <h3>Monetization Multipliers</h3>
+          <p>Why AdSense is only 10% of channel revenue, and the exact digital product matrix to convert views into $9 to $97 automated PayPal payouts.</p>
+        </div>
+      </div>
+
+      <div class="chapter-row">
+        <div class="ch-num">07</div>
+        <div class="ch-details">
+          <h3>Productizing Your Knowledge</h3>
+          <p>Printable bundles, prompt vaults, and code kits. How to set up instant-checkout storefronts with 95%+ net profit margins.</p>
+        </div>
+      </div>
+
+      <div class="chapter-row">
+        <div class="ch-num">08</div>
+        <div class="ch-details">
+          <h3>The 30-Day Automated Launch Roadmap</h3>
+          <p>Step-by-step week-by-week execution plan: tooling setup, first 10 assets, storefront launch, and automated scaling loops.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Final Bottom Call to Action -->
+    <div class="cta-card">
+      <h2 style="font-size: 28px; font-weight: 800; margin-bottom: 12px; color: #fff;">Get Immediate Access Now</h2>
+      <p style="color: var(--text-muted); margin-bottom: 24px; font-size: 15px;">
+        Download the complete guide, audio master, and script vault today for just $29.
+      </p>
+      <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=svreddy9998@gmail.com&item_name=2026+AI+Automation+and+YouTube+Blueprint+eBook+Bundle&amount=29.00&currency_code=USD&return=https%3A%2F%2Fapexstan-vault.loca.lt%2Fproducts%2Fai_automation_blueprint%2Fdownload.html" target="_blank" class="btn-buy">
+        ⚡ Instant Download — $29.00
+      </a>
+      <p class="guarantee-note">
+        Merchant: svreddy9998@gmail.com • Instant Automated File Delivery
+      </p>
+    </div>
+
+    <footer>
+      <p>© 2026 Apex Digital Media & Antigravity Intelligence. All rights reserved.</p>
+    </footer>
+  </div>
+
+</body>
+</html>

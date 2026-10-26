@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Magic Playtime - Kids Coloring & Activity Pack (Printable PDF Edition)</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@500;700&display=swap');
+    
+    :root {
+      --primary: #FF5E7E;
+      --secondary: #48DBFB;
+      --accent: #FECA57;
+      --green: #1DD1A1;
+      --purple: #5F27CD;
+      --dark: #222F3E;
+    }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: #f8fafc;
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    .page {
+      max-width: 800px;
+      margin: 20px auto;
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+      page-break-after: always;
+      min-height: 1050px;
+      position: relative;
+    }
+
+    @media print {
+      body { background: transparent; }
+      .page { margin: 0; box-shadow: none; border-radius: 0; padding: 30px; }
+      .no-print { display: none !important; }
+    }
+
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 3px dashed var(--secondary);
+      padding-bottom: 15px;
+      margin-bottom: 25px;
+    }
+
+    .brand {
+      font-family: 'Fredoka', cursive;
+      font-size: 26px;
+      color: var(--primary);
+    }
+
+    .page-title {
+      font-family: 'Fredoka', cursive;
+      font-size: 32px;
+      text-align: center;
+      color: var(--purple);
+      margin-bottom: 20px;
+    }
+
+    .activity-box {
+      border: 3px solid var(--secondary);
+      border-radius: 16px;
+      padding: 25px;
+      background: #f0faff;
+      margin-bottom: 25px;
+    }
+
+    .rhyme-lyrics {
+      font-size: 20px;
+      font-weight: 700;
+      color: #333;
+      text-align: center;
+      line-height: 1.8;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      border: 2px solid var(--accent);
+    }
+
+    .coloring-area {
+      border: 2px dashed #94a3b8;
+      border-radius: 16px;
+      height: 480px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      margin-top: 20px;
+      position: relative;
+    }
+
+    .coloring-svg {
+      width: 70%;
+      height: 70%;
+    }
+
+    .print-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: linear-gradient(135deg, #FF5E7E, #FECA57);
+      color: white;
+      padding: 16px 32px;
+      font-family: 'Fredoka', cursive;
+      font-size: 20px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 10px 20px rgba(255, 94, 126, 0.4);
+      transition: transform 0.2s;
+      z-index: 9999;
+    }
+    .print-btn:hover { transform: scale(1.05); }
+
+    .instructions {
+      font-size: 16px;
+      color: #64748b;
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <button class="print-btn no-print" onclick="window.print()">🖨️ Print / Save as PDF</button>
+
+  <!-- COVER PAGE -->
+  <div class="page" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+    <h1 style="font-family: 'Fredoka', cursive; font-size: 56px; color: var(--primary); margin-bottom: 15px;">🌟 MAGIC PLAYTIME 🌟</h1>
+    <h2 style="font-family: 'Fredoka', cursive; font-size: 32px; color: var(--purple); margin-bottom: 25px;">The Ultimate Kids Nursery Rhyme & Coloring Activity Pack</h2>
+    <p style="font-size: 20px; color: #475569; max-width: 550px; margin-bottom: 40px;">
+      Filled with fun coloring sheets, sing-along lyrics, tracing exercises, and interactive games for toddlers and preschoolers!
+    </p>
+    <div style="font-size: 70px; margin-bottom: 40px;">🚌 🦈 👶 🛁 🐵</div>
+    <div style="background: var(--accent); padding: 15px 35px; border-radius: 30px; font-weight: 700; font-size: 18px; color: #222;">
+      Official Printable Activity Companion • 100% Kid & Parent Friendly
+    </div>
+  </div>
+
+  <!-- PAGE 1: WHEELS ON THE BUS -->
+  <div class="page">
+    <div class="header-bar">
+      <div class="brand">Magic Playtime Activity Pack</div>
+      <div>Activity Sheet #1</div>
+    </div>
+    <h2 class="page-title">🚌 The Wheels on the Bus!</h2>
+    <div class="activity-box">
+      <div class="rhyme-lyrics">
+        "The wheels on the bus go round and round,<br>
+        Round and round, round and round!<br>
+        The wheels on the bus go round and round,<br>
+        All through the town!"
+      </div>
+      <p class="instructions">🎨 Color the big school bus yellow, red, and blue!</p>
+    </div>
+    <div class="coloring-area">
+      <svg class="coloring-svg" viewBox="0 0 400 250" fill="none" stroke="#222F3E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Bus Body -->
+        <rect x="40" y="50" width="320" height="130" rx="20" fill="#fff"/>
+        <line x1="40" y1="120" x2="360" y2="120" stroke-width="3"/>
+        <!-- Windows -->
+        <rect x="70" y="70" width="50" height="40" rx="6" fill="#f8fafc"/>
+        <rect x="140" y="70" width="50" height="40" rx="6" fill="#f8fafc"/>
+        <rect x="210" y="70" width="50" height="40" rx="6" fill="#f8fafc"/>
+        <rect x="280" y="70" width="60" height="40" rx="6" fill="#f8fafc"/>
+        <!-- Wheels -->
+        <circle cx="100" cy="180" r="32" fill="#fff" stroke-width="5"/>
+        <circle cx="100" cy="180" r="14" fill="#cbd5e1"/>
+        <circle cx="300" cy="180" r="32" fill="#fff" stroke-width="5"/>
+        <circle cx="300" cy="180" r="14" fill="#cbd5e1"/>
+        <!-- Headlight -->
+        <circle cx="355" cy="140" r="8" fill="#fff"/>
+      </svg>
+      <p style="font-weight: 700; color: #64748b; margin-top: 10px;">Draw smiling faces in the windows!</p>
+    </div>
+  </div>
+
+  <!-- PAGE 2: BABY SHARK DANCE -->
+  <div class="page">
+    <div class="header-bar">
+      <div class="brand">Magic Playtime Activity Pack</div>
+      <div>Activity Sheet #2</div>
+    </div>
+    <h2 class="page-title">🦈 Baby Shark Doo Doo Doo!</h2>
+    <div class="activity-box">
+      <div class="rhyme-lyrics">
+        "Baby shark, doo doo doo doo doo doo!<br>
+        Baby shark, doo doo doo doo doo doo!<br>
+        Baby shark, doo doo doo doo doo doo!<br>
+        Baby shark!"
+      </div>
+      <p class="instructions">🌊 Color Baby Shark bright yellow and the ocean waves bright blue!</p>
+    </div>
+    <div class="coloring-area">
+      <svg class="coloring-svg" viewBox="0 0 400 250" fill="none" stroke="#222F3E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Shark Body -->
+        <path d="M50 130 C120 70, 260 70, 320 120 C360 100, 380 90, 380 120 C380 150, 360 140, 320 130 C260 180, 120 180, 50 130 Z" fill="#fff"/>
+        <!-- Fin -->
+        <path d="M180 80 C200 40, 230 40, 220 80 Z" fill="#fff"/>
+        <!-- Belly -->
+        <path d="M90 140 C150 170, 250 170, 310 130" stroke-dasharray="6,6"/>
+        <!-- Eye -->
+        <circle cx="110" cy="115" r="12" fill="#fff"/>
+        <circle cx="108" cy="115" r="5" fill="#222F3E"/>
+        <!-- Mouth -->
+        <path d="M90 135 Q120 155 140 135" stroke-width="4"/>
+        <!-- Bubbles -->
+        <circle cx="60" cy="80" r="10"/>
+        <circle cx="75" cy="50" r="6"/>
+      </svg>
+      <p style="font-weight: 700; color: #64748b; margin-top: 10px;">Count the bubbles: 1, 2, 3!</p>
+    </div>
+  </div>
+
+  <!-- PAGE 3: JOHNY JOHNY YES PAPA -->
+  <div class="page">
+    <div class="header-bar">
+      <div class="brand">Magic Playtime Activity Pack</div>
+      <div>Activity Sheet #3</div>
+    </div>
+    <h2 class="page-title">🍬 Johny Johny Yes Papa!</h2>
+    <div class="activity-box">
+      <div class="rhyme-lyrics">
+        "Johny, Johny? Yes, Papa!<br>
+        Eating sugar? No, Papa!<br>
+        Telling lies? No, Papa!<br>
+        Open your mouth! Ha! Ha! Ha!"
+      </div>
+      <p class="instructions">🍭 Connect the sugar candy dots and color baby Johny's sweet treats!</p>
+    </div>
+    <div class="coloring-area">
+      <svg class="coloring-svg" viewBox="0 0 400 250" fill="none" stroke="#222F3E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Sugar Jar -->
+        <rect x="130" y="80" width="140" height="130" rx="15" fill="#fff"/>
+        <rect x="145" y="60" width="110" height="20" rx="5" fill="#fff"/>
+        <text x="165" y="145" font-family="'Fredoka', cursive" font-size="24" fill="#64748b" stroke="none">SUGAR</text>
+        <circle cx="200" cy="170" r="10" stroke-dasharray="4,4"/>
+        <circle cx="170" cy="180" r="8" stroke-dasharray="4,4"/>
+        <circle cx="230" cy="180" r="8" stroke-dasharray="4,4"/>
+        <!-- Lollipop -->
+        <circle cx="70" cy="110" r="28" fill="#fff"/>
+        <path d="M70 90 A20 20 0 0 1 70 130 A12 12 0 0 1 70 100"/>
+        <line x1="70" y1="138" x2="70" y2="210" stroke-width="6"/>
+      </svg>
+      <p style="font-weight: 700; color: #64748b; margin-top: 10px;">Color the lollipop with rainbow stripes!</p>
+    </div>
+  </div>
+
+</body>
+</html>

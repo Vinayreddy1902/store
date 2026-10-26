@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apex Digital Vault — Official Creator Store</title>
+  <!-- Google AdSense Verification (pub-6724048129406847) -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6724048129406847" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: rgba(17, 24, 39, 0.75);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --primary: #6366f1;
+      --primary-hover: #4f46e5;
+      --accent: #eab308;
+      --accent-green: #10b981;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px 80px;
+      background-image: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.18) 0%, transparent 60%);
+    }
+    .store-container {
+      max-width: 680px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .profile-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .profile-avatar {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      border: 3px solid var(--primary);
+      box-shadow: 0 0 25px rgba(99, 102, 241, 0.4);
+      margin-bottom: 14px;
+      object-fit: cover;
+    }
+    .profile-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 26px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .verified-badge { color: #38bdf8; font-size: 20px; }
+    .profile-bio {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+    .product-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 22px 24px;
+      backdrop-filter: blur(16px);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      position: relative;
+      overflow: hidden;
+    }
+    .product-card:hover {
+      border-color: rgba(99, 102, 241, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    }
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .pill {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 10px;
+      border-radius: 12px;
+      background: rgba(99, 102, 241, 0.15);
+      color: #818cf8;
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+    .pill.featured {
+      background: rgba(234, 179, 8, 0.15);
+      color: #fde047;
+      border-color: rgba(234, 179, 8, 0.3);
+    }
+    .pill.high-ticket {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      border-color: rgba(16, 185, 129, 0.3);
+    }
+    .prod-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .prod-desc {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-top: 4px;
+    }
+    .prod-price {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      white-space: nowrap;
+    }
+    .buy-btn {
+      background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14.5px;
+      padding: 14px 20px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+    }
+    .buy-btn:hover {
+      opacity: 0.95;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(99, 102, 241, 0.45);
+    }
+    .buy-btn.green {
+      background: linear-gradient(135deg, #10b981, #059669);
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+    }
+    .footer-note {
+      text-align: center;
+      color: #64748b;
+      font-size: 12px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="store-container">
+    <div class="profile-header">
+      <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=240&auto=format&fit=crop&q=80" alt="Apex Creator" class="profile-avatar">
+      <h1 class="profile-title">Apex Digital Media <span class="verified-badge">✓</span></h1>
+      <p class="profile-bio">Verified Digital Systems & YouTube Automation Empire<br>Instant 1-Click Deliverables • Secured by PayPal (svreddy9998@gmail.com)</p>
+    </div>
+
+    <!-- Product 1: High-Ticket Async Audit -->
+    <div class="product-card">
+      <div class="card-top">
+        <div>
+          <span class="pill high-ticket">🔥 VIP Bespoke Audit</span>
+          <h2 class="prod-title">Custom AI Automation & Channel Growth Audit</h2>
+          <p class="prod-desc"><strong>100% Asynchronous — No live calls required.</strong> Submit your channel or brand link at checkout. You will receive a comprehensive 15-page tailored blueprint, viral script frameworks, and private video review delivered within 24 hours.</p>
+        </div>
+        <div class="prod-price">$250.00</div>
+      </div>
+      <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=svreddy9998@gmail.com&item_name=VIP+Custom+Automation+Growth+Audit&amount=250.00&currency_code=USD" target="_blank" class="buy-btn green">
+        ⚡ Order Bespoke Audit — $250
+      </a>
+    </div>
+
+    <!-- Product NEW: Apex ClipStudio AI Suite (Viblo Alternative) -->
+    <div class="product-card" style="border-color: rgba(255, 204, 0, 0.4); background: linear-gradient(180deg, rgba(255, 204, 0, 0.05) 0%, rgba(18, 22, 34, 0.95) 100%);">
+      <div class="card-top">
+        <div>
+          <span class="pill" style="background: rgba(255, 204, 0, 0.15); color: #FFCC00; border-color: rgba(255, 204, 0, 0.4);">🔥 Flagship Software • Viblo Killer</span>
+          <h2 class="prod-title">⚡ Apex ClipStudio AI — Autonomous Viral Video Suite</h2>
+          <p class="prod-desc">The complete in-house software suite to produce unlimited 1080x1920 60fps vertical shorts. Includes 9:16 Auto-Clipper, Split-Screen Reaction Engine, Animated Text Story Generator, and Web Studio Dashboard. Zero subscriptions, zero credit limits.</p>
+          <div style="margin-top: 10px;">
+            <a href="/clipping_studio.html" target="_blank" style="color: #00F0FF; font-size: 13px; font-weight: 700; text-decoration: underline;">🖥️ Open Live ClipStudio App Preview →</a>
+          </div>
+        </div>
+        <div class="prod-price" style="color: #FFCC00;">$67.00</div>
+      </div>
+      <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=svreddy9998@gmail.com&item_name=Apex+ClipStudio+AI+Creator+Suite&amount=67.00&currency_code=USD" target="_blank" class="buy-btn" style="background: linear-gradient(135deg, #FFCC00, #FFA500); color: #000; font-weight: 800;">
+        ⚡ Instant Access & License — $67
+      </a>
+    </div>
+
+    <!-- Product 2: AI Automation Blueprint -->
+    <div class="product-card">
+      <div class="card-top">
+        <div>
+          <span class="pill featured">⭐ Bestseller</span>
+          <h2 class="prod-title">2026 AI Automation & YouTube Blueprint (Complete eBook)</h2>
+          <p class="prod-desc">The exact zero-human-touch video production roadmap, viral retention hooks, and multi-channel monetization architecture.</p>
+        </div>
+        <div class="prod-price">$29.00</div>
+      </div>
+      <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=svreddy9998@gmail.com&item_name=2026+AI+Automation+Blueprint+eBook&amount=29.00&currency_code=USD" target="_blank" class="buy-btn">
+        ⚡ Instant Download — $29
+      </a>
+    </div>
+
+    <!-- Product 3: Ethical Hacking Handbook -->
+    <div class="product-card">
+      <div class="card-top">
+        <div>
+          <span class="pill">🛡️ Practical Cyber</span>
+          <h2 class="prod-title">Ethical Hacking & Penetration Testing Handbook</h2>
+          <p class="prod-desc">Zero-day methodology, network exploitation blueprints, bash automation, and defensive privilege escalation guides.</p>
+        </div>
+        <div class="prod-price">$24.00</div>
+      </div>
+      <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=svreddy9998@gmail.com&item_name=Ethical+Hacking+Practical+Handbook&amount=24.00&currency_code=USD" target="_blank" class="buy-btn">
+        ⚡ Instant Download — $24
+      </a>
+    </div>
+
+    <!-- Product 4: German Grammar Mastery -->
+    <div class="product-card">
+      <div class="card-top">
+        <div>
+          <span class="pill">🇩🇪 Language Mastery</span>
+          <h2 class="prod-title">German Grammar Mastery Pack (A1 - B1 Cheat Sheets)</h2>
+          <p class="prod-desc">The visual roadmap to rapid German fluency. All 4 cases, prepositions, adjective endings, and real-world conversation templates.</p>
+        </div>
+        <div class="prod-price">$19.00</div>
+      </div>
+      <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=svreddy9998@gmail.com&item_name=German+Grammar+Mastery+Pack&amount=19.00&currency_code=USD" target="_blank" class="buy-btn">
+        ⚡ Instant Download — $19
+      </a>
+    </div>
+
+    <!-- Product 5: Kids Activity Pack -->
+    <div class="product-card">
+      <div class="card-top">
+        <div>
+          <span class="pill">🎨 Kids & Toddlers</span>
+          <h2 class="prod-title">Magic Playtime 100+ Printable Kids Activity Pack</h2>
+          <p class="prod-desc">High-resolution printable coloring sheets, phonics alphabet connect-the-dots, and bedtime nursery rhyme activity pages.</p>
+        </div>
+        <div class="prod-price">$9.00</div>
+      </div>
+      <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=svreddy9998@gmail.com&item_name=Magic+Playtime+Kids+Activity+Pack&amount=9.00&currency_code=USD" target="_blank" class="buy-btn">
+        ⚡ Instant Download — $9
+      </a>
+    </div>
+
+    <!-- Product 6: 6-Agent AI Paper Trading Desk -->
+    <div class="product-card">
+      <div class="card-top">
+        <div>
+          <span class="pill featured">🤖 New Release</span>
+          <h2 class="prod-title">6-Agent AI Paper Trading Desk & Simulator (Python + Web Suite)</h2>
+          <p class="prod-desc">The viral 6-agent trading team architecture built for strict paper simulation. Includes Scanner, Anti-FOMO Guard, Sizer (1% risk rule), Buyer execution ticket generator, Prediction Market research agent, and automated CSV ledger engine with interactive web dashboard.</p>
+        </div>
+        <div class="prod-price">$47.00</div>
+      </div>
+      <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=svreddy9998@gmail.com&item_name=6-Agent+AI+Paper+Trading+Desk+Suite&amount=47.00&currency_code=USD" target="_blank" class="buy-btn green">
+        ⚡ Instant Download & Code Access — $47
+      </a>
+    </div>
+
+    <p class="footer-note">🔒 Secured by 256-bit PayPal SSL Encryption • Instant Automated Digital Delivery • Merchant: svreddy9998@gmail.com</p>
+  </div>
+
+</body>
+</html>

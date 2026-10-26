@@ -1,0 +1,155 @@
+Timestamp,Ticket_ID,Asset,Status,Entry,Exit,Stop_Loss,Target,Size_USD,Max_Risk_USD,P_L_USD,P_L_Pct,Scanner_Vote,AntiFOMO_Vote,Sizer_Vote,Notes
+2026-10-24 05:45:22,PT-1792820722-PEPE,PEPE,OPEN,9.5e-06,0,9e-06,1.2e-05,190.0,10.0,0,0,PASS,APPROVE,APPROVE,Unanimous Consensus Paper Entry
+2026-10-24 05:45:22,PT-1792820722-PEPE,PEPE,WIN,9.5e-06,1.2e-05,9e-06,1.2e-05,190.0,10.0,50.0,26.32,PASS,APPROVE,APPROVE,Paper position resolved as WIN
+2026-10-24 05:45:22,N/A,MOONCAT,BLOCKED_BY_SCANNER,0,0,0,0,0,0,0,0,SKIP,N/A,N/A,Price action is disordered with no recognizable technical pattern.
+2026-10-24 05:45:22,N/A,MICROINU,BLOCKED_BY_SCANNER,0,0,0,0,0,0,0,0,SKIP,N/A,N/A,"Liquidity ($45,000) is below the $100,000 threshold."
+2026-10-24 05:50:00,PT-1792821000-DOGE,DOGE,OPEN,0.045,0,0.04137,0.054,130.17,10.5,0,0,PASS,APPROVE,APPROVE,Unanimous Consensus Paper Entry
+2026-10-24 05:50:34,N/A,DOGE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:1.05) is below the required 1:1.8 minimum.
+2026-10-24 05:50:35,N/A,PEPE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:0.89) is below the required 1:1.8 minimum.
+2026-10-24 05:50:36,N/A,SHIB,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Invalid parameters: Stop-loss must be strictly below entry price for long setups.
+2026-10-24 05:50:37,N/A,BONK,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum.
+2026-10-24 05:50:38,PT-1792821038-FLOKI,FLOKI,OPEN,2.367e-05,0,2.3e-05,2.5e-05,262.5,7.43,0,0,PASS,APPROVE,APPROVE,Unanimous Consensus Paper Entry
+2026-10-24 05:50:47,N/A,DOGE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:1.05) is below the required 1:1.8 minimum.
+2026-10-24 05:50:48,N/A,PEPE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:0.89) is below the required 1:1.8 minimum.
+2026-10-24 05:50:49,N/A,SHIB,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Invalid parameters: Stop-loss must be strictly below entry price for long setups.
+2026-10-24 05:50:50,N/A,BONK,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum.
+2026-10-24 05:50:51,PT-1792821051-FLOKI,FLOKI,OPEN,2.368e-05,0,2.3e-05,2.5e-05,262.5,7.54,0,0,PASS,APPROVE,APPROVE,Unanimous Consensus Paper Entry
+2026-10-24 05:52:23,N/A,DOGE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:1.05) is below the required 1:1.8 minimum.
+2026-10-24 05:52:24,N/A,PEPE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:0.89) is below the required 1:1.8 minimum.
+2026-10-24 05:52:25,N/A,SHIB,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Invalid parameters: Stop-loss must be strictly below entry price for long setups.
+2026-10-24 05:52:26,N/A,BONK,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum.
+2026-10-24 05:53:50,N/A,DOGE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:0.98) is below the required 1:1.8 minimum.
+2026-10-24 05:53:50,N/A,PEPE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:0.92) is below the required 1:1.8 minimum.
+2026-10-24 05:53:51,N/A,SHIB,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Invalid parameters: Stop-loss must be strictly below entry price for long setups.
+2026-10-24 05:53:51,N/A,BONK,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum.
+2026-10-24 05:53:52,PT-1792821232-FLOKI,FLOKI,OPEN,2.368e-05,0,2.3e-05,2.5e-05,262.5,7.54,0,0,PASS,APPROVE,APPROVE,Unanimous Consensus Paper Entry
+2026-10-24 05:54:54,N/A,DOGE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:1.00) is below the required 1:1.8 minimum.
+2026-10-24 05:54:54,N/A,PEPE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:0.92) is below the required 1:1.8 minimum.
+2026-10-24 05:54:55,N/A,SHIB,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Invalid parameters: Stop-loss must be strictly below entry price for long setups.
+2026-10-24 05:54:55,N/A,BONK,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum.
+2026-10-24 05:55:58,N/A,DOGE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:0.96) is below the required 1:1.8 minimum.
+2026-10-24 05:55:58,N/A,PEPE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:0.89) is below the required 1:1.8 minimum.
+2026-10-24 05:55:59,N/A,SHIB,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Invalid parameters: Stop-loss must be strictly below entry price for long setups.
+2026-10-24 05:55:59,N/A,BONK,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum.
+2026-10-24 05:57:10,N/A,DOGE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:1.02) is below the required 1:1.8 minimum.
+2026-10-24 05:57:10,N/A,PEPE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:0.89) is below the required 1:1.8 minimum.
+2026-10-24 05:57:11,N/A,SHIB,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Invalid parameters: Stop-loss must be strictly below entry price for long setups.
+2026-10-24 05:57:11,N/A,BONK,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum.
+2026-10-24 05:58:14,N/A,DOGE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:1.02) is below the required 1:1.8 minimum.
+2026-10-24 05:58:15,N/A,PEPE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:0.89) is below the required 1:1.8 minimum.
+2026-10-24 05:58:16,N/A,SHIB,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Invalid parameters: Stop-loss must be strictly below entry price for long setups.
+2026-10-24 05:58:16,N/A,BONK,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum.
+2026-10-24 05:59:21,N/A,DOGE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:1.03) is below the required 1:1.8 minimum.
+2026-10-24 05:59:22,N/A,PEPE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:0.89) is below the required 1:1.8 minimum.
+2026-10-24 05:59:23,N/A,SHIB,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Invalid parameters: Stop-loss must be strictly below entry price for long setups.
+2026-10-24 05:59:23,N/A,BONK,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum.
+2026-10-24 06:00:26,N/A,DOGE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:1.06) is below the required 1:1.8 minimum.
+2026-10-24 06:00:26,N/A,PEPE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:0.92) is below the required 1:1.8 minimum.
+2026-10-24 06:00:27,N/A,SHIB,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Invalid parameters: Stop-loss must be strictly below entry price for long setups.
+2026-10-24 06:00:28,N/A,BONK,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum.
+2026-10-24 06:01:31,N/A,DOGE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:1.07) is below the required 1:1.8 minimum.
+2026-10-24 06:01:31,N/A,PEPE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:0.89) is below the required 1:1.8 minimum.
+2026-10-24 06:01:32,N/A,SHIB,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Invalid parameters: Stop-loss must be strictly below entry price for long setups.
+2026-10-24 06:01:32,N/A,BONK,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum.
+2026-10-24 06:02:35,N/A,DOGE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:1.27) is below the required 1:1.8 minimum.
+2026-10-24 06:02:36,N/A,PEPE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:0.89) is below the required 1:1.8 minimum.
+2026-10-24 06:02:36,N/A,SHIB,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Invalid parameters: Stop-loss must be strictly below entry price for long setups.
+2026-10-24 06:02:37,N/A,BONK,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum.
+2026-10-24 06:03:41,N/A,DOGE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:1.31) is below the required 1:1.8 minimum.
+2026-10-24 06:03:41,N/A,PEPE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:0.96) is below the required 1:1.8 minimum.
+2026-10-24 06:03:42,N/A,SHIB,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Invalid parameters: Stop-loss must be strictly below entry price for long setups.
+2026-10-24 06:03:42,N/A,BONK,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum.
+2026-10-24 06:04:44,N/A,DOGE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:1.22) is below the required 1:1.8 minimum.
+2026-10-24 06:04:45,N/A,PEPE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:0.96) is below the required 1:1.8 minimum.
+2026-10-24 06:04:45,N/A,SHIB,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Invalid parameters: Stop-loss must be strictly below entry price for long setups.
+2026-10-24 06:04:46,N/A,BONK,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum.
+2026-10-24 06:05:55,N/A,DOGE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:1.32) is below the required 1:1.8 minimum.
+2026-10-24 06:05:55,N/A,PEPE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:0.96) is below the required 1:1.8 minimum.
+2026-10-24 06:05:56,N/A,SHIB,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Invalid parameters: Stop-loss must be strictly below entry price for long setups.
+2026-10-24 06:05:56,N/A,BONK,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum.
+2026-10-24 06:06:59,N/A,DOGE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:1.31) is below the required 1:1.8 minimum.
+2026-10-24 06:06:59,N/A,PEPE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:0.96) is below the required 1:1.8 minimum.
+2026-10-24 06:07:00,N/A,SHIB,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Invalid parameters: Stop-loss must be strictly below entry price for long setups.
+2026-10-24 06:07:00,N/A,BONK,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum.
+2026-10-24 06:08:02,N/A,DOGE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:1.25) is below the required 1:1.8 minimum.
+2026-10-24 06:08:03,N/A,PEPE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:1.00) is below the required 1:1.8 minimum.
+2026-10-24 06:08:03,N/A,SHIB,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Invalid parameters: Stop-loss must be strictly below entry price for long setups.
+2026-10-24 06:08:04,N/A,BONK,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum.
+2026-10-24 06:09:06,N/A,DOGE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:1.15) is below the required 1:1.8 minimum.
+2026-10-24 06:09:07,N/A,PEPE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:0.96) is below the required 1:1.8 minimum.
+2026-10-24 06:09:07,N/A,SHIB,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Invalid parameters: Stop-loss must be strictly below entry price for long setups.
+2026-10-24 06:09:08,N/A,BONK,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum.
+2026-10-24 06:10:12,N/A,DOGE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:1.07) is below the required 1:1.8 minimum.
+2026-10-24 06:10:12,N/A,PEPE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:0.96) is below the required 1:1.8 minimum.
+2026-10-24 06:10:13,N/A,SHIB,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Invalid parameters: Stop-loss must be strictly below entry price for long setups.
+2026-10-24 06:10:13,N/A,BONK,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum.
+2026-10-24 06:11:16,N/A,DOGE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:1.09) is below the required 1:1.8 minimum.
+2026-10-24 06:11:16,N/A,PEPE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:0.92) is below the required 1:1.8 minimum.
+2026-10-24 06:11:17,N/A,SHIB,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Invalid parameters: Stop-loss must be strictly below entry price for long setups.
+2026-10-24 06:11:17,N/A,BONK,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum.
+2026-10-24 06:12:20,N/A,DOGE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:1.00) is below the required 1:1.8 minimum.
+2026-10-24 06:12:20,N/A,PEPE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:0.89) is below the required 1:1.8 minimum.
+2026-10-24 06:12:21,N/A,SHIB,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Invalid parameters: Stop-loss must be strictly below entry price for long setups.
+2026-10-24 06:12:21,N/A,BONK,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum.
+2026-10-24 06:13:23,N/A,DOGE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:1.03) is below the required 1:1.8 minimum.
+2026-10-24 06:13:24,N/A,PEPE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:0.92) is below the required 1:1.8 minimum.
+2026-10-24 06:13:24,N/A,SHIB,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Invalid parameters: Stop-loss must be strictly below entry price for long setups.
+2026-10-24 06:13:25,N/A,BONK,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum.
+2026-10-24 06:14:27,N/A,DOGE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:1.14) is below the required 1:1.8 minimum.
+2026-10-24 06:14:28,N/A,PEPE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:0.92) is below the required 1:1.8 minimum.
+2026-10-24 06:14:28,N/A,SHIB,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Invalid parameters: Stop-loss must be strictly below entry price for long setups.
+2026-10-24 06:14:29,N/A,BONK,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum.
+2026-10-24 06:15:31,N/A,DOGE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:1.14) is below the required 1:1.8 minimum.
+2026-10-24 06:15:31,N/A,PEPE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:0.92) is below the required 1:1.8 minimum.
+2026-10-24 06:15:32,N/A,SHIB,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Invalid parameters: Stop-loss must be strictly below entry price for long setups.
+2026-10-24 06:15:32,N/A,BONK,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum.
+2026-10-24 06:16:35,N/A,DOGE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:1.03) is below the required 1:1.8 minimum.
+2026-10-24 06:16:35,N/A,PEPE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:0.89) is below the required 1:1.8 minimum.
+2026-10-24 06:16:36,N/A,SHIB,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Invalid parameters: Stop-loss must be strictly below entry price for long setups.
+2026-10-24 06:16:36,N/A,BONK,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum.
+2026-10-24 06:17:39,N/A,DOGE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:0.99) is below the required 1:1.8 minimum.
+2026-10-24 06:17:40,N/A,PEPE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:0.89) is below the required 1:1.8 minimum.
+2026-10-24 06:17:40,N/A,SHIB,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Invalid parameters: Stop-loss must be strictly below entry price for long setups.
+2026-10-24 06:17:41,N/A,BONK,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum.
+2026-10-24 06:18:43,N/A,DOGE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:1.18) is below the required 1:1.8 minimum.
+2026-10-24 06:18:44,N/A,PEPE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:0.92) is below the required 1:1.8 minimum.
+2026-10-24 06:18:44,N/A,SHIB,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Invalid parameters: Stop-loss must be strictly below entry price for long setups.
+2026-10-24 06:18:45,N/A,BONK,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum.
+2026-10-24 06:19:47,N/A,DOGE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:1.12) is below the required 1:1.8 minimum.
+2026-10-24 06:19:48,N/A,PEPE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:0.96) is below the required 1:1.8 minimum.
+2026-10-24 06:19:48,N/A,SHIB,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Invalid parameters: Stop-loss must be strictly below entry price for long setups.
+2026-10-24 06:19:49,N/A,BONK,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum.
+2026-10-24 06:20:51,N/A,DOGE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:1.18) is below the required 1:1.8 minimum.
+2026-10-24 06:20:51,N/A,PEPE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:0.96) is below the required 1:1.8 minimum.
+2026-10-24 06:20:52,N/A,SHIB,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Invalid parameters: Stop-loss must be strictly below entry price for long setups.
+2026-10-24 06:20:52,N/A,BONK,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum.
+2026-10-24 06:21:55,N/A,DOGE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:1.20) is below the required 1:1.8 minimum.
+2026-10-24 06:21:55,N/A,PEPE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:1.00) is below the required 1:1.8 minimum.
+2026-10-24 06:21:56,N/A,SHIB,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Invalid parameters: Stop-loss must be strictly below entry price for long setups.
+2026-10-24 06:21:56,N/A,BONK,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum.
+2026-10-24 06:23:02,N/A,DOGE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:1.10) is below the required 1:1.8 minimum.
+2026-10-24 06:23:03,N/A,PEPE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:1.00) is below the required 1:1.8 minimum.
+2026-10-24 06:23:03,N/A,SHIB,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Invalid parameters: Stop-loss must be strictly below entry price for long setups.
+2026-10-24 06:23:04,N/A,BONK,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum.
+2026-10-24 06:24:06,N/A,DOGE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:1.14) is below the required 1:1.8 minimum.
+2026-10-24 06:24:07,N/A,PEPE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:0.96) is below the required 1:1.8 minimum.
+2026-10-24 06:24:07,N/A,SHIB,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Invalid parameters: Stop-loss must be strictly below entry price for long setups.
+2026-10-24 06:24:08,N/A,BONK,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum.
+2026-10-24 06:25:10,N/A,DOGE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:1.14) is below the required 1:1.8 minimum.
+2026-10-24 06:25:10,N/A,PEPE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:1.00) is below the required 1:1.8 minimum.
+2026-10-24 06:25:11,N/A,SHIB,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Invalid parameters: Stop-loss must be strictly below entry price for long setups.
+2026-10-24 06:25:11,N/A,BONK,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum.
+2026-10-24 06:26:13,N/A,DOGE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:1.14) is below the required 1:1.8 minimum.
+2026-10-24 06:26:14,N/A,PEPE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:0.96) is below the required 1:1.8 minimum.
+2026-10-24 06:26:14,N/A,SHIB,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Invalid parameters: Stop-loss must be strictly below entry price for long setups.
+2026-10-24 06:26:15,N/A,BONK,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum.
+2026-10-24 06:27:18,N/A,DOGE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:1.07) is below the required 1:1.8 minimum.
+2026-10-24 06:27:18,N/A,PEPE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:1.00) is below the required 1:1.8 minimum.
+2026-10-24 06:27:19,N/A,SHIB,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Invalid parameters: Stop-loss must be strictly below entry price for long setups.
+2026-10-24 06:27:19,N/A,BONK,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum.
+2026-10-24 06:28:21,N/A,DOGE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:1.07) is below the required 1:1.8 minimum.
+2026-10-24 06:28:22,N/A,PEPE,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:1.00) is below the required 1:1.8 minimum.
+2026-10-24 06:28:22,N/A,SHIB,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Invalid parameters: Stop-loss must be strictly below entry price for long setups.
+2026-10-24 06:28:23,N/A,BONK,BLOCKED_BY_SIZER,0,0,0,0,0,0,0,0,PASS,APPROVE,REJECT,Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum.
+2026-10-24 06:28:34,PT-1792823314-DOGE,DOGE,OPEN,0.045,0,0.04137,0.054,130.17,10.5,0,0,PASS,APPROVE,APPROVE,Unanimous Consensus Paper Entry
+2026-10-24 06:29:01,PT-1792823341-DOGE,DOGE,OPEN,0.045,0,0.04137,0.054,130.17,10.5,0,0,PASS,APPROVE,APPROVE,Unanimous Consensus Paper Entry

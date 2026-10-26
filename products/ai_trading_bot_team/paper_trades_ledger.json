@@ -1,0 +1,1285 @@
+[
+  {
+    "ticket_id": "PT-1792820722-PEPE",
+    "asset": "PEPE",
+    "status": "OPEN",
+    "entry": 9.5e-06,
+    "stop": 9e-06,
+    "target": 1.2e-05,
+    "size_usd": 190.0,
+    "max_risk_usd": 10.0,
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "APPROVE",
+    "notes": "Unanimous Consensus Paper Entry"
+  },
+  {
+    "ticket_id": "PT-1792820722-PEPE",
+    "asset": "PEPE",
+    "status": "WIN",
+    "entry": 9.5e-06,
+    "exit": 1.2e-05,
+    "stop": 9e-06,
+    "target": 1.2e-05,
+    "size_usd": 190.0,
+    "max_risk_usd": 10.0,
+    "pnl_usd": 50.0,
+    "pnl_pct": 26.32,
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "APPROVE",
+    "notes": "Paper position resolved as WIN"
+  },
+  {
+    "asset": "MOONCAT",
+    "status": "BLOCKED_BY_SCANNER",
+    "scanner_vote": "SKIP",
+    "anti_fomo_vote": "N/A",
+    "sizer_vote": "N/A",
+    "notes": "Price action is disordered with no recognizable technical pattern."
+  },
+  {
+    "asset": "MICROINU",
+    "status": "BLOCKED_BY_SCANNER",
+    "scanner_vote": "SKIP",
+    "anti_fomo_vote": "N/A",
+    "sizer_vote": "N/A",
+    "notes": "Liquidity ($45,000) is below the $100,000 threshold."
+  },
+  {
+    "ticket_id": "PT-1792821000-DOGE",
+    "asset": "DOGE",
+    "status": "OPEN",
+    "entry": 0.045,
+    "stop": 0.04137,
+    "target": 0.054,
+    "size_usd": 130.17,
+    "max_risk_usd": 10.5,
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "APPROVE",
+    "notes": "Unanimous Consensus Paper Entry"
+  },
+  {
+    "asset": "DOGE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:1.05) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "PEPE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:0.89) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "SHIB",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Invalid parameters: Stop-loss must be strictly below entry price for long setups."
+  },
+  {
+    "asset": "BONK",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "ticket_id": "PT-1792821038-FLOKI",
+    "asset": "FLOKI",
+    "status": "OPEN",
+    "entry": 2.367e-05,
+    "stop": 2.3e-05,
+    "target": 2.5e-05,
+    "size_usd": 262.5,
+    "max_risk_usd": 7.43,
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "APPROVE",
+    "notes": "Unanimous Consensus Paper Entry"
+  },
+  {
+    "asset": "DOGE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:1.05) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "PEPE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:0.89) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "SHIB",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Invalid parameters: Stop-loss must be strictly below entry price for long setups."
+  },
+  {
+    "asset": "BONK",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "ticket_id": "PT-1792821051-FLOKI",
+    "asset": "FLOKI",
+    "status": "OPEN",
+    "entry": 2.368e-05,
+    "stop": 2.3e-05,
+    "target": 2.5e-05,
+    "size_usd": 262.5,
+    "max_risk_usd": 7.54,
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "APPROVE",
+    "notes": "Unanimous Consensus Paper Entry"
+  },
+  {
+    "asset": "DOGE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:1.05) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "PEPE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:0.89) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "SHIB",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Invalid parameters: Stop-loss must be strictly below entry price for long setups."
+  },
+  {
+    "asset": "BONK",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "DOGE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:0.98) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "PEPE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:0.92) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "SHIB",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Invalid parameters: Stop-loss must be strictly below entry price for long setups."
+  },
+  {
+    "asset": "BONK",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "ticket_id": "PT-1792821232-FLOKI",
+    "asset": "FLOKI",
+    "status": "OPEN",
+    "entry": 2.368e-05,
+    "stop": 2.3e-05,
+    "target": 2.5e-05,
+    "size_usd": 262.5,
+    "max_risk_usd": 7.54,
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "APPROVE",
+    "notes": "Unanimous Consensus Paper Entry"
+  },
+  {
+    "asset": "DOGE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "PEPE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:0.92) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "SHIB",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Invalid parameters: Stop-loss must be strictly below entry price for long setups."
+  },
+  {
+    "asset": "BONK",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "DOGE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:0.96) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "PEPE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:0.89) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "SHIB",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Invalid parameters: Stop-loss must be strictly below entry price for long setups."
+  },
+  {
+    "asset": "BONK",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "DOGE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:1.02) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "PEPE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:0.89) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "SHIB",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Invalid parameters: Stop-loss must be strictly below entry price for long setups."
+  },
+  {
+    "asset": "BONK",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "DOGE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:1.02) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "PEPE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:0.89) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "SHIB",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Invalid parameters: Stop-loss must be strictly below entry price for long setups."
+  },
+  {
+    "asset": "BONK",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "DOGE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:1.03) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "PEPE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:0.89) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "SHIB",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Invalid parameters: Stop-loss must be strictly below entry price for long setups."
+  },
+  {
+    "asset": "BONK",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "DOGE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:1.06) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "PEPE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:0.92) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "SHIB",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Invalid parameters: Stop-loss must be strictly below entry price for long setups."
+  },
+  {
+    "asset": "BONK",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "DOGE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:1.07) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "PEPE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:0.89) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "SHIB",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Invalid parameters: Stop-loss must be strictly below entry price for long setups."
+  },
+  {
+    "asset": "BONK",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "DOGE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:1.27) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "PEPE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:0.89) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "SHIB",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Invalid parameters: Stop-loss must be strictly below entry price for long setups."
+  },
+  {
+    "asset": "BONK",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "DOGE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:1.31) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "PEPE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:0.96) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "SHIB",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Invalid parameters: Stop-loss must be strictly below entry price for long setups."
+  },
+  {
+    "asset": "BONK",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "DOGE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:1.22) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "PEPE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:0.96) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "SHIB",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Invalid parameters: Stop-loss must be strictly below entry price for long setups."
+  },
+  {
+    "asset": "BONK",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "DOGE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:1.32) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "PEPE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:0.96) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "SHIB",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Invalid parameters: Stop-loss must be strictly below entry price for long setups."
+  },
+  {
+    "asset": "BONK",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "DOGE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:1.31) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "PEPE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:0.96) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "SHIB",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Invalid parameters: Stop-loss must be strictly below entry price for long setups."
+  },
+  {
+    "asset": "BONK",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "DOGE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:1.25) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "PEPE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "SHIB",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Invalid parameters: Stop-loss must be strictly below entry price for long setups."
+  },
+  {
+    "asset": "BONK",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "DOGE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:1.15) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "PEPE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:0.96) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "SHIB",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Invalid parameters: Stop-loss must be strictly below entry price for long setups."
+  },
+  {
+    "asset": "BONK",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "DOGE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:1.07) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "PEPE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:0.96) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "SHIB",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Invalid parameters: Stop-loss must be strictly below entry price for long setups."
+  },
+  {
+    "asset": "BONK",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "DOGE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:1.09) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "PEPE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:0.92) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "SHIB",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Invalid parameters: Stop-loss must be strictly below entry price for long setups."
+  },
+  {
+    "asset": "BONK",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "DOGE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "PEPE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:0.89) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "SHIB",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Invalid parameters: Stop-loss must be strictly below entry price for long setups."
+  },
+  {
+    "asset": "BONK",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "DOGE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:1.03) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "PEPE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:0.92) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "SHIB",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Invalid parameters: Stop-loss must be strictly below entry price for long setups."
+  },
+  {
+    "asset": "BONK",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "DOGE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:1.14) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "PEPE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:0.92) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "SHIB",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Invalid parameters: Stop-loss must be strictly below entry price for long setups."
+  },
+  {
+    "asset": "BONK",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "DOGE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:1.14) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "PEPE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:0.92) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "SHIB",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Invalid parameters: Stop-loss must be strictly below entry price for long setups."
+  },
+  {
+    "asset": "BONK",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "DOGE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:1.03) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "PEPE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:0.89) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "SHIB",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Invalid parameters: Stop-loss must be strictly below entry price for long setups."
+  },
+  {
+    "asset": "BONK",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "DOGE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:0.99) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "PEPE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:0.89) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "SHIB",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Invalid parameters: Stop-loss must be strictly below entry price for long setups."
+  },
+  {
+    "asset": "BONK",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "DOGE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:1.18) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "PEPE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:0.92) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "SHIB",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Invalid parameters: Stop-loss must be strictly below entry price for long setups."
+  },
+  {
+    "asset": "BONK",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "DOGE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:1.12) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "PEPE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:0.96) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "SHIB",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Invalid parameters: Stop-loss must be strictly below entry price for long setups."
+  },
+  {
+    "asset": "BONK",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "DOGE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:1.18) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "PEPE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:0.96) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "SHIB",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Invalid parameters: Stop-loss must be strictly below entry price for long setups."
+  },
+  {
+    "asset": "BONK",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "DOGE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:1.20) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "PEPE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "SHIB",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Invalid parameters: Stop-loss must be strictly below entry price for long setups."
+  },
+  {
+    "asset": "BONK",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "DOGE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:1.10) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "PEPE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "SHIB",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Invalid parameters: Stop-loss must be strictly below entry price for long setups."
+  },
+  {
+    "asset": "BONK",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "DOGE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:1.14) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "PEPE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:0.96) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "SHIB",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Invalid parameters: Stop-loss must be strictly below entry price for long setups."
+  },
+  {
+    "asset": "BONK",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "DOGE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:1.14) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "PEPE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "SHIB",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Invalid parameters: Stop-loss must be strictly below entry price for long setups."
+  },
+  {
+    "asset": "BONK",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "DOGE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:1.14) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "PEPE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:0.96) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "SHIB",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Invalid parameters: Stop-loss must be strictly below entry price for long setups."
+  },
+  {
+    "asset": "BONK",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "DOGE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:1.07) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "PEPE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "SHIB",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Invalid parameters: Stop-loss must be strictly below entry price for long setups."
+  },
+  {
+    "asset": "BONK",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "DOGE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:1.07) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "PEPE",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "asset": "SHIB",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Invalid parameters: Stop-loss must be strictly below entry price for long setups."
+  },
+  {
+    "asset": "BONK",
+    "status": "BLOCKED_BY_SIZER",
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "REJECT",
+    "notes": "Risk/Reward ratio (1:-1.00) is below the required 1:1.8 minimum."
+  },
+  {
+    "ticket_id": "PT-1792823314-DOGE",
+    "asset": "DOGE",
+    "status": "OPEN",
+    "entry": 0.045,
+    "stop": 0.04137,
+    "target": 0.054,
+    "size_usd": 130.17,
+    "max_risk_usd": 10.5,
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "APPROVE",
+    "notes": "Unanimous Consensus Paper Entry"
+  },
+  {
+    "ticket_id": "PT-1792823341-DOGE",
+    "asset": "DOGE",
+    "status": "OPEN",
+    "entry": 0.045,
+    "stop": 0.04137,
+    "target": 0.054,
+    "size_usd": 130.17,
+    "max_risk_usd": 10.5,
+    "scanner_vote": "PASS",
+    "anti_fomo_vote": "APPROVE",
+    "sizer_vote": "APPROVE",
+    "notes": "Unanimous Consensus Paper Entry"
+  }
+]

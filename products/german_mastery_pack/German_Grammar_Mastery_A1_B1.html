@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>German A1-B1 Accelerated Grammar & Vocabulary Cheat Sheet</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+    :root {
+      --primary: #2563eb;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --der: #3b82f6; /* Blue for Maskulin */
+      --das: #10b981; /* Green for Neutral */
+      --die: #ef4444; /* Red for Feminin */
+      --plural: #8b5cf6; /* Purple for Plural */
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #e2e8f0; color: #1e293b; line-height: 1.5; }
+    
+    .sheet {
+      max-width: 900px;
+      margin: 25px auto;
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      page-break-after: always;
+    }
+    @media print {
+      body { background: transparent; }
+      .sheet { margin: 0; padding: 25px; box-shadow: none; border-radius: 0; }
+      .no-print { display: none !important; }
+    }
+
+    header { border-bottom: 2px solid #e2e8f0; padding-bottom: 15px; margin-bottom: 25px; display: flex; justify-content: space-between; align-items: flex-end; }
+    h1 { font-size: 26px; font-weight: 800; color: var(--dark); }
+    .badge { background: #dbeafe; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 700; }
+    
+    h2 { font-size: 18px; font-weight: 700; color: var(--dark); margin: 20px 0 10px 0; border-left: 4px solid var(--primary); padding-left: 10px; }
+
+    table { width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 14px; }
+    th, td { border: 1px solid #cbd5e1; padding: 10px 12px; text-align: left; }
+    th { background: #f1f5f9; font-weight: 700; color: #334155; }
+    
+    .der { color: var(--der); font-weight: 700; }
+    .das { color: var(--das); font-weight: 700; }
+    .die { color: var(--die); font-weight: 700; }
+    .plural { color: var(--plural); font-weight: 700; }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .rule-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 15px; margin-bottom: 15px; }
+    .rule-card strong { color: var(--dark); }
+    
+    .print-btn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: var(--dark);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      z-index: 100;
+    }
+    .print-btn:hover { background: #1e293b; }
+  </style>
+</head>
+<body>
+
+  <button class="print-btn no-print" onclick="window.print()">🖨️ Print / Save as PDF</button>
+
+  <!-- SHEET 1: CASES & ARTICLES -->
+  <div class="sheet">
+    <header>
+      <div>
+        <h1>🇩🇪 German Grammar Mastery (A1 – B1)</h1>
+        <p style="color: #64748b; font-size: 14px;">The Definitive High-Yield Quick Reference Sheet</p>
+      </div>
+      <div class="badge">A1 – B1 Cheat Sheet</div>
+    </header>
+
+    <h2>1. The Four Cases & Definite Articles (Bestimmte Artikel)</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Case</th>
+          <th>Maskulin</th>
+          <th>Neutral</th>
+          <th>Feminin</th>
+          <th>Plural</th>
+          <th>Trigger Question</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Nominativ</strong> (Subject)</td>
+          <td class="der">der</td>
+          <td class="das">das</td>
+          <td class="die">die</td>
+          <td class="plural">die</td>
+          <td>Wer? / Was?</td>
+        </tr>
+        <tr>
+          <td><strong>Akkusativ</strong> (Direct Object)</td>
+          <td class="der"><strong>den</strong></td>
+          <td class="das">das</td>
+          <td class="die">die</td>
+          <td class="plural">die</td>
+          <td>Wen? / Was? (Wohin?)</td>
+        </tr>
+        <tr>
+          <td><strong>Dativ</strong> (Indirect Object)</td>
+          <td class="der"><strong>dem</strong></td>
+          <td class="das"><strong>dem</strong></td>
+          <td class="die"><strong>der</strong></td>
+          <td class="plural"><strong>den (+n)</strong></td>
+          <td>Wem? (Wo?)</td>
+        </tr>
+        <tr>
+          <td><strong>Genitiv</strong> (Possession)</td>
+          <td class="der"><strong>des (+s/es)</strong></td>
+          <td class="das"><strong>des (+s/es)</strong></td>
+          <td class="die"><strong>der</strong></td>
+          <td class="plural"><strong>der</strong></td>
+          <td>Wessen?</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>2. Indefinite Articles (Unbestimmte Artikel: ein, kein, mein)</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Case</th>
+          <th>Maskulin</th>
+          <th>Neutral</th>
+          <th>Feminin</th>
+          <th>Plural (Negation)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Nominativ</strong></td>
+          <td class="der">ein</td>
+          <td class="das">ein</td>
+          <td class="die">eine</td>
+          <td class="plural">keine / meine</td>
+        </tr>
+        <tr>
+          <td><strong>Akkusativ</strong></td>
+          <td class="der"><strong>einen</strong></td>
+          <td class="das">ein</td>
+          <td class="die">eine</td>
+          <td class="plural">keine / meine</td>
+        </tr>
+        <tr>
+          <td><strong>Dativ</strong></td>
+          <td class="der"><strong>einem</strong></td>
+          <td class="das"><strong>einem</strong></td>
+          <td class="die"><strong>einer</strong></td>
+          <td class="plural"><strong>keinen / meinen (+n)</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="grid-2">
+      <div class="rule-card">
+        <strong>🔥 The Akkusativ-Only Prepositions (FUDOG):</strong>
+        <p style="margin-top: 6px; font-family: 'JetBrains Mono', monospace; font-size: 13px;">
+          <strong>F</strong>ür, <strong>U</strong>m, <strong>D</strong>urch, <strong>O</strong>hne, <strong>G</strong>egen
+        </p>
+        <small style="color: #64748b;">Example: Das Geschenk ist für <em>den</em> Vater.</small>
+      </div>
+
+      <div class="rule-card">
+        <strong>⚡ The Dativ-Only Prepositions:</strong>
+        <p style="margin-top: 6px; font-family: 'JetBrains Mono', monospace; font-size: 13px;">
+          Aus, Bei, Mit, Nach, Seit, Von, Zu, Gegenüber
+        </p>
+        <small style="color: #64748b;">Example: Ich fahre mit <em>dem</em> Zug.</small>
+      </div>
+    </div>
+
+    <h2>3. Two-Way Prepositions (Wechselpräpositionen)</h2>
+    <div class="rule-card" style="background: #eff6ff; border-color: #bfdbfe;">
+      <p><strong>an, auf, hinter, in, neben, über, unter, vor, zwischen</strong></p>
+      <div style="display: flex; justify-content: space-between; margin-top: 8px;">
+        <div>📍 <strong>Wo? (Location / Static)</strong> ➔ <span style="color: var(--primary); font-weight:700;">DATIV</span></div>
+        <div>🚀 <strong>Wohin? (Movement / Destination)</strong> ➔ <span style="color: var(--die); font-weight:700;">AKKUSATIV</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SHEET 2: VERB TENSES & SENTENCE STRUCTURE -->
+  <div class="sheet">
+    <header>
+      <div>
+        <h1>🇩🇪 German Syntax & Verb Tenses</h1>
+        <p style="color: #64748b; font-size: 14px;">Word Order (Wortstellung) & Irregular Verbs</p>
+      </div>
+      <div class="badge">B1 High-Yield</div>
+    </header>
+
+    <h2>1. The Golden Rule of Word Order (Verb Position)</h2>
+    <div class="grid-2">
+      <div class="rule-card">
+        <strong>Main Clause (Hauptsatz):</strong>
+        <p style="font-size: 14px; margin-top: 4px;">Conjugated Verb is ALWAYS in <strong>Position 2</strong>.</p>
+        <p style="font-family: 'JetBrains Mono', monospace; font-size: 12px; margin-top: 6px; background:#fff; padding:6px; border-radius:4px;">
+          Heute <strong>lerne</strong> ich Deutsch.<br>
+          Ich <strong>lerne</strong> heute Deutsch.
+        </p>
+      </div>
+      <div class="rule-card">
+        <strong>Subordinate Clause (Nebensatz):</strong>
+        <p style="font-size: 14px; margin-top: 4px;">Conjugated Verb goes to the <strong>VERY END</strong>.</p>
+        <p style="font-family: 'JetBrains Mono', monospace; font-size: 12px; margin-top: 6px; background:#fff; padding:6px; border-radius:4px;">
+          ...weil ich eine Prüfung <strong>habe</strong>.<br>
+          ...obwohl das Wetter schlecht <strong>ist</strong>.
+        </p>
+      </div>
+    </div>
+
+    <h2>2. Subordinating Conjunctions (Verb-Kickers: Verb at End)</h2>
+    <div class="rule-card">
+      <p style="font-weight: 600;">weil, dass, wenn, als, obwohl, damit, seitdem, während, bevor, nachdem, ob</p>
+    </div>
+
+    <h2>3. Perfect Tense (Perfekt: haben vs. sein)</h2>
+    <div class="grid-2">
+      <div class="rule-card">
+        <strong>Use 'sein':</strong>
+        <ul style="padding-left: 20px; font-size: 13px; margin-top: 6px;">
+          <li>Movement from A to B (gehen, fahren, fliegen, kommen)</li>
+          <li>Change of state (aufwachen, sterben, wachsen)</li>
+          <li>Special verbs: sein (ist gewesen), bleiben (ist geblieben)</li>
+        </ul>
+      </div>
+      <div class="rule-card">
+        <strong>Use 'haben':</strong>
+        <ul style="padding-left: 20px; font-size: 13px; margin-top: 6px;">
+          <li>All transitive verbs (taking an Akkusativ object)</li>
+          <li>All reflexive verbs (sich waschen, sich freuen)</li>
+          <li>All modal verbs (können, müssen, wollen)</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>4. Top 10 High-Frequency Irregular Verbs (Stammformen)</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Infinitiv</th>
+          <th>Präsens (er/sie)</th>
+          <th>Präteritum</th>
+          <th>Perfekt (Partizip II)</th>
+          <th>English</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>sein</td><td>ist</td><td>war</td><td>ist gewesen</td><td>to be</td></tr>
+        <tr><td>haben</td><td>hat</td><td>hatte</td><td>hat gehabt</td><td>to have</td></tr>
+        <tr><td>werden</td><td>wird</td><td>wurde</td><td>ist geworden</td><td>to become</td></tr>
+        <tr><td>gehen</td><td>geht</td><td>ging</td><td>ist gegangen</td><td>to go</td></tr>
+        <tr><td>kommen</td><td>kommt</td><td>kam</td><td>ist gekommen</td><td>to come</td></tr>
+        <tr><td>sehen</td><td>sieht</td><td>sah</td><td>hat gesehen</td><td>to see</td></tr>
+        <tr><td>geben</td><td>gibt</td><td>gab</td><td>hat gegeben</td><td>to give</td></tr>
+        <tr><td>nehmen</td><td>nimmt</td><td>nahm</td><td>hat genommen</td><td>to take</td></tr>
+        <tr><td>wissen</td><td>weiß</td><td>wusste</td><td>hat gewusst</td><td>to know (fact)</td></tr>
+        <tr><td>sprechen</td><td>spricht</td><td>sprach</td><td>hat gesprochen</td><td>to speak</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>

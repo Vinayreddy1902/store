@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6 AI Bot Trading Desk — Paper Mode Simulator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #070B14;
+      --card-bg: rgba(15, 23, 42, 0.75);
+      --card-border: rgba(51, 65, 85, 0.5);
+      --accent-cyan: #06B6D4;
+      --accent-emerald: #10B981;
+      --accent-rose: #F43F5E;
+      --accent-amber: #F59E0B;
+      --accent-indigo: #6366F1;
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --font-ui: 'Plus Jakarta Sans', sans-serif;
+      --font-code: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(6, 182, 212, 0.08) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(99, 102, 241, 0.08) 0px, transparent 50%);
+      color: var(--text-main);
+      font-family: var(--font-ui);
+      min-height: 100vh;
+      padding: 24px;
+      line-height: 1.5;
+    }
+
+    .container { max-width: 1400px; margin: 0 auto; }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--card-border);
+      margin-bottom: 28px;
+    }
+
+    .logo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(6, 182, 212, 0.12);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+
+    h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; }
+    p.subtitle { color: var(--text-muted); font-size: 14px; }
+
+    .paper-banner {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.12), rgba(245, 158, 11, 0.04));
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      padding: 12px 20px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: #FCD34D;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* KPI Grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .kpi-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(12px);
+      padding: 20px;
+      border-radius: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .kpi-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: var(--card-accent, var(--accent-cyan));
+    }
+
+    .kpi-label { color: var(--text-muted); font-size: 12px; text-transform: uppercase; font-weight: 700; letter-spacing: 0.8px; margin-bottom: 6px; }
+    .kpi-val { font-size: 28px; font-weight: 800; font-family: var(--font-code); }
+    .kpi-sub { color: var(--text-muted); font-size: 12px; margin-top: 4px; }
+
+    /* Team Agent Bar */
+    .agents-ribbon {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .agent-pill {
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid var(--card-border);
+      padding: 12px 14px;
+      border-radius: 12px;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+
+    .agent-pill.active {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
+    }
+
+    .agent-num { font-size: 11px; font-weight: 800; color: var(--text-muted); text-transform: uppercase; }
+    .agent-role { font-size: 14px; font-weight: 700; margin-top: 2px; }
+    .agent-status-dot {
+      display: inline-block;
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--accent-emerald);
+      margin-right: 5px;
+    }
+
+    /* Main Grid */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Form */
+    .form-group { margin-bottom: 14px; }
+    label { display: block; font-size: 12px; font-weight: 600; color: var(--text-muted); margin-bottom: 6px; }
+    input, select {
+      width: 100%;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--card-border);
+      padding: 10px 14px;
+      border-radius: 8px;
+      color: var(--text-main);
+      font-family: var(--font-code);
+      font-size: 13px;
+      outline: none;
+    }
+    input:focus { border-color: var(--accent-cyan); }
+
+    .preset-btns {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .btn-preset {
+      flex: 1;
+      padding: 8px 10px;
+      font-size: 11px;
+      font-weight: 700;
+      background: rgba(30, 41, 59, 0.8);
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-preset:hover { background: rgba(51, 65, 85, 0.8); }
+
+    .btn-eval {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-indigo));
+      border: none;
+      border-radius: 10px;
+      color: #030712;
+      font-weight: 800;
+      font-size: 14px;
+      cursor: pointer;
+      margin-top: 10px;
+      letter-spacing: 0.5px;
+      transition: opacity 0.2s;
+    }
+    .btn-eval:hover { opacity: 0.9; }
+
+    /* Consensus Flow Visualizer */
+    .flow-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px;
+      border-radius: 12px;
+      background: rgba(30, 41, 59, 0.4);
+      border: 1px solid rgba(51, 65, 85, 0.4);
+      margin-bottom: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .flow-badge {
+      font-size: 12px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-family: var(--font-code);
+      min-width: 80px;
+      text-align: center;
+    }
+
+    .badge-pass { background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); border: 1px solid rgba(16, 185, 129, 0.4); }
+    .badge-block { background: rgba(244, 63, 94, 0.15); color: var(--accent-rose); border: 1px solid rgba(244, 63, 94, 0.4); }
+    .badge-pending { background: rgba(148, 163, 184, 0.1); color: var(--text-muted); border: 1px solid rgba(148, 163, 184, 0.2); }
+
+    .flow-content h4 { font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+    .flow-content p { font-size: 12px; color: var(--text-muted); }
+
+    /* Ticket Box */
+    .ticket-box {
+      background: rgba(6, 182, 212, 0.05);
+      border: 1px dashed rgba(6, 182, 212, 0.4);
+      border-radius: 12px;
+      padding: 18px;
+      margin-top: 16px;
+      display: none;
+    }
+
+    .ticket-box.active { display: block; animation: fadeIn 0.3s ease; }
+
+    .ticket-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      margin-bottom: 6px;
+      font-family: var(--font-code);
+    }
+    .ticket-label { color: var(--text-muted); }
+    .ticket-val { font-weight: 700; color: var(--accent-cyan); }
+
+    /* Ledger Table */
+    table { width: 100%; border-collapse: collapse; font-size: 12px; font-family: var(--font-code); }
+    th { text-align: left; padding: 10px 12px; color: var(--text-muted); border-bottom: 1px solid var(--card-border); }
+    td { padding: 12px; border-bottom: 1px solid rgba(51, 65, 85, 0.3); }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 1024px) {
+      .main-grid { grid-template-columns: 1fr; }
+      .agents-ribbon { grid-template-columns: repeat(3, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div>
+      <div class="logo-badge">🤖 6-AGENT TRADING DESK</div>
+      <h1>Paper Mode Algorithmic Team</h1>
+      <p class="subtitle">Multi-Agent Consensus • Strict 1% Risk Sizing • Anti-FOMO Guardrails</p>
+    </div>
+    <div class="paper-banner">
+      <span>🛡️</span>
+      <div>
+        <strong>STRICT PAPER TRADING ONLY</strong><br>
+        Zero wallet connections • Fixed 1% maximum portfolio risk per trade
+      </div>
+    </div>
+  </header>
+
+  <!-- KPI Cards -->
+  <div class="kpi-grid">
+    <div class="kpi-card" style="--card-accent: var(--accent-cyan);">
+      <div class="kpi-label">Paper Account Equity</div>
+      <div class="kpi-val" id="kpiBalance">$1,050.00</div>
+      <div class="kpi-sub">Starting Capital: $1,000.00</div>
+    </div>
+    <div class="kpi-card" style="--card-accent: var(--accent-emerald);">
+      <div class="kpi-label">Total Simulated P&L</div>
+      <div class="kpi-val" style="color: var(--accent-emerald);">+$50.00</div>
+      <div class="kpi-sub">+5.00% overall return</div>
+    </div>
+    <div class="kpi-card" style="--card-accent: var(--accent-amber);">
+      <div class="kpi-label">Max Risk Per Trade</div>
+      <div class="kpi-val" id="kpiMaxRisk">$10.50</div>
+      <div class="kpi-sub">Hard 1.0% portfolio ceiling</div>
+    </div>
+    <div class="kpi-card" style="--card-accent: var(--accent-rose);">
+      <div class="kpi-label">Anti-FOMO Block Rate</div>
+      <div class="kpi-val" id="kpiBlockRate">66.7%</div>
+      <div class="kpi-sub">2 of 3 setups safely blocked</div>
+    </div>
+  </div>
+
+  <!-- Agent Ribbon -->
+  <div class="agents-ribbon">
+    <div class="agent-pill active">
+      <div class="agent-num">Agent #1</div>
+      <div class="agent-role"><span class="agent-status-dot"></span>Scanner</div>
+    </div>
+    <div class="agent-pill active">
+      <div class="agent-num">Agent #5</div>
+      <div class="agent-role"><span class="agent-status-dot"></span>Anti-FOMO</div>
+    </div>
+    <div class="agent-pill active">
+      <div class="agent-num">Agent #2</div>
+      <div class="agent-role"><span class="agent-status-dot"></span>Sizer</div>
+    </div>
+    <div class="agent-pill active">
+      <div class="agent-num">Agent #3</div>
+      <div class="agent-role"><span class="agent-status-dot"></span>Buyer</div>
+    </div>
+    <div class="agent-pill active">
+      <div class="agent-num">Agent #4</div>
+      <div class="agent-role"><span class="agent-status-dot"></span>Pred. Market</div>
+    </div>
+    <div class="agent-pill active">
+      <div class="agent-num">Agent #6</div>
+      <div class="agent-role"><span class="agent-status-dot"></span>Logger</div>
+    </div>
+  </div>
+
+  <!-- Main Interactive Section -->
+  <div class="main-grid">
+    <!-- Left Column: Input Form -->
+    <div>
+      <div class="card">
+        <div class="card-title">
+          <span>Token Setup Input</span>
+          <span style="font-size: 11px; color: var(--accent-cyan);">Live Simulator</span>
+        </div>
+
+        <div class="preset-btns">
+          <button class="btn-preset" onclick="loadPreset('clean')">Clean Retest</button>
+          <button class="btn-preset" onclick="loadPreset('fomo')">FOMO Pump</button>
+          <button class="btn-preset" onclick="loadPreset('illiquid')">Illiquid Trap</button>
+        </div>
+
+        <div class="form-group">
+          <label>Token Symbol</label>
+          <input type="text" id="inpToken" value="DOGE2">
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <div class="form-group">
+            <label>Current Price ($)</label>
+            <input type="number" id="inpPrice" step="any" value="0.0450">
+          </div>
+          <div class="form-group">
+            <label>24h Volume ($)</label>
+            <input type="number" id="inpVolume" value="25000000">
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <div class="form-group">
+            <label>5-Min Move (%)</label>
+            <input type="number" id="inp5m" step="any" value="1.5">
+          </div>
+          <div class="form-group">
+            <label>15-Min Move (%)</label>
+            <input type="number" id="inp15m" step="any" value="4.2">
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <div class="form-group">
+            <label>Support Level ($)</label>
+            <input type="number" id="inpSupport" step="any" value="0.0420">
+          </div>
+          <div class="form-group">
+            <label>Target Level ($)</label>
+            <input type="number" id="inpTarget" step="any" value="0.0540">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Market Structure & Candles</label>
+          <select id="inpCandleState">
+            <option value="normal">Normal Consolidation above Support</option>
+            <option value="giant_green">Top of Giant Parabolic Green Candle</option>
+            <option value="erratic">Choppy / Disordered Orderbook</option>
+          </select>
+        </div>
+
+        <button class="btn-eval" onclick="runDeskEvaluation()">RUN 6-AGENT CONSENSUS</button>
+      </div>
+    </div>
+
+    <!-- Right Column: Consensus Pipeline & Execution Ticket -->
+    <div>
+      <div class="card">
+        <div class="card-title">
+          <span>Consensus Pipeline Verification</span>
+          <span style="font-size: 11px; color: var(--text-muted);" id="runStatus">Awaiting Evaluation</span>
+        </div>
+
+        <div class="flow-step" id="stepScanner">
+          <div class="flow-badge badge-pending" id="badgeScanner">STEP 1</div>
+          <div class="flow-content">
+            <h4>Agent #1 — Technical Scanner</h4>
+            <p id="msgScanner">Verifies baseline liquidity (> $100k) and technical support/resistance boundaries.</p>
+          </div>
+        </div>
+
+        <div class="flow-step" id="stepAntiFOMO">
+          <div class="flow-badge badge-pending" id="badgeAntiFOMO">STEP 2</div>
+          <div class="flow-content">
+            <h4>Agent #5 — Anti-FOMO Guard</h4>
+            <p id="msgAntiFOMO">Detects rapid percentage pumps (>8% 5m) or chasing giant green candles.</p>
+          </div>
+        </div>
+
+        <div class="flow-step" id="stepSizer">
+          <div class="flow-badge badge-pending" id="badgeSizer">STEP 3</div>
+          <div class="flow-content">
+            <h4>Agent #2 — Position Sizer</h4>
+            <p id="msgSizer">Calculates exact position allocation where maximum loss equals 1.0% of portfolio equity.</p>
+          </div>
+        </div>
+
+        <div class="flow-step" id="stepBuyer">
+          <div class="flow-badge badge-pending" id="badgeBuyer">STEP 4</div>
+          <div class="flow-content">
+            <h4>Agent #3 — Simulated Execution Buyer</h4>
+            <p id="msgBuyer">Requires 100% unanimous approval across all guardrails before creating paper ticket.</p>
+          </div>
+        </div>
+
+        <!-- Generated Ticket -->
+        <div class="ticket-box" id="ticketBox">
+          <h4 style="color: var(--accent-cyan); font-size: 13px; margin-bottom: 12px; font-weight: 800;">🎫 SIMULATED EXECUTION TICKET (PAPER MODE)</h4>
+          <div class="ticket-row"><span class="ticket-label">TICKET ID:</span><span class="ticket-val" id="tktId">PT-1792820-DOGE2</span></div>
+          <div class="ticket-row"><span class="ticket-label">TOKEN:</span><span class="ticket-val" id="tktToken">DOGE2</span></div>
+          <div class="ticket-row"><span class="ticket-label">ENTRY:</span><span class="ticket-val" id="tktEntry">$0.0450</span></div>
+          <div class="ticket-row"><span class="ticket-label">STOP LOSS:</span><span class="ticket-val" id="tktStop">$0.0414 (-8.0%)</span></div>
+          <div class="ticket-row"><span class="ticket-label">TARGET:</span><span class="ticket-val" id="tktTarget">$0.0540 (+20.0%)</span></div>
+          <div class="ticket-row"><span class="ticket-label">ALLOCATION ($):</span><span class="ticket-val" id="tktSize">$131.25</span></div>
+          <div class="ticket-row"><span class="ticket-label">MAX RISK ($):</span><span class="ticket-val" style="color: var(--accent-rose);" id="tktRisk">$10.50 (1.0%)</span></div>
+          <div class="ticket-row"><span class="ticket-label">R:R RATIO:</span><span class="ticket-val" style="color: var(--accent-emerald);" id="tktRR">1 : 2.50</span></div>
+        </div>
+      </div>
+
+      <!-- Ledger Table -->
+      <div class="card">
+        <div class="card-title">
+          <span>Agent #6 — Immutable Paper Ledger</span>
+          <span style="font-size: 11px; color: var(--text-muted);">Synced to CSV / JSON</span>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Ticket ID</th>
+              <th>Asset</th>
+              <th>Status</th>
+              <th>Allocated</th>
+              <th>Risk ($)</th>
+              <th>P&L</th>
+            </tr>
+          </thead>
+          <tbody id="ledgerBody">
+            <tr>
+              <td>PT-1792820722-PEPE</td>
+              <td style="color: #67E8F9; font-weight: 700;">$PEPE</td>
+              <td><span class="badge-pass" style="padding: 2px 6px; font-size: 10px; border-radius: 4px;">WIN</span></td>
+              <td>$190.00</td>
+              <td>$10.00 (1%)</td>
+              <td style="color: var(--accent-emerald); font-weight: 700;">+$50.00</td>
+            </tr>
+            <tr>
+              <td>BLOCKED-02</td>
+              <td style="color: #FCA5A5; font-weight: 700;">$MOONCAT</td>
+              <td><span class="badge-block" style="padding: 2px 6px; font-size: 10px; border-radius: 4px;">BLOCKED</span></td>
+              <td>$0.00</td>
+              <td>$0.00</td>
+              <td style="color: var(--text-muted);">$0.00 (Anti-FOMO)</td>
+            </tr>
+            <tr>
+              <td>BLOCKED-03</td>
+              <td style="color: #FCA5A5; font-weight: 700;">$MICROINU</td>
+              <td><span class="badge-block" style="padding: 2px 6px; font-size: 10px; border-radius: 4px;">BLOCKED</span></td>
+              <td>$0.00</td>
+              <td>$0.00</td>
+              <td style="color: var(--text-muted);">$0.00 (Illiquid)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  let paperBalance = 1050.0;
+
+  function loadPreset(type) {
+    if (type === 'clean') {
+      document.getElementById('inpToken').value = 'BONK2';
+      document.getElementById('inpPrice').value = '0.0220';
+      document.getElementById('inpVolume').value = '18000000';
+      document.getElementById('inp5m').value = '1.2';
+      document.getElementById('inp15m').value = '3.5';
+      document.getElementById('inpSupport').value = '0.0205';
+      document.getElementById('inpTarget').value = '0.0265';
+      document.getElementById('inpCandleState').value = 'normal';
+    } else if (type === 'fomo') {
+      document.getElementById('inpToken').value = 'ROCKET';
+      document.getElementById('inpPrice').value = '0.1850';
+      document.getElementById('inpVolume').value = '4200000';
+      document.getElementById('inp5m').value = '14.8';
+      document.getElementById('inp15m').value = '38.0';
+      document.getElementById('inpSupport').value = '0.0900';
+      document.getElementById('inpTarget').value = '0.2400';
+      document.getElementById('inpCandleState').value = 'giant_green';
+    } else if (type === 'illiquid') {
+      document.getElementById('inpToken').value = 'PUPPY';
+      document.getElementById('inpPrice').value = '0.0004';
+      document.getElementById('inpVolume').value = '15000';
+      document.getElementById('inp5m').value = '0.2';
+      document.getElementById('inp15m').value = '1.0';
+      document.getElementById('inpSupport').value = '0.00035';
+      document.getElementById('inpTarget').value = '0.0006';
+      document.getElementById('inpCandleState').value = 'erratic';
+    }
+  }
+
+  function runDeskEvaluation() {
+    const token = document.getElementById('inpToken').value.trim();
+    const price = parseFloat(document.getElementById('inpPrice').value);
+    const vol = parseFloat(document.getElementById('inpVolume').value);
+    const m5 = parseFloat(document.getElementById('inp5m').value);
+    const m15 = parseFloat(document.getElementById('inp15m').value);
+    const support = parseFloat(document.getElementById('inpSupport').value);
+    const target = parseFloat(document.getElementById('inpTarget').value);
+    const candleState = document.getElementById('inpCandleState').value;
+
+    const tktBox = document.getElementById('ticketBox');
+    tktBox.classList.remove('active');
+
+    // 1. Scanner Check
+    let sPass = true;
+    let sMsg = `Consolidating above support with healthy 24h volume of $${vol.toLocaleString()}.`;
+    if (vol < 100000) {
+      sPass = false;
+      sMsg = `REJECTED: 24h volume ($${vol.toLocaleString()}) is below institutional meme threshold ($100k).`;
+    } else if (candleState === 'erratic') {
+      sPass = false;
+      sMsg = `REJECTED: Disordered price structure with undefined technical levels.`;
+    }
+
+    setStep('Scanner', sPass ? 'PASS' : 'SKIP', sMsg);
+    if (!sPass) {
+      blockRemaining('Scanner');
+      addLedgerRow('BLOCKED', token, 'BLOCKED_BY_SCANNER', 0, 0, '$0.00 (Illiquid/Erratic)');
+      return;
+    }
+
+    // 2. Anti-FOMO Check
+    let afPass = true;
+    let afMsg = `Orderly momentum (+${m5}% 5m). Entry is not extended.`;
+    if (m5 > 8.0) {
+      afPass = false;
+      afMsg = `BLOCKED: Parabolic impulse (+${m5}% in 5m). Chasing violates Anti-FOMO rule.`;
+    } else if (m15 > 18.0) {
+      afPass = false;
+      afMsg = `BLOCKED: Extended move (+${m15}% in 15m). Wait for orderly retest.`;
+    } else if (candleState === 'giant_green') {
+      afPass = false;
+      afMsg = `BLOCKED: Proposed entry is directly at the high of a giant green candle.`;
+    }
+
+    setStep('AntiFOMO', afPass ? 'APPROVE' : 'BLOCK', afMsg);
+    if (!afPass) {
+      blockRemaining('Anti-FOMO');
+      addLedgerRow('BLOCKED', token, 'BLOCKED_BY_ANTI_FOMO', 0, 0, '$0.00 (FOMO Trap)');
+      return;
+    }
+
+    // 3. Sizer Check
+    const stopLoss = support * 0.985;
+    const riskDistancePct = ((price - stopLoss) / price) * 100;
+    const maxRiskDollars = paperBalance * 0.01;
+    const positionSize = maxRiskDollars / (riskDistancePct / 100);
+    const gainPerUnit = target - price;
+    const lossPerUnit = price - stopLoss;
+    const rr = gainPerUnit / lossPerUnit;
+
+    let szPass = true;
+    let szMsg = `Approved: Risking $${maxRiskDollars.toFixed(2)} (1.0% equity) for 1:${rr.toFixed(2)} R:R.`;
+    if (rr < 1.8) {
+      szPass = false;
+      szMsg = `REJECTED: Risk/Reward ratio (1:${rr.toFixed(2)}) is below 1:1.8 minimum.`;
+    }
+
+    setStep('Sizer', szPass ? 'APPROVE' : 'REJECT', szMsg);
+    if (!szPass) {
+      blockRemaining('Sizer');
+      addLedgerRow('BLOCKED', token, 'BLOCKED_BY_SIZER', 0, 0, '$0.00 (Poor R:R)');
+      return;
+    }
+
+    // 4. Buyer Approval
+    setStep('Buyer', 'OPEN', 'Unanimous 6-Agent Consensus Achieved. Simulated Paper Order Dispatched.');
+    
+    // Display Ticket
+    const ticketId = `PT-${Math.floor(Date.now()/1000)}-${token}`;
+    document.getElementById('tktId').innerText = ticketId;
+    document.getElementById('tktToken').innerText = token;
+    document.getElementById('tktEntry').innerText = `$${price.toFixed(4)}`;
+    document.getElementById('tktStop').innerText = `$${stopLoss.toFixed(4)} (-${riskDistancePct.toFixed(1)}%)`;
+    document.getElementById('tktTarget').innerText = `$${target.toFixed(4)} (+${(((target-price)/price)*100).toFixed(1)}%)`;
+    document.getElementById('tktSize').innerText = `$${positionSize.toFixed(2)}`;
+    document.getElementById('tktRisk').innerText = `$${maxRiskDollars.toFixed(2)} (1.0%)`;
+    document.getElementById('tktRR').innerText = `1 : ${rr.toFixed(2)}`;
+    tktBox.classList.add('active');
+
+    addLedgerRow(ticketId, token, 'OPEN', positionSize, maxRiskDollars, 'PENDING');
+  }
+
+  function setStep(name, badgeText, message) {
+    const badge = document.getElementById(`badge${name}`);
+    const msg = document.getElementById(`msg${name}`);
+    badge.innerText = badgeText;
+    msg.innerText = message;
+    if (badgeText === 'PASS' || badgeText === 'APPROVE' || badgeText === 'OPEN') {
+      badge.className = 'flow-badge badge-pass';
+    } else {
+      badge.className = 'flow-badge badge-block';
+    }
+  }
+
+  function blockRemaining(fromAgent) {
+    if (fromAgent === 'Scanner') {
+      setStep('AntiFOMO', 'SKIPPED', 'Prerequisite failed at Scanner level.');
+      setStep('Sizer', 'SKIPPED', 'Prerequisite failed at Scanner level.');
+      setStep('Buyer', 'BLOCKED', 'Trade discarded.');
+    } else if (fromAgent === 'Anti-FOMO') {
+      setStep('Sizer', 'SKIPPED', 'Blocked by Anti-FOMO guardrail.');
+      setStep('Buyer', 'BLOCKED', 'Trade discarded.');
+    } else if (fromAgent === 'Sizer') {
+      setStep('Buyer', 'BLOCKED', 'Rejected by Position Sizer.');
+    }
+  }
+
+  function addLedgerRow(tkt, asset, status, size, risk, pnl) {
+    const tbody = document.getElementById('ledgerBody');
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${tkt}</td>
+      <td style="color: #67E8F9; font-weight: 700;">$${asset}</td>
+      <td><span class="${status === 'OPEN' ? 'badge-pass' : 'badge-block'}" style="padding: 2px 6px; font-size: 10px; border-radius: 4px;">${status}</span></td>
+      <td>$${size.toFixed(2)}</td>
+      <td>$${risk.toFixed(2)}</td>
+      <td>${pnl}</td>
+    `;
+    tbody.prepend(tr);
+  }
+</script>
+</body>
+</html>

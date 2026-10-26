@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Viral Syndication Engine — Forensic Dossier</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700;800&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #030712;
+      --card: #0f172a;
+      --border: rgba(255, 255, 255, 0.08);
+      --primary: #f43f5e;
+      --accent: #38bdf8;
+      --amber: #f59e0b;
+      --success: #10b981;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 30px 20px 80px;
+      line-height: 1.6;
+      background-image: radial-gradient(circle at 50% 0%, rgba(244, 63, 94, 0.15) 0%, transparent 60%);
+    }
+    .container { max-width: 1240px; margin: 0 auto; }
+    
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 22px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo span { color: var(--primary); }
+    .nav-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .nav-link {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: #cbd5e1;
+      padding: 8px 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .nav-link:hover, .nav-link.active {
+      background: rgba(244, 63, 94, 0.15);
+      border-color: rgba(244, 63, 94, 0.4);
+      color: #fff;
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      background: linear-gradient(135deg, rgba(244, 63, 94, 0.12), rgba(15, 23, 42, 0.8));
+      border: 1px solid rgba(244, 63, 94, 0.25);
+      border-radius: 20px;
+      padding: 32px;
+      margin-bottom: 35px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .hero-text h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+    .hero-text p {
+      color: var(--text-muted);
+      font-size: 15px;
+      max-width: 680px;
+    }
+    .stats-badge-group {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .stat-pill {
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--border);
+      padding: 12px 18px;
+      border-radius: 12px;
+      text-align: center;
+    }
+    .stat-pill .num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--accent);
+    }
+    .stat-pill .lbl {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Filter Tabs */
+    .campaign-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 25px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+    }
+    .tab-btn {
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 10px 20px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 13.5px;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .tab-btn:hover, .tab-btn.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    /* Campaign Card */
+    .campaign-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+    .campaign-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+      display: grid;
+      grid-template-columns: 460px 1fr;
+      gap: 28px;
+      transition: border-color 0.2s;
+    }
+    @media (max-width: 960px) {
+      .campaign-card { grid-template-columns: 1fr; }
+    }
+    .campaign-card:hover {
+      border-color: rgba(244, 63, 94, 0.35);
+    }
+    .video-preview {
+      border-radius: 14px;
+      overflow: hidden;
+      background: #000;
+      border: 1px solid var(--border);
+      position: relative;
+      aspect-ratio: 16/9;
+    }
+    .video-preview.vertical {
+      aspect-ratio: 9/16;
+      max-height: 480px;
+      margin: 0 auto;
+    }
+    .video-preview iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .meta-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .case-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 4px 10px;
+      border-radius: 6px;
+      width: fit-content;
+      margin-bottom: 10px;
+    }
+    .badge-emergency { background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3); }
+    .badge-toxin { background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3); }
+    .badge-market { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
+
+    .case-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 21px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+    .case-summary {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    /* Distribution Buttons */
+    .action-panel {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 18px;
+    }
+    .action-title {
+      font-size: 12px;
+      font-weight: 800;
+      color: #e2e8f0;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .dist-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.2s;
+    }
+    .btn-reddit {
+      background: #ff4500;
+      color: #fff;
+    }
+    .btn-reddit:hover {
+      background: #e03d00;
+      box-shadow: 0 0 15px rgba(255, 69, 0, 0.4);
+    }
+    .btn-twitter {
+      background: #1d9bf0;
+      color: #fff;
+    }
+    .btn-twitter:hover {
+      background: #1a8cd8;
+      box-shadow: 0 0 15px rgba(29, 155, 240, 0.4);
+    }
+    .btn-whatsapp {
+      background: #25d366;
+      color: #fff;
+    }
+    .btn-whatsapp:hover {
+      background: #1eb857;
+      box-shadow: 0 0 15px rgba(37, 211, 102, 0.4);
+    }
+    .btn-copy {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      border-color: var(--border);
+    }
+    .btn-copy:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .seed-checklist {
+      display: flex;
+      gap: 16px;
+      font-size: 12px;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .seed-check {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--success);
+      font-weight: 600;
+    }
+
+    /* Toast */
+    #toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #10b981;
+      color: #000;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 14px;
+      display: none;
+      box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <span>🚀</span> Viral Syndication Engine
+    </div>
+    <div class="nav-links">
+      <a href="dashboard.html" class="nav-link">Revenue Console</a>
+      <a href="index.html" class="nav-link">Storefront</a>
+      <a href="pay.html" class="nav-link">Payment Portal</a>
+      <a href="dispatch.html" class="nav-link">High-Ticket Leads</a>
+      <a href="products/ai_trading_bot_team/trading_desk.html" class="nav-link">Quant Desk</a>
+      <a href="viral.html" class="nav-link active">Viral Hub</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <div class="hero-banner">
+    <div class="hero-text">
+      <h1>Multi-Channel Algorithmic Distribution</h1>
+      <p>YouTube's algorithm tests newly published videos in a 300 to 1,500 seed impression bucket. Driving immediate high-retention external viewers from Reddit, X, and WhatsApp breaks the seed threshold and pushes the content to millions of Browse & Suggested recommendations.</p>
+    </div>
+    <div class="stats-badge-group">
+      <div class="stat-pill">
+        <div class="num">8 Live</div>
+        <div class="lbl">Video Assets</div>
+      </div>
+      <div class="stat-pill">
+        <div class="num">100%</div>
+        <div class="lbl">500-Char SEO Tags</div>
+      </div>
+      <div class="stat-pill">
+        <div class="num">Cat: 28</div>
+        <div class="lbl">Sci & Tech Indexed</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Campaigns Grid -->
+  <div class="campaign-grid">
+
+    <!-- Campaign 1: Soy Sauce Dare -->
+    <div class="campaign-card">
+      <div class="video-preview">
+        <iframe src="https://www.youtube.com/embed/trHBnXloWGc" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="meta-box">
+        <div>
+          <span class="case-badge badge-emergency">⚡ Critical Pathology // 160g Salt Overdose</span>
+          <h2 class="case-title">A 19-Year-Old Drank 1 Liter Of Soy Sauce On A Dare. This Is What Happened To His Brain.</h2>
+          <p class="case-summary">Consuming 160,000mg of sodium created an acute osmotic surge pulling fluid directly out of cerebral cells, tearing bridging veins. Miraculously saved with 6L of 5% dextrose infusion.</p>
+        </div>
+
+        <div class="action-panel">
+          <div class="action-title">🔥 1-Click Algorithmic Syndication</div>
+          <div class="btn-row">
+            <a href="https://www.reddit.com/r/todayilearned/submit?title=TIL%20in%202013%2C%20a%2019-year-old%20drank%201%20liter%20of%20soy%20sauce%20on%20a%20dare%2C%20consuming%20160g%20of%20salt%20(30x%20lethal%20threshold).%20Water%20was%20pulled%20out%20of%20his%20brain%20cells%2C%20causing%20status%20epilepticus%20seizures.%20He%20survived%20with%20zero%20brain%20damage%20after%206L%20dextrose%20infusion.&url=https%3A%2F%2Fyoutu.be%2FtrHBnXloWGc" target="_blank" class="dist-btn btn-reddit">
+              Post to r/todayilearned
+            </a>
+            <a href="https://twitter.com/intent/tweet?text=In%202013%2C%20a%2019yo%20drank%201L%20of%20soy%20sauce%20on%20a%20dare%20(160g%20salt).%20Osmotic%20surge%20shrank%20his%20brain%2C%20tearing%20veins.%20Here%20is%20how%20ICU%20doctors%20saved%20his%20life%3A%20https%3A%2F%2Fyoutu.be%2FtrHBnXloWGc%20%23Science%20%23Medicine" target="_blank" class="dist-btn btn-twitter">
+              Tweet Thread
+            </a>
+            <a href="https://api.whatsapp.com/send?text=Watch%20what%20happened%20when%20someone%20drank%201L%20of%20soy%20sauce%20on%20a%20dare%20(insane%20medical%20breakdown)%3A%20https%3A%2F%2Fyoutu.be%2FtrHBnXloWGc" target="_blank" class="dist-btn btn-whatsapp">
+              WhatsApp
+            </a>
+            <button onclick="copyText('TIL in 2013, a 19-year-old drank 1 liter of soy sauce on a dare, consuming 160g of salt (30x lethal threshold). Within 90 minutes, an acute osmotic surge pulled water out of his brain cells, elevating serum sodium to 196 mEq/L. He is the first person in medical history to survive without permanent brain damage: https://youtu.be/trHBnXloWGc')" class="dist-btn btn-copy">
+              📋 Copy Hook
+            </button>
+          </div>
+          <div class="seed-checklist">
+            <span class="seed-check">✓ High CTR Title</span>
+            <span class="seed-check">✓ 500-Char SEO Tags</span>
+            <span class="seed-check">✓ Pinned Comment Linked</span>
+            <span class="seed-check">✓ 48s Short Companion Live</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Campaign 2: 5-Day-Old Pasta -->
+    <div class="campaign-card">
+      <div class="video-preview">
+        <iframe src="https://www.youtube.com/embed/9KXt_kziTec" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="meta-box">
+        <div>
+          <span class="case-badge badge-toxin">⚠️ Toxicology Alert // Cereulide Toxin</span>
+          <h2 class="case-title">A Student Ate 5-Day-Old Pasta For Lunch. This Is How His Liver Shut Down.</h2>
+          <p class="case-summary">Why microwaving leftover food until steaming hot does not destroy Cereulide from Bacillus cereus. The heat destroys the bacteria but leaves the heat-stable mitochondrial toxin active.</p>
+        </div>
+
+        <div class="action-panel">
+          <div class="action-title">🔥 1-Click Algorithmic Syndication</div>
+          <div class="btn-row">
+            <a href="https://www.reddit.com/r/MealPrepSunday/submit?title=PSA%3A%20Why%20microwaving%20leftover%20pasta%2Fstarches%20until%20it%27s%20%22steaming%20hot%22%20does%20NOT%20protect%20you%20from%20Bacillus%20cereus%20(Fried%20Rice%20Syndrome)&url=https%3A%2F%2Fyoutu.be%2F9KXt_kziTec" target="_blank" class="dist-btn btn-reddit">
+              Post to r/MealPrepSunday
+            </a>
+            <a href="https://twitter.com/intent/tweet?text=Why%20reheating%20old%20pasta%20or%20rice%20in%20the%20microwave%20cannot%20save%20you%20from%20Fried%20Rice%20Syndrome%20(Cereulide%20toxin%20survives%20121%C2%B0C)%3A%20https%3A%2F%2Fyoutu.be%2F9KXt_kziTec%20%23FoodSafety%20%23Science" target="_blank" class="dist-btn btn-twitter">
+              Tweet Thread
+            </a>
+            <a href="https://api.whatsapp.com/send?text=Never%20eat%20pasta%20left%20out%20at%20room%20temperature%2C%20microwaving%20it%20doesn%27t%20kill%20the%20toxin%21%20Watch%3A%20https%3A%2F%2Fyoutu.be%2F9KXt_kziTec" target="_blank" class="dist-btn btn-whatsapp">
+              WhatsApp
+            </a>
+            <button onclick="copyText('PSA: Why microwaving leftover pasta until steaming hot does NOT protect you from Bacillus cereus. Cereulide is a cyclic peptide that withstands 121°C for 90 minutes. Here is the full cellular pathology breakdown: https://youtu.be/9KXt_kziTec')" class="dist-btn btn-copy">
+              📋 Copy Hook
+            </button>
+          </div>
+          <div class="seed-checklist">
+            <span class="seed-check">✓ High CTR Title</span>
+            <span class="seed-check">✓ 500-Char SEO Tags</span>
+            <span class="seed-check">✓ Pinned Comment Linked</span>
+            <span class="seed-check">✓ 42s Short Companion Live</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Campaign 3: 2 Gallons of Water (Shorts Feature) -->
+    <div class="campaign-card">
+      <div class="video-preview">
+        <iframe src="https://www.youtube.com/embed/r63jyci-OkM" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="meta-box">
+        <div>
+          <span class="case-badge badge-emergency">🚨 Emergency Toxicology // Acute Hyponatremia</span>
+          <h2 class="case-title">He Drank 2 Gallons Of Water In 2 Hours. This Is What Happened To His Brain. #Shorts</h2>
+          <p class="case-summary">Can water kill you? Diluting serum sodium from 140 down to 110 mEq/L reverses osmotic balance, driving water inside brain cells and triggering rapid intracranial swelling.</p>
+        </div>
+
+        <div class="action-panel">
+          <div class="action-title">🔥 1-Click Algorithmic Syndication</div>
+          <div class="btn-row">
+            <a href="https://www.reddit.com/r/fitness/submit?title=Medical%20Breakdown%3A%20How%20drinking%202%20gallons%20of%20plain%20water%20in%202%20hours%20causes%20acute%20cerebral%20edema%20(Dilutional%20Hyponatremia)&url=https%3A%2F%2Fyoutube.com%2Fshorts%2Fr63jyci-OkM" target="_blank" class="dist-btn btn-reddit">
+              Post to r/fitness
+            </a>
+            <a href="https://twitter.com/intent/tweet?text=Can%20drinking%20too%20much%20water%20kill%20you%3F%20How%20drinking%202%20gallons%20in%202%20hours%20dilutes%20sodium%20and%20swells%20brain%20cells%3A%20https%3A%2F%2Fyoutube.com%2Fshorts%2Fr63jyci-OkM%20%23Shorts%20%23Biology" target="_blank" class="dist-btn btn-twitter">
+              Tweet Thread
+            </a>
+            <a href="https://api.whatsapp.com/send?text=Watch%20what%20drinking%20too%20much%20water%20does%20to%20your%20brain%3A%20https%3A%2F%2Fyoutube.com%2Fshorts%2Fr63jyci-OkM" target="_blank" class="dist-btn btn-whatsapp">
+              WhatsApp
+            </a>
+            <button onclick="copyText('Can drinking too much water kill you? When you drink 2 gallons in under 2 hours without electrolytes, serum sodium drops from 140 to 110, forcing water into brain cells: https://youtube.com/shorts/r63jyci-OkM')" class="dist-btn btn-copy">
+              📋 Copy Hook
+            </button>
+          </div>
+          <div class="seed-checklist">
+            <span class="seed-check">✓ High CTR Title</span>
+            <span class="seed-check">✓ 500-Char SEO Tags</span>
+            <span class="seed-check">✓ Pinned Comment Linked</span>
+            <span class="seed-check">✓ High Retention Format</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Campaign 4: Barings Bank Collapse -->
+    <div class="campaign-card">
+      <div class="video-preview">
+        <iframe src="https://www.youtube.com/embed/GSmO2VcNTRA" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="meta-box">
+        <div>
+          <span class="case-badge badge-market">📉 Forensic Market Collapse // $1.4B Loss</span>
+          <h2 class="case-title">How A 28-Year-Old Trader Destroyed Britain's Oldest Bank in 48 Hours ($1.4B Collapse)</h2>
+          <p class="case-summary">How Nick Leeson bypassed all internal controls, hid trading losses in error account 88888, and doubled down on unhedged Nikkei futures after the Kobe earthquake, bankrupting Barings Bank.</p>
+        </div>
+
+        <div class="action-panel">
+          <div class="action-title">🔥 1-Click Algorithmic Syndication</div>
+          <div class="btn-row">
+            <a href="https://www.reddit.com/r/wallstreetbets/submit?title=In%201995%2C%20a%2028yo%20trader%20hid%20losses%20in%20an%20error%20account%20named%20%2788888%27%20and%20bankrupted%20Britain%27s%20oldest%20bank%20(sold%20for%20%C2%A31).%20Full%20breakdown%3A&url=https%3A%2F%2Fyoutu.be%2FGSmO2VcNTRA" target="_blank" class="dist-btn btn-reddit">
+              Post to r/wallstreetbets
+            </a>
+            <a href="https://twitter.com/intent/tweet?text=How%20one%2028-year-old%20trader%20single-handedly%20bankrupted%20a%20233-year-old%20British%20bank%20with%20a%20%241.4B%20hidden%20loss%3A%20https%3A%2F%2Fyoutu.be%2FGSmO2VcNTRA%20%23Trading%20%23Finance" target="_blank" class="dist-btn btn-twitter">
+              Tweet Thread
+            </a>
+            <a href="https://api.whatsapp.com/send?text=Incredible%20story%20of%20the%20trader%20who%20destroyed%20a%20233-year-old%20bank%3A%20https%3A%2F%2Fyoutu.be%2FGSmO2VcNTRA" target="_blank" class="dist-btn btn-whatsapp">
+              WhatsApp
+            </a>
+            <button onclick="copyText('How a 28yo trader bankrupt Britain\'s oldest bank in 48 hours using error account 88888. Complete financial forensic breakdown: https://youtu.be/GSmO2VcNTRA')" class="dist-btn btn-copy">
+              📋 Copy Hook
+            </button>
+          </div>
+          <div class="seed-checklist">
+            <span class="seed-check">✓ High CTR Title</span>
+            <span class="seed-check">✓ 500-Char SEO Tags</span>
+            <span class="seed-check">✓ Pinned Comment Linked</span>
+            <span class="seed-check">✓ AI Trading Desk Backlink</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div id="toast">Copied to clipboard! Ready to paste & syndicate.</div>
+
+<script>
+  function copyText(txt) {
+    navigator.clipboard.writeText(txt).then(() => {
+      const toast = document.getElementById('toast');
+      toast.style.display = 'block';
+      setTimeout(() => { toast.style.display = 'none'; }, 2500);
+    });
+  }
+</script>
+</body>
+</html>

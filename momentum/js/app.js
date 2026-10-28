@@ -144,6 +144,9 @@ document.addEventListener('DOMContentLoaded', () => {
           ` : ''}
         </div>
         <div class="task-actions">
+          <button class="focus-now-btn" data-id="${task.id}" title="Launch 3-min focus sprint on this task" style="background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.4);color:#f59e0b;padding:0.35rem 0.6rem;border-radius:8px;font-size:0.75rem;cursor:pointer;font-weight:700;">
+            🎯 Sprint
+          </button>
           <button class="breakdown-btn" data-id="${task.id}" title="Split into micro-actions">
             ⚡ Break Down
           </button>
@@ -154,6 +157,19 @@ document.addEventListener('DOMContentLoaded', () => {
       // Toggle Done
       const cb = card.querySelector('.task-checkbox');
       cb.addEventListener('click', () => toggleTaskDone(task.id));
+
+      // Quick Focus Sprint
+      const focusBtn = card.querySelector('.focus-now-btn');
+      focusBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        timerRemaining = 3 * 60;
+        timerDuration = 3 * 60;
+        document.getElementById('timer-task-label').textContent = `Current: ${task.title}`;
+        switchView('view-timer');
+        startTimer();
+        window.audioEngine.playBrownNoise();
+        showDopamineToast('Hyperfocus Engaged! 🎧', `3-min sprint running on "${task.title.slice(0, 22)}..."`, '🎯');
+      });
 
       // Break Down
       const bdBtn = card.querySelector('.breakdown-btn');
@@ -183,6 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (task.done) {
       window.audioEngine.playDopamineChime();
       focusMinutesToday += (task.minutes || 3);
+      showDopamineToast('Micro-Step Won! ⚡', '+10 Dopamine Points earned. Keep the wave going.', '🎉');
     }
     renderTasks();
   }
@@ -216,48 +233,143 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ==========================================
+  // NATIVE CELEBRATION TOAST & HAPTICS
+  // ==========================================
+  const toast = document.getElementById('dopamine-toast');
+  const toastTitle = document.getElementById('toast-title');
+  const toastMessage = document.getElementById('toast-message');
+  const toastIcon = document.getElementById('toast-icon');
+  const toastCloseBtn = document.getElementById('toast-close-btn');
+  let toastTimeout = null;
+
+  function showDopamineToast(title, message, icon = '⚡') {
+    if (!toast) return;
+    if (toastTimeout) clearTimeout(toastTimeout);
+    toastTitle.textContent = title;
+    toastMessage.textContent = message;
+    toastIcon.textContent = icon;
+    toast.classList.add('show');
+
+    if (navigator.vibrate) {
+      try { navigator.vibrate([40, 60, 40]); } catch (e) {}
+    }
+
+    toastTimeout = setTimeout(() => {
+      toast.classList.remove('show');
+    }, 4200);
+  }
+
+  if (toastCloseBtn) {
+    toastCloseBtn.addEventListener('click', () => {
+      toast.classList.remove('show');
+    });
+  }
+
+  // ==========================================
   // EXECUTIVE DYSFUNCTION DECONSTRUCTOR
   // ==========================================
   function splitIntoMicroSteps(text) {
-    // ADHD Deconstruction Rules Engine
     const lower = text.toLowerCase();
     
-    if (lower.includes('clean') || lower.includes('room') || lower.includes('house') || lower.includes('kitchen')) {
+    // 1. Cleaning & Household Paralyzing Chaos
+    if (lower.includes('clean') || lower.includes('room') || lower.includes('house') || lower.includes('kitchen') || lower.includes('tidy')) {
       return [
         'Throw away 5 pieces of obvious trash (1 min)',
-        'Put all dirty dishes into the sink (2 mins)',
+        'Put all dirty dishes into the sink with soap running (2 mins)',
         'Stack all stray papers and clothes into one pile (2 mins)',
-        'Wipe down one flat surface (1 min)'
+        'Wipe down just ONE flat surface with a wet cloth (1 min)'
       ];
     }
 
-    if (lower.includes('study') || lower.includes('exam') || lower.includes('read') || lower.includes('homework')) {
+    // 2. Financial, Taxes, Bills & Admin Dread
+    if (lower.includes('tax') || lower.includes('bill') || lower.includes('invoice') || lower.includes('budget') || lower.includes('finance') || lower.includes('bank')) {
+      return [
+        'Open laptop and navigate to the target portal bookmark (1 min)',
+        'Download the single required statement or PDF (2 mins)',
+        'Create a new desktop folder named "Action Done" (1 min)',
+        'Fill in just the first 2 required fields without submitting (3 mins)'
+      ];
+    }
+
+    // 3. Coding, Software & Bug Fixing Overwhelm
+    if (lower.includes('code') || lower.includes('bug') || lower.includes('program') || lower.includes('git') || lower.includes('deploy') || lower.includes('software')) {
+      return [
+        'Open terminal / IDE to the project directory (1 min)',
+        'Write 1 failing unit test or reproduce the exact console error (2 mins)',
+        'Add a single console.log or breakpoint to trace the parameter (2 mins)',
+        'Write 3 lines of pseudocode for the fix (2 mins)'
+      ];
+    }
+
+    // 4. Writing, Essays, Documentation & Creative Blocks
+    if (lower.includes('write') || lower.includes('essay') || lower.includes('article') || lower.includes('draft') || lower.includes('doc') || lower.includes('blog')) {
+      return [
+        'Open a blank document and write a silly working title (1 min)',
+        'Dump 3 bullet points of what you want the reader to feel (2 mins)',
+        'Write the ugliest first sentence possible without hitting backspace (2 mins)',
+        'Turn on 40Hz Gamma Audio and freewrite for 3 minutes (3 mins)'
+      ];
+    }
+
+    // 5. Laundry & Wardrobe Avalanche
+    if (lower.includes('laundry') || lower.includes('clothes') || lower.includes('fold') || lower.includes('wash')) {
+      return [
+        'Pick up all dirty clothes off the floor and put them into the basket (2 mins)',
+        'Dump one basket load into the washing machine & start cycle (2 mins)',
+        'Fold just 3 shirts or pairs of socks (2 mins)',
+        'Hang up just 2 jackets (1 min)'
+      ];
+    }
+
+    // 6. Food, Cooking & Grocery Decision Fatigue
+    if (lower.includes('cook') || lower.includes('dinner') || lower.includes('meal') || lower.includes('grocery') || lower.includes('food')) {
+      return [
+        'Drink a glass of water and check fridge for 2 ingredients (1 min)',
+        'Pull out one pan and set it on the stove (1 min)',
+        'Cut or prep just 1 ingredient (2 mins)',
+        'Order grocery staples or start heating water (2 mins)'
+      ];
+    }
+
+    // 7. Academic, Study & Research Procrastination
+    if (lower.includes('study') || lower.includes('exam') || lower.includes('read') || lower.includes('homework') || lower.includes('learn')) {
       return [
         'Clear desk so only the book / notebook is in sight (1 min)',
         'Open to the target chapter and read the first paragraph (2 mins)',
         'Highlight 3 bold headers or diagrams (2 mins)',
-        'Jot down 1 question or takeaway (1 min)'
+        'Write 1 question on an index card (1 min)'
       ];
     }
 
-    if (lower.includes('email') || lower.includes('message') || lower.includes('reply') || lower.includes('call')) {
+    // 8. Communication & Dreaded Messages/Calls
+    if (lower.includes('email') || lower.includes('message') || lower.includes('reply') || lower.includes('call') || lower.includes('text')) {
       return [
-        'Open inbox and find the 1 priority email (1 min)',
+        'Open inbox and isolate the 1 priority email (1 min)',
         'Write a 2-sentence rough draft without editing (2 mins)',
-        'Hit send and close the tab immediately (1 min)'
+        'Copy-paste into reply box and immediately hit Send (1 min)'
       ];
     }
 
-    if (lower.includes('exercise') || lower.includes('workout') || lower.includes('gym') || lower.includes('run')) {
+    // 9. Workout & Physical Inertia
+    if (lower.includes('exercise') || lower.includes('workout') || lower.includes('gym') || lower.includes('run') || lower.includes('walk')) {
       return [
-        'Put on running shoes and socks (2 mins)',
-        'Fill up water bottle (1 min)',
-        'Step outside front door or onto mat (1 min)',
-        'Do 5 gentle stretches (2 mins)'
+        'Put on workout shorts and running shoes (2 mins)',
+        'Fill your water bottle to the brim (1 min)',
+        'Step outside your front door or step onto yoga mat (1 min)',
+        'Do 10 jumping jacks or gentle stretches (2 mins)'
       ];
     }
 
-    // Generic Overwhelm Deconstruction
+    // 10. Appointments & Medical Errands
+    if (lower.includes('doctor') || lower.includes('dentist') || lower.includes('appointment') || lower.includes('schedule')) {
+      return [
+        'Locate the phone number or booking URL (1 min)',
+        'Write down your calendar availability on paper (1 min)',
+        'Dial number or click calendar slot (2 mins)'
+      ];
+    }
+
+    // Universal Anti-Overwhelm Deconstruction
     return [
       `Step 1: Open the work file / app for "${text}" (1 min)`,
       `Step 2: Write down the single easiest action to take next (2 mins)`,
@@ -331,7 +443,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.audioEngine.playDopamineChime();
         focusMinutesToday += Math.round(timerDuration / 60);
         updateMomentumScore();
-        alert('⚡ SPRINT COMPLETED! You broke through task initiation resistance!');
+        showDopamineToast('Sprint Completed! ⚡', 'Initiation resistance shattered. +15 Dopamine Points!', '🏆');
       }
     }, 1000);
   }
@@ -409,7 +521,7 @@ document.addEventListener('DOMContentLoaded', () => {
     subscribeProBtn.disabled = true;
     subscribeProBtn.textContent = 'Connecting to Google Play...';
     const result = await window.storeManager.purchasePro(selectedPlan);
-    alert(result.message || 'Purchased successfully!');
+    showDopamineToast('Momentum Pro Activated! 👑', result.message || 'Lifetime VIP & Soundscapes Unlocked!', '👑');
     subscribeProBtn.disabled = false;
     subscribeProBtn.textContent = 'Unlock Momentum Pro 🚀';
     updateProUI();
@@ -419,7 +531,7 @@ document.addEventListener('DOMContentLoaded', () => {
     watchRewardedAdBtn.disabled = true;
     watchRewardedAdBtn.textContent = 'Loading Rewarded Ad...';
     const res = await window.storeManager.watchRewardedAd();
-    alert(`🎉 24 Hours of Momentum Pro unlocked! Enjoy the focus session.`);
+    showDopamineToast('24h Pro Unlocked! 📺', 'Enjoy unlimited AI deconstruction & all soundscapes today.', '🎁');
     watchRewardedAdBtn.disabled = false;
     watchRewardedAdBtn.textContent = '📺 Watch a 15s Ad to Unlock Pro Today';
     updateProUI();

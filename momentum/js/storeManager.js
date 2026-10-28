@@ -55,11 +55,12 @@ class StoreManager {
   }
 
   // Google Play Billing Checkout (Simulated in Web, Hooked to Capacitor in Android APK)
-  async purchasePro(plan = 'monthly') {
+  async purchasePro(plan = 'annual') {
     const planDetails = {
       monthly: { id: 'com.vinayreddy.momentum.pro.monthly', price: '$3.99/mo' },
-      annual: { id: 'com.vinayreddy.momentum.pro.annual', price: '$29.99/yr' }
-    }[plan];
+      annual: { id: 'com.vinayreddy.momentum.pro.annual', price: '$29.99/yr' },
+      lifetime: { id: 'com.vinayreddy.momentum.pro.lifetime', price: '$19.99 Forever VIP' }
+    }[plan] || { id: 'com.vinayreddy.momentum.pro.annual', price: '$29.99/yr' };
 
     // Check if running inside native Capacitor with Google Play Billing
     if (window.Capacitor && window.Capacitor.isNativePlatform && window.PlayBilling) {

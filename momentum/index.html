@@ -197,6 +197,28 @@
             </div>
             <button class="sound-btn" data-type="alpha">Play 10Hz Alpha</button>
           </div>
+
+          <div class="sound-card" data-sound="pink">
+            <div class="sound-card-header">
+              <span class="sound-emoji">🌧️</span>
+              <div>
+                <h4>Soft Pink Noise</h4>
+                <span>Gentle rain frequency that relaxes overstimulated brains</span>
+              </div>
+            </div>
+            <button class="sound-btn" data-type="pink">Play Pink Noise</button>
+          </div>
+
+          <div class="sound-card" data-sound="green">
+            <div class="sound-card-header">
+              <span class="sound-emoji">🌲</span>
+              <div>
+                <h4>Nature Green Noise</h4>
+                <span>500Hz woodland wind frequency for continuous focus</span>
+              </div>
+            </div>
+            <button class="sound-btn" data-type="green">Play Green Noise</button>
+          </div>
         </div>
       </section>
 
@@ -234,16 +256,22 @@
           </div>
 
           <div class="pricing-plans-row">
-            <div class="plan-card active" data-plan="monthly">
+            <div class="plan-card" data-plan="monthly">
               <div class="plan-name">Monthly</div>
               <div class="plan-price">$3.99<span>/mo</span></div>
               <div class="plan-trial">Cancel anytime</div>
             </div>
-            <div class="plan-card popular" data-plan="annual">
+            <div class="plan-card popular active" data-plan="annual">
               <div class="best-value-pill">BEST VALUE</div>
               <div class="plan-name">Annual Pro</div>
               <div class="plan-price">$29.99<span>/yr</span></div>
               <div class="plan-trial">Just $2.49/mo (Save 38%)</div>
+            </div>
+            <div class="plan-card lifetime" data-plan="lifetime">
+              <div class="best-value-pill" style="background:#10b981;color:#fff;">LIFETIME</div>
+              <div class="plan-name">Forever VIP</div>
+              <div class="plan-price">$19.99</div>
+              <div class="plan-trial">Pay once, own forever</div>
             </div>
           </div>
 
@@ -264,6 +292,16 @@
       </section>
 
     </main>
+
+    <!-- Celebration Modal / Dopamine Notification -->
+    <div class="dopamine-toast" id="dopamine-toast">
+      <div class="toast-icon" id="toast-icon">⚡</div>
+      <div class="toast-content">
+        <strong id="toast-title">Sprint Complete!</strong>
+        <p id="toast-message">Task initiation resistance shattered.</p>
+      </div>
+      <button class="toast-close" id="toast-close-btn">✕</button>
+    </div>
 
     <!-- Bottom Navigation Bar -->
     <nav class="bottom-nav">

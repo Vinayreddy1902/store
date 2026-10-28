@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Momentum — ADHD Focus &amp; Dopamine Planner</title>
+  <meta name="theme-color" content="#0b0e14">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self' blob:; connect-src 'self';">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="app-container">
+
+    <!-- Top Status / Header -->
+    <header class="app-header">
+      <div class="header-left">
+        <div class="user-greeting" id="greeting-text">Focus Mode, Champion ⚡</div>
+        <div class="streak-badge" id="streak-badge">
+          🔥 <strong id="streak-count">1</strong> Day Streak
+        </div>
+      </div>
+      <div class="header-right">
+        <button class="pro-crown-btn" id="open-pro-btn" title="Unlock Momentum Pro">
+          👑 <span>PRO</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Cross-Sell Banner: Physical Amazon Book -->
+    <div class="amazon-book-banner" id="amazon-book-banner">
+      <div class="banner-icon">📖</div>
+      <div class="banner-text">
+        <strong>The Official Companion Journal</strong>
+        <span>ADHD Focus &amp; Momentum Planner on Amazon</span>
+      </div>
+      <a href="https://www.amazon.com/dp/B0HPH294CZ" target="_blank" rel="noopener noreferrer" class="banner-cta">
+        Get Book ↗
+      </a>
+    </div>
+
+    <!-- Main View Switcher -->
+    <main class="app-main">
+
+      <!-- ============================================== -->
+      <!-- VIEW 1: TODAY / MOMENTUM WHEEL -->
+      <!-- ============================================== -->
+      <section id="view-today" class="view-section active">
+        
+        <!-- Momentum Visualizer -->
+        <div class="momentum-circle-card">
+          <div class="circle-container">
+            <svg class="progress-ring" width="160" height="160">
+              <circle class="progress-ring-bg" stroke-width="10" cx="80" cy="80" r="66" fill="transparent" />
+              <circle class="progress-ring-fill" id="momentum-progress-ring" stroke-width="10" cx="80" cy="80" r="66" fill="transparent" />
+            </svg>
+            <div class="circle-center-content">
+              <span class="dopamine-percentage" id="momentum-percentage">0%</span>
+              <span class="dopamine-label">Dopamine Score</span>
+            </div>
+          </div>
+
+          <div class="momentum-quick-stats">
+            <div class="stat-box">
+              <span class="stat-number" id="tasks-completed-stat">0</span>
+              <span class="stat-label">Micro-Steps Won</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-box">
+              <span class="stat-number" id="focus-minutes-stat">0m</span>
+              <span class="stat-label">Deep Focus</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Task Input Bar -->
+        <div class="task-input-card">
+          <div class="task-input-row">
+            <input type="text" id="quick-task-input" class="task-input" placeholder="What's causing friction? e.g. Clean kitchen" autocomplete="off">
+            <button class="add-task-btn" id="add-task-btn" title="Add Task">+</button>
+          </div>
+          <div class="task-input-hint">
+            💡 Stuck? Tap <strong>"Break Down"</strong> on any task to auto-split it into 3-minute steps!
+          </div>
+        </div>
+
+        <!-- Active Focus List -->
+        <div class="section-title-row">
+          <h3>Your Focus Queue</h3>
+          <span class="queue-badge" id="queue-count">0 items</span>
+        </div>
+
+        <div class="task-list" id="task-list">
+          <!-- Dynamically populated -->
+        </div>
+
+      </section>
+
+      <!-- ============================================== -->
+      <!-- VIEW 2: DOPAMINE TIMER / FOCUS LOCK -->
+      <!-- ============================================== -->
+      <section id="view-timer" class="view-section">
+        <div class="timer-card">
+          <div class="timer-mode-pills">
+            <button class="timer-pill active" data-time="3">⚡ 3m Micro-Sprint</button>
+            <button class="timer-pill" data-time="15">🔥 15m Flow</button>
+            <button class="timer-pill" data-time="25">🧠 25m Deep Work</button>
+          </div>
+
+          <div class="big-timer-display" id="big-timer-display">03:00</div>
+          <div class="timer-current-task" id="timer-task-label">Current: 3-Minute Initiation Sprint</div>
+
+          <div class="timer-controls-row">
+            <button class="timer-circle-btn play-btn" id="timer-toggle-btn">▶ START</button>
+            <button class="timer-circle-btn reset-btn" id="timer-reset-btn">↺</button>
+          </div>
+        </div>
+
+        <!-- Brain Wave & Soundscape Toggle in Timer -->
+        <div class="audio-control-card">
+          <div class="audio-header">
+            <span class="audio-icon">🎧</span>
+            <div>
+              <strong>ADHD Gamma Focus Audio (40Hz)</strong>
+              <div class="audio-sub">Synthesized binaural beats to synchronize prefrontal cortex</div>
+            </div>
+          </div>
+          <button class="sound-toggle-btn" id="gamma-toggle-btn">
+            Play Gamma Beats 🔊
+          </button>
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- VIEW 3: BRAIN DUMP & DECONSTRUCTOR -->
+      <!-- ============================================== -->
+      <section id="view-dump" class="view-section">
+        <div class="brain-dump-card">
+          <h3>🧠 Executive Dysfunction Deconstructor</h3>
+          <p class="dump-sub">When you feel paralyzed or overwhelmed, brain-dump everything here. Our algorithm splits it into gentle 3-minute micro-actions.</p>
+          <textarea id="brain-dump-textarea" class="brain-dump-input" placeholder="e.g. I have to study for my exam, clean my room, reply to emails, and make dinner..."></textarea>
+          <button class="btn btn-primary" id="deconstruct-btn" style="width:100%;margin-top:0.75rem;">
+            ⚡ Auto-Break Down into 3-Minute Steps
+          </button>
+        </div>
+
+        <div id="deconstructed-results-area" style="display:none;margin-top:1.5rem;">
+          <h4 style="color:#38bdf8;margin-bottom:0.75rem;">Generated Micro-Steps (Added to Queue):</h4>
+          <div class="task-list" id="deconstructed-list"></div>
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- VIEW 4: BINAURAL SOUNDSCAPES -->
+      <!-- ============================================== -->
+      <section id="view-sounds" class="view-section">
+        <div class="sound-library-header">
+          <h3>ADHD Soundscapes</h3>
+          <p>Real-time synthesized audio designed to quiet internal ADHD hyperactivity.</p>
+        </div>
+
+        <div class="sound-grid">
+          <div class="sound-card" data-sound="brown">
+            <div class="sound-card-header">
+              <span class="sound-emoji">🌊</span>
+              <div>
+                <h4>Pure Brown Noise</h4>
+                <span>Deep waterfall rumble for silencing racing thoughts</span>
+              </div>
+            </div>
+            <button class="sound-btn" data-type="brown">Play Brown Noise</button>
+          </div>
+
+          <div class="sound-card" data-sound="gamma">
+            <div class="sound-card-header">
+              <span class="sound-emoji">⚡</span>
+              <div>
+                <h4>40 Hz Gamma Focus</h4>
+                <span>Binaural beats proven for working memory in ADHD</span>
+              </div>
+            </div>
+            <button class="sound-btn" data-type="gamma">Play 40Hz Gamma</button>
+          </div>
+
+          <div class="sound-card" data-sound="alpha">
+            <div class="sound-card-header">
+              <span class="sound-emoji">🍃</span>
+              <div>
+                <h4>10 Hz Alpha Calm</h4>
+                <span>Smooth rhythm to dissolve task anxiety and paralysis</span>
+              </div>
+            </div>
+            <button class="sound-btn" data-type="alpha">Play 10Hz Alpha</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================== -->
+      <!-- VIEW 5: STORE / MONETIZATION & PRO -->
+      <!-- ============================================== -->
+      <section id="view-pro" class="view-section">
+        <div class="pro-showcase-card">
+          <div class="pro-badge-glamour">👑 MOMENTUM PRO</div>
+          <h2>Master Your Executive Functioning</h2>
+          <p class="pro-sub">Unlock unlimited AI micro-step deconstruction, all binaural soundscapes, cloud sync, and an ad-free flow state.</p>
+
+          <div class="pro-features-list">
+            <div class="pro-feature-row">
+              <span class="check-icon">✓</span>
+              <div>
+                <strong>Unlimited 3-Minute Deconstruction</strong>
+                <span>Never get paralyzed by an overwhelming project again</span>
+              </div>
+            </div>
+            <div class="pro-feature-row">
+              <span class="check-icon">✓</span>
+              <div>
+                <strong>All 6 Binaural &amp; Soundscape Engines</strong>
+                <span>Custom Hz frequency tuning and offline sleep mode</span>
+              </div>
+            </div>
+            <div class="pro-feature-row">
+              <span class="check-icon">✓</span>
+              <div>
+                <strong>100% Ad-Free Experience</strong>
+                <span>Zero interruptions during your deep focus sprints</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pricing-plans-row">
+            <div class="plan-card active" data-plan="monthly">
+              <div class="plan-name">Monthly</div>
+              <div class="plan-price">$3.99<span>/mo</span></div>
+              <div class="plan-trial">Cancel anytime</div>
+            </div>
+            <div class="plan-card popular" data-plan="annual">
+              <div class="best-value-pill">BEST VALUE</div>
+              <div class="plan-name">Annual Pro</div>
+              <div class="plan-price">$29.99<span>/yr</span></div>
+              <div class="plan-trial">Just $2.49/mo (Save 38%)</div>
+            </div>
+          </div>
+
+          <button class="btn btn-primary buy-pro-btn" id="subscribe-pro-btn">
+            Unlock Momentum Pro 🚀
+          </button>
+
+          <!-- Rewarded Ad Monetization Slot -->
+          <div class="rewarded-ad-box">
+            <span>Want 24 Hours of Pro for Free?</span>
+            <button class="btn btn-outline rewarded-ad-btn" id="watch-rewarded-ad-btn">
+              📺 Watch a 15s Ad to Unlock Pro Today
+            </button>
+          </div>
+
+          <p class="legal-note">Secure Google Play Billing · Instant Activation · Family Sharing Eligible</p>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav">
+      <button class="nav-item active" data-view="view-today">
+        <span class="nav-icon">🎯</span>
+        <span class="nav-label">Today</span>
+      </button>
+      <button class="nav-item" data-view="view-timer">
+        <span class="nav-icon">⏱️</span>
+        <span class="nav-label">Timer</span>
+      </button>
+      <button class="nav-item" data-view="view-dump">
+        <span class="nav-icon">🧠</span>
+        <span class="nav-label">Deconstruct</span>
+      </button>
+      <button class="nav-item" data-view="view-sounds">
+        <span class="nav-icon">🎧</span>
+        <span class="nav-label">Sounds</span>
+      </button>
+      <button class="nav-item" data-view="view-pro">
+        <span class="nav-icon">👑</span>
+        <span class="nav-label">Pro</span>
+      </button>
+    </nav>
+
+  </div>
+
+  <!-- Audio Synthesizer Engine -->
+  <script src="js/audioEngine.js"></script>
+  <!-- Google Play Store & AdMob In-App Billing Layer -->
+  <script src="js/storeManager.js"></script>
+  <!-- Main Application Logic -->
+  <script src="js/app.js"></script>
+</body>
+</html>

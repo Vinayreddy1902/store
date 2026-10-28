@@ -1,339 +1,1700 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Momentum — ADHD Focus &amp; Dopamine Planner</title>
-  <meta name="theme-color" content="#0b0e14">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self' blob:; connect-src 'self';">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self' blob:; connect-src 'self';">
+  <title>Momentum — ADHD Executive Function & 3-Min Sprint Engine</title>
+  <meta name="theme-color" content="#0B0F19" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0B0F19;
+      --card: #131B2E;
+      --card-hover: #1A2540;
+      --border: rgba(255, 255, 255, 0.08);
+      --primary: #7C3AED;
+      --primary-glow: rgba(124, 58, 237, 0.35);
+      --accent: #10B981;
+      --accent-glow: rgba(16, 185, 129, 0.25);
+      --amber: #F59E0B;
+      --danger: #EF4444;
+      --text: #F8FAFC;
+      --muted: #94A3B8;
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      overflow-x: hidden;
+    }
+
+    .app-shell {
+      width: 100%;
+      max-width: 480px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 88px;
+      position: relative;
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px 12px;
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(11, 15, 25, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pro-badge-header {
+      font-size: 0.65rem;
+      padding: 2px 6px;
+      border-radius: 6px;
+      background: linear-gradient(135deg, #F59E0B, #D97706);
+      color: #000;
+      font-weight: 800;
+      display: none;
+    }
+
+    .streak-pill {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      color: #FBBF24;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    /* KDP BANNER */
+    .kdp-banner {
+      margin: 12px 16px 4px;
+      padding: 12px 14px;
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.18), rgba(16, 185, 129, 0.12));
+      border: 1px solid rgba(124, 58, 237, 0.35);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+    }
+
+    .kdp-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .kdp-text {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .kdp-text strong {
+      font-size: 0.82rem;
+      color: #E2E8F0;
+    }
+
+    .kdp-text span {
+      font-size: 0.73rem;
+      color: var(--muted);
+    }
+
+    .kdp-btn {
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 7px 11px;
+      border-radius: 9px;
+      white-space: nowrap;
+      transition: transform 0.15s ease;
+    }
+
+    .kdp-btn:active {
+      transform: scale(0.96);
+    }
+
+    .kdp-close {
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 0.9rem;
+      cursor: pointer;
+      padding: 2px 4px;
+    }
+
+    /* MAIN SECTIONS */
+    main {
+      flex: 1;
+      padding: 12px 16px;
+    }
+
+    .tab-section {
+      display: none;
+      animation: fadeIn 0.22s ease;
+    }
+
+    .tab-section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* DOPAMINE DASHBOARD CARD */
+    .stats-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    }
+
+    .dopamine-ring-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .dopamine-circle {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: conic-gradient(var(--accent) 0%, rgba(255,255,255,0.08) 0%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transition: background 0.3s ease;
+    }
+
+    .dopamine-circle::before {
+      content: '';
+      position: absolute;
+      width: 46px;
+      height: 46px;
+      background: var(--card);
+      border-radius: 50%;
+    }
+
+    .dopamine-val {
+      position: relative;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .dopamine-label {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .dopamine-label strong {
+      font-size: 0.9rem;
+    }
+
+    .dopamine-label span {
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    .mini-metrics {
+      display: flex;
+      gap: 16px;
+      text-align: right;
+    }
+
+    .metric-box span:first-child {
+      display: block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .metric-box span:last-child {
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    /* INPUT BAR */
+    .task-input-wrap {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px;
+      margin-bottom: 16px;
+    }
+
+    .input-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .input-row input {
+      flex: 1;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 11px 13px;
+      color: #fff;
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    .input-row input:focus {
+      border-color: var(--primary);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 0 16px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+
+    .btn-primary:active {
+      opacity: 0.85;
+    }
+
+    .tip-bar {
+      margin-top: 9px;
+      font-size: 0.75rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* QUEUE HEADER */
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .section-head h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .queue-count {
+      font-size: 0.75rem;
+      color: var(--muted);
+      background: rgba(255,255,255,0.05);
+      padding: 3px 9px;
+      border-radius: 99px;
+    }
+
+    /* TASK LIST */
+    .task-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .task-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      transition: all 0.2s ease;
+    }
+
+    .task-item.completed {
+      opacity: 0.45;
+      text-decoration: line-through;
+    }
+
+    .check-btn {
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      border: 2px solid var(--primary);
+      background: transparent;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      font-size: 0.8rem;
+    }
+
+    .task-item.completed .check-btn {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .task-title {
+      flex: 1;
+      font-size: 0.88rem;
+      line-height: 1.35;
+    }
+
+    .task-actions {
+      display: flex;
+      gap: 6px;
+    }
+
+    .action-chip {
+      background: rgba(124, 58, 237, 0.15);
+      border: 1px solid rgba(124, 58, 237, 0.35);
+      color: #C4B5FD;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 5px 8px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .action-chip.sprint {
+      background: rgba(16, 185, 129, 0.14);
+      border-color: rgba(16, 185, 129, 0.35);
+      color: #6EE7B7;
+    }
+
+    /* SPRINT TIMER SECTION */
+    .timer-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 16px;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .mode-pills {
+      display: flex;
+      gap: 6px;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+
+    .mode-pill {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 6px 11px;
+      border-radius: 99px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .mode-pill.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    .timer-ring-box {
+      position: relative;
+      width: 210px;
+      height: 210px;
+      margin: 0 auto 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .timer-svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg);
+    }
+
+    .timer-svg circle {
+      fill: none;
+      stroke-width: 8;
+      stroke-linecap: round;
+    }
+
+    .ring-bg {
+      stroke: rgba(255,255,255,0.07);
+    }
+
+    .ring-fg {
+      stroke: var(--primary);
+      stroke-dasharray: 597;
+      stroke-dashoffset: 0;
+      transition: stroke-dashoffset 0.5s linear;
+    }
+
+    .timer-digits {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 2.75rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .timer-sub {
+      font-size: 0.76rem;
+      color: var(--muted);
+      margin-top: 4px;
+      max-width: 160px;
+      line-height: 1.25;
+    }
+
+    .pacer-coach {
+      font-size: 0.8rem;
+      color: #A7F3D0;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      border-radius: 10px;
+      padding: 8px 12px;
+      margin-bottom: 16px;
+    }
+
+    .timer-controls {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .btn-large {
+      padding: 12px 26px;
+      border-radius: 12px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-start {
+      background: var(--accent);
+      color: #052E16;
+    }
+
+    .btn-reset {
+      background: rgba(255,255,255,0.08);
+      color: var(--text);
+    }
+
+    /* QUICK AUDIO CARD */
+    .quick-audio-bar {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .qa-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .qa-left strong {
+      font-size: 0.86rem;
+      display: block;
+    }
+
+    .qa-left span {
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+
+    .toggle-btn {
+      background: rgba(124, 58, 237, 0.2);
+      border: 1px solid var(--primary);
+      color: #DDD6FE;
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
+
+    .toggle-btn.playing {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #052E16;
+    }
+
+    /* DECONSTRUCTOR SECTION */
+    .decon-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .decon-card h3 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .decon-card p {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+
+    .preset-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .preset-chip {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      color: #CBD5E1;
+      font-size: 0.74rem;
+      padding: 6px 10px;
+      border-radius: 99px;
+      cursor: pointer;
+    }
+
+    .preset-chip:hover {
+      border-color: var(--primary);
+      color: #fff;
+    }
+
+    .energy-selector {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    .energy-btn {
+      flex: 1;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 7px;
+      border-radius: 8px;
+      font-size: 0.73rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .energy-btn.active {
+      border-color: var(--primary);
+      background: rgba(124, 58, 237, 0.18);
+      color: #fff;
+    }
+
+    textarea.brain-dump {
+      width: 100%;
+      min-height: 86px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px;
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.86rem;
+      resize: vertical;
+      margin-bottom: 10px;
+      outline: none;
+    }
+
+    /* SOUNDSCAPES */
+    .volume-bar {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .volume-bar span {
+      font-size: 0.8rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .volume-bar input[type="range"] {
+      flex: 1;
+      accent-color: var(--primary);
+    }
+
+    .sound-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .sound-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 13px 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .sound-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .sound-icon {
+      font-size: 1.45rem;
+    }
+
+    .sound-info h4 {
+      font-size: 0.88rem;
+      margin-bottom: 2px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .sound-info span {
+      font-size: 0.74rem;
+      color: var(--muted);
+      display: block;
+    }
+
+    .badge-ear {
+      font-size: 0.62rem;
+      background: rgba(255,255,255,0.08);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #CBD5E1;
+      font-weight: 500;
+    }
+
+    /* PRO SECTION */
+    .pro-card {
+      background: linear-gradient(160deg, #161F38 0%, #0E1424 100%);
+      border: 1px solid rgba(124, 58, 237, 0.4);
+      border-radius: var(--radius);
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .pro-pill {
+      display: inline-block;
+      background: rgba(245, 158, 11, 0.16);
+      color: #FBBF24;
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 99px;
+      margin-bottom: 10px;
+    }
+
+    .pro-card h2 {
+      font-size: 1.25rem;
+      margin-bottom: 6px;
+    }
+
+    .pro-card > p {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+
+    .feature-list {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .feature-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      background: rgba(255,255,255,0.03);
+      padding: 10px 12px;
+      border-radius: 11px;
+    }
+
+    .feature-item span.check {
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .feature-item strong {
+      display: block;
+      font-size: 0.84rem;
+    }
+
+    .feature-item small {
+      color: var(--muted);
+      font-size: 0.73rem;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .price-box {
+      background: rgba(255,255,255,0.04);
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 6px;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.15s ease;
+    }
+
+    .price-box.selected {
+      border-color: var(--primary);
+      background: rgba(124, 58, 237, 0.16);
+    }
+
+    .price-ribbon {
+      position: absolute;
+      top: -9px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: #052E16;
+      font-size: 0.58rem;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 99px;
+      white-space: nowrap;
+    }
+
+    .price-tier {
+      font-size: 0.73rem;
+      font-weight: 700;
+      color: #CBD5E1;
+      margin-bottom: 4px;
+    }
+
+    .price-amount {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .price-amount span {
+      font-size: 0.68rem;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .price-sub {
+      font-size: 0.64rem;
+      color: var(--muted);
+      margin-top: 4px;
+      line-height: 1.2;
+    }
+
+    .trial-box {
+      margin-top: 12px;
+      padding: 10px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.03);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.76rem;
+    }
+
+    /* BOTTOM NAV */
+    nav.bottom-nav {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      max-width: 480px;
+      background: rgba(13, 19, 34, 0.95);
+      backdrop-filter: blur(14px);
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      padding: 8px 6px 14px;
+      z-index: 40;
+    }
+
+    .nav-btn {
+      background: none;
+      border: none;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.68rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .nav-btn span.icon {
+      font-size: 1.2rem;
+    }
+
+    .nav-btn.active {
+      color: #fff;
+    }
+
+    .nav-btn.active span.icon {
+      transform: translateY(-2px);
+    }
+
+    /* TOAST MODAL */
+    .toast {
+      position: fixed;
+      bottom: 84px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: #1E293B;
+      border: 1px solid var(--accent);
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.25s ease;
+      z-index: 60;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  </style>
 </head>
 <body>
 
-  <div class="app-container">
-
-    <!-- Top Status / Header -->
-    <header class="app-header">
-      <div class="header-left">
-        <div class="user-greeting" id="greeting-text">Focus Mode, Champion ⚡</div>
-        <div class="streak-badge" id="streak-badge">
-          🔥 <strong id="streak-count">1</strong> Day Streak
-        </div>
+  <div class="app-shell">
+    <!-- HEADER -->
+    <header>
+      <div class="brand-title">
+        Focus Mode, Champion ⚡
+        <span id="proBadgeHeader" class="pro-badge-header">PRO</span>
       </div>
-      <div class="header-right">
-        <button class="pro-crown-btn" id="open-pro-btn" title="Unlock Momentum Pro">
-          👑 <span>PRO</span>
-        </button>
+      <div class="streak-pill">
+        🔥 <strong id="streakCount">1</strong> Day Streak
       </div>
     </header>
 
-    <!-- Cross-Sell Banner: Physical Amazon Book -->
-    <div class="amazon-book-banner" id="amazon-book-banner">
-      <div class="banner-icon">📖</div>
-      <div class="banner-text">
+    <!-- DISMISSIBLE KDP JOURNAL BANNER -->
+    <div class="kdp-banner" id="kdpBanner">
+      <div class="kdp-icon">📖</div>
+      <div class="kdp-text">
         <strong>The Official Companion Journal</strong>
-        <span>ADHD Focus &amp; Momentum Planner on Amazon</span>
+        <span>ADHD Focus & Momentum Planner on Amazon</span>
       </div>
-      <a href="https://www.amazon.com/dp/B0HPH294CZ" target="_blank" rel="noopener noreferrer" class="banner-cta">
+      <a class="kdp-btn" href="https://www.amazon.com/dp/B0HPH294CZ" target="_blank" rel="noopener noreferrer">
         Get Book ↗
       </a>
+      <button class="kdp-close" id="closeKdpBtn" title="Dismiss">✕</button>
     </div>
 
-    <!-- Main View Switcher -->
-    <main class="app-main">
-
-      <!-- ============================================== -->
-      <!-- VIEW 1: TODAY / MOMENTUM WHEEL -->
-      <!-- ============================================== -->
-      <section id="view-today" class="view-section active">
-        
-        <!-- Momentum Visualizer -->
-        <div class="momentum-circle-card">
-          <div class="circle-container">
-            <svg class="progress-ring" width="160" height="160">
-              <circle class="progress-ring-bg" stroke-width="10" cx="80" cy="80" r="66" fill="transparent" />
-              <circle class="progress-ring-fill" id="momentum-progress-ring" stroke-width="10" cx="80" cy="80" r="66" fill="transparent" />
-            </svg>
-            <div class="circle-center-content">
-              <span class="dopamine-percentage" id="momentum-percentage">0%</span>
-              <span class="dopamine-label">Dopamine Score</span>
+    <main>
+      <!-- TAB 1: FOCUS QUEUE -->
+      <section id="tab-queue" class="tab-section active">
+        <div class="stats-card">
+          <div class="dopamine-ring-wrap">
+            <div class="dopamine-circle" id="dopamineCircle">
+              <span class="dopamine-val" id="dopamineScore">0%</span>
+            </div>
+            <div class="dopamine-label">
+              <strong>Dopamine Score</strong>
+              <span id="dopamineStatus">Complete 1 micro-step!</span>
             </div>
           </div>
-
-          <div class="momentum-quick-stats">
-            <div class="stat-box">
-              <span class="stat-number" id="tasks-completed-stat">0</span>
-              <span class="stat-label">Micro-Steps Won</span>
+          <div class="mini-metrics">
+            <div class="metric-box">
+              <span id="stepsWonCount">0</span>
+              <span>Steps Won</span>
             </div>
-            <div class="stat-divider"></div>
-            <div class="stat-box">
-              <span class="stat-number" id="focus-minutes-stat">0m</span>
-              <span class="stat-label">Deep Focus</span>
+            <div class="metric-box">
+              <span id="focusMinsCount">0m</span>
+              <span>Deep Focus</span>
             </div>
           </div>
         </div>
 
-        <!-- Task Input Bar -->
-        <div class="task-input-card">
-          <div class="task-input-row">
-            <input type="text" id="quick-task-input" class="task-input" placeholder="What's causing friction? e.g. Clean kitchen" autocomplete="off">
-            <button class="add-task-btn" id="add-task-btn" title="Add Task">+</button>
+        <div class="task-input-wrap">
+          <div class="input-row">
+            <input type="text" id="newTaskInput" placeholder="What task feels heavy right now?" />
+            <button class="btn-primary" id="addTaskBtn">+ Add</button>
           </div>
-          <div class="task-input-hint">
-            💡 Stuck? Tap <strong>"Break Down"</strong> on any task to auto-split it into 3-minute steps!
+          <div class="tip-bar">
+            <span>💡 Tap <strong>"Break Down"</strong> on any task to split into 3-min steps</span>
           </div>
         </div>
 
-        <!-- Active Focus List -->
-        <div class="section-title-row">
+        <div class="section-head">
           <h3>Your Focus Queue</h3>
-          <span class="queue-badge" id="queue-count">0 items</span>
+          <span class="queue-count" id="queueCount">0 items</span>
         </div>
 
-        <div class="task-list" id="task-list">
-          <!-- Dynamically populated -->
-        </div>
-
+        <div class="task-list" id="taskList"></div>
       </section>
 
-      <!-- ============================================== -->
-      <!-- VIEW 2: DOPAMINE TIMER / FOCUS LOCK -->
-      <!-- ============================================== -->
-      <section id="view-timer" class="view-section">
+      <!-- TAB 2: 3-MIN SPRINT TIMER -->
+      <section id="tab-sprint" class="tab-section">
         <div class="timer-card">
-          <div class="timer-mode-pills">
-            <button class="timer-pill active" data-time="3">⚡ 3m Micro-Sprint</button>
-            <button class="timer-pill" data-time="15">🔥 15m Flow</button>
-            <button class="timer-pill" data-time="25">🧠 25m Deep Work</button>
+          <div class="mode-pills">
+            <button class="mode-pill active" data-seconds="180" data-label="3-Minute Initiation Sprint">⚡ 3m Ignite</button>
+            <button class="mode-pill" data-seconds="600" data-label="10-Minute Momentum Builder">🔥 10m Flow</button>
+            <button class="mode-pill" data-seconds="1500" data-label="25-Minute Deep Focus">🧠 25m Deep</button>
           </div>
 
-          <div class="big-timer-display" id="big-timer-display">03:00</div>
-          <div class="timer-current-task" id="timer-task-label">Current: 3-Minute Initiation Sprint</div>
+          <div class="timer-ring-box">
+            <svg class="timer-svg" viewBox="0 0 210 210">
+              <circle class="ring-bg" cx="105" cy="105" r="95"></circle>
+              <circle class="ring-fg" id="timerRingFg" cx="105" cy="105" r="95"></circle>
+            </svg>
+            <div class="timer-digits" id="timerDisplay">03:00</div>
+            <div class="timer-sub" id="activeSprintTask">Current: 3-Minute Initiation Sprint</div>
+          </div>
 
-          <div class="timer-controls-row">
-            <button class="timer-circle-btn play-btn" id="timer-toggle-btn">▶ START</button>
-            <button class="timer-circle-btn reset-btn" id="timer-reset-btn">↺</button>
+          <div class="pacer-coach" id="pacerCoach">
+            🎯 Rule #1: You have permission to stop after 3 minutes. Just start ugly.
+          </div>
+
+          <div class="timer-controls">
+            <button class="btn-large btn-start" id="startPauseBtn">Start Sprint</button>
+            <button class="btn-large btn-reset" id="resetTimerBtn">Reset</button>
           </div>
         </div>
 
-        <!-- Brain Wave & Soundscape Toggle in Timer -->
-        <div class="audio-control-card">
-          <div class="audio-header">
-            <span class="audio-icon">🎧</span>
+        <div class="quick-audio-bar">
+          <div class="qa-left">
+            <span style="font-size: 1.5rem;">🎧</span>
             <div>
               <strong>ADHD Gamma Focus Audio (40Hz)</strong>
-              <div class="audio-sub">Synthesized binaural beats to synchronize prefrontal cortex</div>
+              <span>Synthesized binaural beats to lock in prefrontal cortex</span>
             </div>
           </div>
-          <button class="sound-toggle-btn" id="gamma-toggle-btn">
-            Play Gamma Beats 🔊
-          </button>
+          <button class="toggle-btn" id="quickGammaBtn">Play 40Hz</button>
         </div>
       </section>
 
-      <!-- ============================================== -->
-      <!-- VIEW 3: BRAIN DUMP & DECONSTRUCTOR -->
-      <!-- ============================================== -->
-      <section id="view-dump" class="view-section">
-        <div class="brain-dump-card">
+      <!-- TAB 3: EXECUTIVE DYSFUNCTION DECONSTRUCTOR -->
+      <section id="tab-decon" class="tab-section">
+        <div class="decon-card">
           <h3>🧠 Executive Dysfunction Deconstructor</h3>
-          <p class="dump-sub">When you feel paralyzed or overwhelmed, brain-dump everything here. Our algorithm splits it into gentle 3-minute micro-actions.</p>
-          <textarea id="brain-dump-textarea" class="brain-dump-input" placeholder="e.g. I have to study for my exam, clean my room, reply to emails, and make dinner..."></textarea>
-          <button class="btn btn-primary" id="deconstruct-btn" style="width:100%;margin-top:0.75rem;">
-            ⚡ Auto-Break Down into 3-Minute Steps
-          </button>
-        </div>
+          <p>Too overwhelmed to think? Pick a quick preset or brain-dump your messy thoughts below. We'll slice it into gentle 3-minute micro-actions.</p>
 
-        <div id="deconstructed-results-area" style="display:none;margin-top:1.5rem;">
-          <h4 style="color:#38bdf8;margin-bottom:0.75rem;">Generated Micro-Steps (Added to Queue):</h4>
-          <div class="task-list" id="deconstructed-list"></div>
-        </div>
-      </section>
-
-      <!-- ============================================== -->
-      <!-- VIEW 4: BINAURAL SOUNDSCAPES -->
-      <!-- ============================================== -->
-      <section id="view-sounds" class="view-section">
-        <div class="sound-library-header">
-          <h3>ADHD Soundscapes</h3>
-          <p>Real-time synthesized audio designed to quiet internal ADHD hyperactivity.</p>
-        </div>
-
-        <div class="sound-grid">
-          <div class="sound-card" data-sound="brown">
-            <div class="sound-card-header">
-              <span class="sound-emoji">🌊</span>
-              <div>
-                <h4>Pure Brown Noise</h4>
-                <span>Deep waterfall rumble for silencing racing thoughts</span>
-              </div>
-            </div>
-            <button class="sound-btn" data-type="brown">Play Brown Noise</button>
+          <div class="preset-chips">
+            <button class="preset-chip" data-preset="Clean my messy bedroom and desk">🧹 Messy Room</button>
+            <button class="preset-chip" data-preset="Reply to overdue emails and messages">📧 Inbox Paralysis</button>
+            <button class="preset-chip" data-preset="Start studying or writing code for my project">💻 Study / Code Block</button>
+            <button class="preset-chip" data-preset="Pay bills and sort out paperwork">📄 Life Admin</button>
           </div>
 
-          <div class="sound-card" data-sound="gamma">
-            <div class="sound-card-header">
-              <span class="sound-emoji">⚡</span>
-              <div>
-                <h4>40 Hz Gamma Focus</h4>
-                <span>Binaural beats proven for working memory in ADHD</span>
-              </div>
-            </div>
-            <button class="sound-btn" data-type="gamma">Play 40Hz Gamma</button>
+          <div class="energy-selector">
+            <button class="energy-btn" data-energy="low">🪫 Low Battery (Ultra-Gentle)</button>
+            <button class="energy-btn active" data-energy="med">⚡ Normal (3-Min Steps)</button>
+            <button class="energy-btn" data-energy="high">🔥 Hyperfocus (Action Blitz)</button>
           </div>
 
-          <div class="sound-card" data-sound="alpha">
-            <div class="sound-card-header">
-              <span class="sound-emoji">🍃</span>
-              <div>
-                <h4>10 Hz Alpha Calm</h4>
-                <span>Smooth rhythm to dissolve task anxiety and paralysis</span>
-              </div>
-            </div>
-            <button class="sound-btn" data-type="alpha">Play 10Hz Alpha</button>
-          </div>
-
-          <div class="sound-card" data-sound="pink">
-            <div class="sound-card-header">
-              <span class="sound-emoji">🌧️</span>
-              <div>
-                <h4>Soft Pink Noise</h4>
-                <span>Gentle rain frequency that relaxes overstimulated brains</span>
-              </div>
-            </div>
-            <button class="sound-btn" data-type="pink">Play Pink Noise</button>
-          </div>
-
-          <div class="sound-card" data-sound="green">
-            <div class="sound-card-header">
-              <span class="sound-emoji">🌲</span>
-              <div>
-                <h4>Nature Green Noise</h4>
-                <span>500Hz woodland wind frequency for continuous focus</span>
-              </div>
-            </div>
-            <button class="sound-btn" data-type="green">Play Green Noise</button>
-          </div>
+          <textarea class="brain-dump" id="brainDumpInput" placeholder="e.g., I need to clean the kitchen, finish my assignment report, and reply to 3 emails..."></textarea>
+          <button class="btn-primary" id="deconstructBtn" style="width: 100%; padding: 12px;">✨ Split Into 3-Minute Micro-Steps</button>
         </div>
       </section>
 
-      <!-- ============================================== -->
-      <!-- VIEW 5: STORE / MONETIZATION & PRO -->
-      <!-- ============================================== -->
-      <section id="view-pro" class="view-section">
-        <div class="pro-showcase-card">
-          <div class="pro-badge-glamour">👑 MOMENTUM PRO</div>
+      <!-- TAB 4: ADHD SOUNDSCAPES (ALL 6 ENGINES) -->
+      <section id="tab-sounds" class="tab-section">
+        <div class="section-head">
+          <h3>ADHD Neural Soundscapes (All 6 Engines)</h3>
+        </div>
+        <div class="volume-bar">
+          <span>🔊 Master Volume</span>
+          <input type="range" id="masterVolume" min="0.05" max="1" step="0.05" value="0.4" />
+        </div>
+
+        <div class="sound-grid" id="soundGrid">
+          <!-- Populated dynamically with all 6 sound engines -->
+        </div>
+      </section>
+
+      <!-- TAB 5: MOMENTUM PRO -->
+      <section id="tab-pro" class="tab-section">
+        <div class="pro-card">
+          <div class="pro-pill">👑 MOMENTUM PRO</div>
           <h2>Master Your Executive Functioning</h2>
-          <p class="pro-sub">Unlock unlimited AI micro-step deconstruction, all binaural soundscapes, cloud sync, and an ad-free flow state.</p>
+          <p>Unlock unlimited micro-step deconstruction, all 6 neural soundscape engines, custom sprint durations, and an ad-free flow state.</p>
 
-          <div class="pro-features-list">
-            <div class="pro-feature-row">
-              <span class="check-icon">✓</span>
+          <div class="feature-list">
+            <div class="feature-item">
+              <span class="check">✓</span>
               <div>
                 <strong>Unlimited 3-Minute Deconstruction</strong>
-                <span>Never get paralyzed by an overwhelming project again</span>
+                <small>Energy-adaptive task slicing when paralysis hits</small>
               </div>
             </div>
-            <div class="pro-feature-row">
-              <span class="check-icon">✓</span>
+            <div class="feature-item">
+              <span class="check">✓</span>
               <div>
-                <strong>All 6 Binaural &amp; Soundscape Engines</strong>
-                <span>Custom Hz frequency tuning and offline sleep mode</span>
+                <strong>All 6 Binaural & Soundscape Engines</strong>
+                <small>Brown, Pink, Green noise + 40Hz Gamma, 14Hz Beta & 10Hz Alpha</small>
               </div>
             </div>
-            <div class="pro-feature-row">
-              <span class="check-icon">✓</span>
+            <div class="feature-item">
+              <span class="check">✓</span>
               <div>
-                <strong>100% Ad-Free Experience</strong>
-                <span>Zero interruptions during your deep focus sprints</span>
+                <strong>100% Ad-Free Experience + Cloud Backup</strong>
+                <small>Zero interruptions during your deep focus sprints</small>
               </div>
             </div>
           </div>
 
-          <div class="pricing-plans-row">
-            <div class="plan-card" data-plan="monthly">
-              <div class="plan-name">Monthly</div>
-              <div class="plan-price">$3.99<span>/mo</span></div>
-              <div class="plan-trial">Cancel anytime</div>
+          <!-- FIXED PRICING LADDER -->
+          <div class="pricing-grid" id="pricingGrid">
+            <div class="price-box" data-plan="monthly" data-price="$3.99/mo">
+              <div class="price-tier">Monthly</div>
+              <div class="price-amount">$3.99<span>/mo</span></div>
+              <div class="price-sub">Cancel anytime</div>
             </div>
-            <div class="plan-card popular active" data-plan="annual">
-              <div class="best-value-pill">BEST VALUE</div>
-              <div class="plan-name">Annual Pro</div>
-              <div class="plan-price">$29.99<span>/yr</span></div>
-              <div class="plan-trial">Just $2.49/mo (Save 38%)</div>
+
+            <div class="price-box selected" data-plan="annual" data-price="$19.99/yr">
+              <div class="price-ribbon">SAVE 58%</div>
+              <div class="price-tier">Annual Pro</div>
+              <div class="price-amount">$19.99<span>/yr</span></div>
+              <div class="price-sub">Just $1.66/mo</div>
             </div>
-            <div class="plan-card lifetime" data-plan="lifetime">
-              <div class="best-value-pill" style="background:#10b981;color:#fff;">LIFETIME</div>
-              <div class="plan-name">Forever VIP</div>
-              <div class="plan-price">$19.99</div>
-              <div class="plan-trial">Pay once, own forever</div>
+
+            <div class="price-box" data-plan="lifetime" data-price="$39.99 once">
+              <div class="price-ribbon" style="background:#F59E0B;">FOREVER VIP</div>
+              <div class="price-tier">Lifetime</div>
+              <div class="price-amount">$39.99</div>
+              <div class="price-sub">Pay once, own forever</div>
             </div>
           </div>
 
-          <button class="btn btn-primary buy-pro-btn" id="subscribe-pro-btn">
-            Unlock Momentum Pro 🚀
+          <button class="btn-primary" id="unlockProBtn" style="width:100%; padding: 14px; font-size: 0.95rem;">
+            Unlock Annual Pro ($19.99/yr)
           </button>
 
-          <!-- Rewarded Ad Monetization Slot -->
-          <div class="rewarded-ad-box">
-            <span>Want 24 Hours of Pro for Free?</span>
-            <button class="btn btn-outline rewarded-ad-btn" id="watch-rewarded-ad-btn">
-              📺 Watch a 15s Ad to Unlock Pro Today
-            </button>
+          <div class="trial-box">
+            <span>🎁 Need immediate relief right now?</span>
+            <button class="action-chip sprint" id="freePassBtn">Activate 24h Free Pass</button>
           </div>
 
-          <p class="legal-note">Secure Google Play Billing · Instant Activation · Family Sharing Eligible</p>
+          <p style="margin-top: 12px; font-size: 0.7rem;">Instant Activation · Cancel Anytime · Cross-Device Ready</p>
         </div>
       </section>
-
     </main>
 
-    <!-- Celebration Modal / Dopamine Notification -->
-    <div class="dopamine-toast" id="dopamine-toast">
-      <div class="toast-icon" id="toast-icon">⚡</div>
-      <div class="toast-content">
-        <strong id="toast-title">Sprint Complete!</strong>
-        <p id="toast-message">Task initiation resistance shattered.</p>
-      </div>
-      <button class="toast-close" id="toast-close-btn">✕</button>
-    </div>
+    <!-- TOAST -->
+    <div class="toast" id="toast">⚡ Added to your Focus Queue!</div>
 
-    <!-- Bottom Navigation Bar -->
+    <!-- BOTTOM NAVIGATION -->
     <nav class="bottom-nav">
-      <button class="nav-item active" data-view="view-today">
-        <span class="nav-icon">🎯</span>
-        <span class="nav-label">Today</span>
+      <button class="nav-btn active" data-target="tab-queue">
+        <span class="icon">✅</span>
+        <span>Queue</span>
       </button>
-      <button class="nav-item" data-view="view-timer">
-        <span class="nav-icon">⏱️</span>
-        <span class="nav-label">Timer</span>
+      <button class="nav-btn" data-target="tab-sprint">
+        <span class="icon">⏱️</span>
+        <span>Sprint</span>
       </button>
-      <button class="nav-item" data-view="view-dump">
-        <span class="nav-icon">🧠</span>
-        <span class="nav-label">Deconstruct</span>
+      <button class="nav-btn" data-target="tab-decon">
+        <span class="icon">🧠</span>
+        <span>Deconstruct</span>
       </button>
-      <button class="nav-item" data-view="view-sounds">
-        <span class="nav-icon">🎧</span>
-        <span class="nav-label">Sounds</span>
+      <button class="nav-btn" data-target="tab-sounds">
+        <span class="icon">🎧</span>
+        <span>Audio</span>
       </button>
-      <button class="nav-item" data-view="view-pro">
-        <span class="nav-icon">👑</span>
-        <span class="nav-label">Pro</span>
+      <button class="nav-btn" data-target="tab-pro">
+        <span class="icon">👑</span>
+        <span>Pro</span>
       </button>
     </nav>
-
   </div>
 
-  <!-- Audio Synthesizer Engine -->
-  <script src="js/audioEngine.js"></script>
+  <script>
+    // --- STATE & STORAGE ---
+    const STORAGE_KEY = 'momentum_v2_state';
+    const defaultTasks = [
+      { id: 1, title: 'Drink 1 glass of water & take 1 deep breath (3m)', completed: false },
+      { id: 2, title: 'Clear just 3 items off your desk surface (3m)', completed: false },
+      { id: 3, title: 'Tap "Break Down" on a task to see micro-steps in action', completed: false }
+    ];
+
+    let state = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
+      streak: 1,
+      stepsWon: 0,
+      focusMins: 0,
+      dopamine: 15,
+      isPro: false,
+      kdpDismissed: false,
+      energy: 'med',
+      tasks: defaultTasks
+    };
+
+    function saveState() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      renderStats();
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      if (navigator.vibrate) {
+        try { navigator.vibrate([30, 40, 50]); } catch(e) {}
+      }
+      setTimeout(() => t.classList.remove('show'), 2600);
+    }
+
+    // --- NAVIGATION ---
+    const navBtns = document.querySelectorAll('.nav-btn');
+    const sections = document.querySelectorAll('.tab-section');
+
+    function switchTab(targetId) {
+      sections.forEach(s => s.classList.toggle('active', s.id === targetId));
+      navBtns.forEach(b => b.classList.toggle('active', b.dataset.target === targetId));
+    }
+
+    navBtns.forEach(btn => {
+      btn.addEventListener('click', () => switchTab(btn.dataset.target));
+    });
+
+    // --- KDP BANNER ---
+    const kdpBanner = document.getElementById('kdpBanner');
+    if (state.kdpDismissed) kdpBanner.style.display = 'none';
+    document.getElementById('closeKdpBtn').addEventListener('click', () => {
+      state.kdpDismissed = true;
+      kdpBanner.style.display = 'none';
+      saveState();
+    });
+
+    // --- STATS & DOPAMINE RING ---
+    function renderStats() {
+      const score = Math.min(100, state.dopamine);
+      document.getElementById('dopamineScore').textContent = score + '%';
+      document.getElementById('stepsWonCount').textContent = state.stepsWon;
+      document.getElementById('focusMinsCount').textContent = state.focusMins + 'm';
+      document.getElementById('streakCount').textContent = state.streak;
+
+      const circle = document.getElementById('dopamineCircle');
+      circle.style.background = `conic-gradient(var(--accent) ${score}%, rgba(255,255,255,0.08) ${score}%)`;
+
+      const statusEl = document.getElementById('dopamineStatus');
+      if (score >= 80) statusEl.textContent = '🔥 Unstoppable Flow State!';
+      else if (score >= 40) statusEl.textContent = '⚡ Momentum Building Fast';
+      else statusEl.textContent = 'Complete 1 micro-step!';
+
+      if (state.isPro) {
+        document.getElementById('proBadgeHeader').style.display = 'inline-block';
+      }
+    }
+
+    // --- TASK QUEUE ---
+    function renderTasks() {
+      const list = document.getElementById('taskList');
+      const activeCount = state.tasks.filter(t => !t.completed).length;
+      document.getElementById('queueCount').textContent = `${activeCount} active`;
+
+      if (state.tasks.length === 0) {
+        list.innerHTML = `<div style="text-align:center; padding:24px; color:var(--muted); font-size:0.84rem;">Queue clear! Add a task above or use the Deconstructor tab.</div>`;
+        return;
+      }
+
+      list.innerHTML = '';
+      state.tasks.forEach(task => {
+        const row = document.createElement('div');
+        row.className = 'task-item' + (task.completed ? ' completed' : '');
+        row.innerHTML = `
+          <button class="check-btn" data-id="${task.id}">${task.completed ? '✓' : ''}</button>
+          <div class="task-title">${task.title}</div>
+          ${!task.completed ? `
+            <div class="task-actions">
+              <button class="action-chip" data-breakdown="${task.id}">Break Down</button>
+              <button class="action-chip sprint" data-sprint="${task.id}">3m Sprint</button>
+            </div>
+          ` : ''}
+        `;
+        list.appendChild(row);
+      });
+    }
+
+    document.getElementById('addTaskBtn').addEventListener('click', addNewTask);
+    document.getElementById('newTaskInput').addEventListener('keydown', e => {
+      if (e.key === 'Enter') addNewTask();
+    });
+
+    function addNewTask() {
+      const input = document.getElementById('newTaskInput');
+      const val = input.value.trim();
+      if (!val) return;
+      state.tasks.unshift({ id: Date.now(), title: val, completed: false });
+      input.value = '';
+      saveState();
+      renderTasks();
+      showToast('⚡ Task added to Focus Queue');
+    }
+
+    document.getElementById('taskList').addEventListener('click', e => {
+      const checkId = e.target.getAttribute('data-id');
+      const breakId = e.target.getAttribute('data-breakdown');
+      const sprintId = e.target.getAttribute('data-sprint');
+
+      if (checkId) {
+        const t = state.tasks.find(x => x.id == checkId);
+        if (t) {
+          t.completed = !t.completed;
+          if (t.completed) {
+            state.stepsWon += 1;
+            state.dopamine = Math.min(100, state.dopamine + 18);
+            playSuccessChime();
+            showToast('🎉 +18% Dopamine! Micro-step crushed.');
+          }
+          saveState();
+          renderTasks();
+        }
+      }
+
+      if (breakId) {
+        const idx = state.tasks.findIndex(x => x.id == breakId);
+        if (idx > -1) {
+          const orig = state.tasks[idx].title.replace(/\s*\(3m\)$/i, '');
+          const microSteps = generateMicroSteps(orig, state.energy);
+          state.tasks.splice(idx, 1, ...microSteps.map((m, i) => ({
+            id: Date.now() + i,
+            title: m,
+            completed: false
+          })));
+          saveState();
+          renderTasks();
+          showToast('🧠 Split into 3 gentle micro-steps!');
+        }
+      }
+
+      if (sprintId) {
+        const t = state.tasks.find(x => x.id == sprintId);
+        if (t) {
+          document.getElementById('activeSprintTask').textContent = `Focusing on: ${t.title}`;
+          switchTab('tab-sprint');
+        }
+      }
+    });
+
+    // --- DECONSTRUCTOR ENGINE ---
+    function generateMicroSteps(rawText, energy) {
+      const clean = rawText.trim();
+      if (energy === 'low') {
+        return [
+          `Step 1 (Low Energy): Sit near "${clean}" & take 2 deep breaths (2m)`,
+          `Step 2: Touch or open just the first item for "${clean}" (3m)`,
+          `Step 3: Do 2 minutes of ugly progress—permission to stop after (2m)`
+        ];
+      } else if (energy === 'high') {
+        return [
+          `Step 1 (Blitz): Clear workspace & open tools for "${clean}" (3m)`,
+          `Step 2: Knock out the core 80% draft of "${clean}" (5m)`,
+          `Step 3: Final review & check off "${clean}" (3m)`
+        ];
+      }
+      return [
+        `Step 1: Set up environment / open tools for "${clean}" (3m)`,
+        `Step 2: Complete the easiest 20% starter chunk of "${clean}" (3m)`,
+        `Step 3: Finish 1 more small piece or wrap up "${clean}" (3m)`
+      ];
+    }
+
+    document.querySelectorAll('.preset-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        document.getElementById('brainDumpInput').value = chip.dataset.preset;
+      });
+    });
+
+    document.querySelectorAll('.energy-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.energy-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        state.energy = btn.dataset.energy;
+        saveState();
+      });
+    });
+
+    document.getElementById('deconstructBtn').addEventListener('click', () => {
+      const dump = document.getElementById('brainDumpInput').value.trim();
+      if (!dump) {
+        showToast('💡 Type a task or tap a preset chip above first!');
+        return;
+      }
+      const chunks = dump.split(/[,.\n]+/).map(s => s.trim()).filter(Boolean);
+      let generated = [];
+      chunks.forEach(c => {
+        generated.push(...generateMicroSteps(c, state.energy));
+      });
+      generated.reverse().forEach((g, idx) => {
+        state.tasks.unshift({ id: Date.now() + idx, title: g, completed: false });
+      });
+      document.getElementById('brainDumpInput').value = '';
+      saveState();
+      renderTasks();
+      switchTab('tab-queue');
+      showToast(`✨ Added ${generated.length} micro-steps to your Queue!`);
+    });
+
+    // --- SPRINT TIMER ---
+    let totalSeconds = 180;
+    let remainingSeconds = 180;
+    let timerInterval = null;
+    const ringFg = document.getElementById('timerRingFg');
+    const CIRCUMFERENCE = 597;
+
+    function updateTimerUI() {
+      const m = String(Math.floor(remainingSeconds / 60)).padStart(2, '0');
+      const s = String(remainingSeconds % 60).padStart(2, '0');
+      document.getElementById('timerDisplay').textContent = `${m}:${s}`;
+      const offset = CIRCUMFERENCE - (remainingSeconds / totalSeconds) * CIRCUMFERENCE;
+      ringFg.style.strokeDashoffset = offset;
+
+      const coach = document.getElementById('pacerCoach');
+      const ratio = remainingSeconds / totalSeconds;
+      if (ratio > 0.7) coach.textContent = '🎯 Just start ugly. Perfection is the enemy of initiation.';
+      else if (ratio > 0.3) coach.textContent = '⚡ You passed friction! Stay with this single micro-step.';
+      else coach.textContent = '🏁 Final stretch! Keep moving until the chime.';
+    }
+
+    document.querySelectorAll('.mode-pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        clearInterval(timerInterval);
+        timerInterval = null;
+        document.getElementById('startPauseBtn').textContent = 'Start Sprint';
+        document.querySelectorAll('.mode-pill').forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        totalSeconds = parseInt(pill.dataset.seconds, 10);
+        remainingSeconds = totalSeconds;
+        document.getElementById('activeSprintTask').textContent = `Current: ${pill.dataset.label}`;
+        updateTimerUI();
+      });
+    });
+
+    document.getElementById('startPauseBtn').addEventListener('click', () => {
+      const btn = document.getElementById('startPauseBtn');
+      if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+        btn.textContent = 'Resume Sprint';
+      } else {
+        btn.textContent = 'Pause';
+        timerInterval = setInterval(() => {
+          remainingSeconds--;
+          updateTimerUI();
+          if (remainingSeconds <= 0) {
+            clearInterval(timerInterval);
+            timerInterval = null;
+            btn.textContent = 'Start Sprint';
+            const minsWon = Math.max(1, Math.round(totalSeconds / 60));
+            state.focusMins += minsWon;
+            state.dopamine = Math.min(100, state.dopamine + 25);
+            saveState();
+            playSuccessChime();
+            showToast(`⚡ Sprint Complete! +${minsWon}m Deep Focus & +25% Dopamine!`);
+            remainingSeconds = totalSeconds;
+            updateTimerUI();
+          }
+        }, 1000);
+      }
+    });
+
+    document.getElementById('resetTimerBtn').addEventListener('click', () => {
+      clearInterval(timerInterval);
+      timerInterval = null;
+      remainingSeconds = totalSeconds;
+      document.getElementById('startPauseBtn').textContent = 'Start Sprint';
+      updateTimerUI();
+    });
+
+    // --- WEB AUDIO SYNTHESIZER (ALL 6 SOUNDSCAPE ENGINES) ---
+    const soundscapes = [
+      { id: 'brown', icon: '🌊', name: 'Pure Brown Noise', desc: 'Deep waterfall rumble for silencing racing thoughts', type: 'noise', color: 'brown' },
+      { id: 'gamma40', icon: '⚡', name: '40 Hz Gamma Focus', desc: 'Binaural beats for prefrontal working memory', type: 'binaural', base: 200, beat: 40, ear: true },
+      { id: 'beta14', icon: '🎯', name: '14 Hz SMR Beta Lock', desc: 'Sensory-motor rhythm for calm, sustained alertness', type: 'binaural', base: 180, beat: 14, ear: true },
+      { id: 'alpha10', icon: '🍃', name: '10 Hz Alpha Calm', desc: 'Smooth rhythm to dissolve task anxiety & paralysis', type: 'binaural', base: 160, beat: 10, ear: true },
+      { id: 'pink', icon: '🌧️', name: 'Soft Pink Noise', desc: 'Balanced rain-spectrum frequency for overstimulation', type: 'noise', color: 'pink' },
+      { id: 'green', icon: '🌲', name: 'Nature Green Noise', desc: '500Hz mid-spectrum woodland band for steady flow', type: 'noise', color: 'green' }
+    ];
+
+    let audioCtx = null;
+    let activeSoundId = null;
+    let activeNodes = [];
+    let masterGain = null;
+
+    function initAudio() {
+      if (!audioCtx) {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        audioCtx = new AudioContext();
+        masterGain = audioCtx.createGain();
+        masterGain.gain.value = parseFloat(document.getElementById('masterVolume').value);
+        masterGain.connect(audioCtx.destination);
+      }
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+    }
+
+    function stopCurrentSound() {
+      activeNodes.forEach(n => {
+        try { n.stop && n.stop(); n.disconnect && n.disconnect(); } catch (e) {}
+      });
+      activeNodes = [];
+      activeSoundId = null;
+      updateAudioButtons();
+    }
+
+    function playSoundscape(id) {
+      initAudio();
+      if (activeSoundId === id) {
+        stopCurrentSound();
+        return;
+      }
+      stopCurrentSound();
+      const cfg = soundscapes.find(s => s.id === id);
+      if (!cfg) return;
+
+      if (cfg.type === 'binaural') {
+        const leftOsc = audioCtx.createOscillator();
+        const rightOsc = audioCtx.createOscillator();
+        const merger = audioCtx.createChannelMerger(2);
+
+        leftOsc.frequency.value = cfg.base;
+        rightOsc.frequency.value = cfg.base + cfg.beat;
+
+        leftOsc.connect(merger, 0, 0);
+        rightOsc.connect(merger, 0, 1);
+        merger.connect(masterGain);
+
+        leftOsc.start();
+        rightOsc.start();
+        activeNodes.push(leftOsc, rightOsc, merger);
+      } else {
+        const bufferSize = 2 * audioCtx.sampleRate;
+        const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+        const output = noiseBuffer.getChannelData(0);
+        let lastOut = 0.0;
+        for (let i = 0; i < bufferSize; i++) {
+          const white = Math.random() * 2 - 1;
+          output[i] = (lastOut + (0.02 * white)) / 1.02;
+          lastOut = output[i];
+          output[i] *= 3.2;
+        }
+        const whiteNoise = audioCtx.createBufferSource();
+        whiteNoise.buffer = noiseBuffer;
+        whiteNoise.loop = true;
+
+        const filter = audioCtx.createBiquadFilter();
+        if (cfg.color === 'brown') {
+          filter.type = 'lowpass';
+          filter.frequency.value = 280;
+        } else if (cfg.color === 'pink') {
+          filter.type = 'lowpass';
+          filter.frequency.value = 950;
+        } else {
+          filter.type = 'bandpass';
+          filter.frequency.value = 500;
+          filter.Q.value = 1.2;
+        }
+
+        whiteNoise.connect(filter);
+        filter.connect(masterGain);
+        whiteNoise.start();
+        activeNodes.push(whiteNoise, filter);
+      }
+
+      activeSoundId = id;
+      if ('mediaSession' in navigator) {
+        navigator.mediaSession.metadata = new MediaMetadata({
+          title: cfg.name,
+          artist: 'Momentum ADHD Focus Engine',
+          album: 'Neural Soundscapes'
+        });
+      }
+      updateAudioButtons();
+    }
+
+    function playSuccessChime() {
+      try {
+        initAudio();
+        const osc = audioCtx.createOscillator();
+        const g = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(523.25, audioCtx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(783.99, audioCtx.currentTime + 0.18);
+        g.gain.setValueAtTime(0.2, audioCtx.currentTime);
+        g.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.35);
+        osc.connect(g);
+        g.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.36);
+      } catch (e) {}
+    }
+
+    function renderSoundscapes() {
+      const grid = document.getElementById('soundGrid');
+      grid.innerHTML = '';
+      soundscapes.forEach(s => {
+        const card = document.createElement('div');
+        card.className = 'sound-card';
+        card.innerHTML = `
+          <div class="sound-info">
+            <span class="sound-icon">${s.icon}</span>
+            <div>
+              <h4>${s.name} ${s.ear ? '<span class="badge-ear">🎧 Stereo</span>' : ''}</h4>
+              <span>${s.desc}</span>
+            </div>
+          </div>
+          <button class="toggle-btn" data-sound="${s.id}">Play</button>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function updateAudioButtons() {
+      document.querySelectorAll('[data-sound]').forEach(btn => {
+        const isPlaying = btn.dataset.sound === activeSoundId;
+        btn.classList.toggle('playing', isPlaying);
+        btn.textContent = isPlaying ? 'Stop ■' : 'Play ▶';
+      });
+      const qBtn = document.getElementById('quickGammaBtn');
+      const gammaPlaying = activeSoundId === 'gamma40';
+      qBtn.classList.toggle('playing', gammaPlaying);
+      qBtn.textContent = gammaPlaying ? 'Stop 40Hz' : 'Play 40Hz';
+    }
+
+    document.getElementById('soundGrid').addEventListener('click', e => {
+      const sId = e.target.getAttribute('data-sound');
+      if (sId) playSoundscape(sId);
+    });
+
+    document.getElementById('quickGammaBtn').addEventListener('click', () => {
+      playSoundscape('gamma40');
+    });
+
+    document.getElementById('masterVolume').addEventListener('input', e => {
+      if (masterGain) masterGain.gain.value = parseFloat(e.target.value);
+    });
+
+    // --- PRO PRICING & 24H FREE PASS ---
+    const priceBoxes = document.querySelectorAll('.price-box');
+    const unlockBtn = document.getElementById('unlockProBtn');
+
+    priceBoxes.forEach(box => {
+      box.addEventListener('click', () => {
+        priceBoxes.forEach(b => b.classList.remove('selected'));
+        box.classList.add('selected');
+        const label = box.querySelector('.price-tier').textContent;
+        unlockBtn.textContent = `Unlock ${label} (${box.dataset.price})`;
+      });
+    });
+
+    unlockBtn.addEventListener('click', async () => {
+      unlockBtn.disabled = true;
+      unlockBtn.textContent = 'Connecting to Google Play...';
+      const selBox = document.querySelector('.price-box.selected');
+      const plan = selBox ? selBox.dataset.plan : 'annual';
+      
+      let res = { success: true };
+      if (window.storeManager) {
+        res = await window.storeManager.purchasePro(plan);
+      }
+      
+      state.isPro = true;
+      saveState();
+      showToast(res.message || '👑 Momentum Pro Activated! All features unlocked.');
+      unlockBtn.disabled = false;
+      unlockBtn.textContent = `Unlock ${selBox ? selBox.querySelector('.price-tier').textContent : 'Pro'}`;
+    });
+
+    document.getElementById('freePassBtn').addEventListener('click', async () => {
+      const btn = document.getElementById('freePassBtn');
+      btn.disabled = true;
+      btn.textContent = 'Loading Ad...';
+      if (window.storeManager) {
+        await window.storeManager.watchRewardedAd();
+      }
+      state.isPro = true;
+      saveState();
+      showToast('🎁 24-Hour Pro Pass Activated! Enjoy deep focus.');
+      btn.disabled = false;
+      btn.textContent = 'Activate 24h Free Pass';
+    });
+
+    // --- INIT ---
+    renderStats();
+    renderTasks();
+    renderSoundscapes();
+    updateTimerUI();
+  </script>
   <!-- Google Play Store & AdMob In-App Billing Layer -->
   <script src="js/storeManager.js"></script>
-  <!-- Main Application Logic -->
-  <script src="js/app.js"></script>
 </body>
 </html>

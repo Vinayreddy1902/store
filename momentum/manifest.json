@@ -1,0 +1,30 @@
+{
+  "name": "Momentum: ADHD Focus & 3-Min Sprint",
+  "short_name": "Momentum",
+  "description": "3-minute task initiation timer, executive dysfunction deconstructor, and synthesized neural soundscapes for ADHD.",
+  "start_url": "/store/momentum/index.html",
+  "scope": "/store/momentum/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0B0F19",
+  "theme_color": "#0B0F19",
+  "categories": [
+    "productivity",
+    "health",
+    "lifestyle"
+  ],
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

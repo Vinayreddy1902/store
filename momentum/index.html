@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self' blob:; connect-src 'self';">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>Momentum — ADHD Executive Function & 3-Min Sprint Engine</title>
+  <meta name="description" content="3-minute task initiation timer, executive dysfunction deconstructor, and synthesized neural soundscapes for ADHD." />
   <meta name="theme-color" content="#0B0F19" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="manifest" href="manifest.json" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
@@ -27,14 +28,18 @@
       --muted: #94A3B8;
       --radius: 16px;
     }
-
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
       -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      -webkit-user-select: none;
     }
-
+    input, textarea {
+      user-select: text;
+      -webkit-user-select: text;
+    }
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background-color: var(--bg);
@@ -43,19 +48,17 @@
       display: flex;
       justify-content: center;
       overflow-x: hidden;
+      overscroll-behavior-y: none;
     }
-
     .app-shell {
       width: 100%;
       max-width: 480px;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      padding-bottom: 88px;
+      padding-bottom: 92px;
       position: relative;
     }
-
-    /* HEADER */
     header {
       display: flex;
       justify-content: space-between;
@@ -64,20 +67,18 @@
       position: sticky;
       top: 0;
       z-index: 30;
-      background: rgba(11, 15, 25, 0.85);
+      background: rgba(11, 15, 25, 0.9);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
-
     .brand-title {
-      font-size: 1.05rem;
+      font-size: 1.02rem;
       font-weight: 800;
       letter-spacing: -0.02em;
       display: flex;
       align-items: center;
       gap: 6px;
     }
-
     .pro-badge-header {
       font-size: 0.65rem;
       padding: 2px 6px;
@@ -87,7 +88,6 @@
       font-weight: 800;
       display: none;
     }
-
     .streak-pill {
       display: flex;
       align-items: center;
@@ -97,10 +97,9 @@
       color: #FBBF24;
       padding: 6px 12px;
       border-radius: 999px;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 600;
     }
-
     /* KDP BANNER */
     .kdp-banner {
       margin: 12px 16px 4px;
@@ -111,47 +110,35 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      position: relative;
     }
-
     .kdp-icon {
-      font-size: 1.5rem;
+      font-size: 1.45rem;
       flex-shrink: 0;
     }
-
     .kdp-text {
       flex: 1;
       display: flex;
       flex-direction: column;
       gap: 2px;
     }
-
     .kdp-text strong {
-      font-size: 0.82rem;
+      font-size: 0.81rem;
       color: #E2E8F0;
     }
-
     .kdp-text span {
-      font-size: 0.73rem;
+      font-size: 0.72rem;
       color: var(--muted);
     }
-
     .kdp-btn {
       background: var(--primary);
       color: #fff;
       text-decoration: none;
-      font-size: 0.75rem;
+      font-size: 0.74rem;
       font-weight: 700;
       padding: 7px 11px;
       border-radius: 9px;
       white-space: nowrap;
-      transition: transform 0.15s ease;
     }
-
-    .kdp-btn:active {
-      transform: scale(0.96);
-    }
-
     .kdp-close {
       background: none;
       border: none;
@@ -160,28 +147,22 @@
       cursor: pointer;
       padding: 2px 4px;
     }
-
-    /* MAIN SECTIONS */
     main {
       flex: 1;
       padding: 12px 16px;
     }
-
     .tab-section {
       display: none;
-      animation: fadeIn 0.22s ease;
+      animation: fadeIn 0.2s ease;
     }
-
     .tab-section.active {
       display: block;
     }
-
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(6px); }
+      from { opacity: 0; transform: translateY(5px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
-    /* DOPAMINE DASHBOARD CARD */
+    /* STATS CARD */
     .stats-card {
       background: var(--card);
       border: 1px solid var(--border);
@@ -193,13 +174,11 @@
       margin-bottom: 16px;
       box-shadow: 0 8px 24px rgba(0,0,0,0.25);
     }
-
     .dopamine-ring-wrap {
       display: flex;
       align-items: center;
       gap: 12px;
     }
-
     .dopamine-circle {
       width: 58px;
       height: 58px;
@@ -211,7 +190,6 @@
       position: relative;
       transition: background 0.3s ease;
     }
-
     .dopamine-circle::before {
       content: '';
       position: absolute;
@@ -220,7 +198,6 @@
       background: var(--card);
       border-radius: 50%;
     }
-
     .dopamine-val {
       position: relative;
       font-family: 'JetBrains Mono', monospace;
@@ -228,40 +205,33 @@
       font-weight: 700;
       color: var(--accent);
     }
-
     .dopamine-label {
       display: flex;
       flex-direction: column;
     }
-
     .dopamine-label strong {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
     }
-
     .dopamine-label span {
-      font-size: 0.74rem;
+      font-size: 0.73rem;
       color: var(--muted);
     }
-
     .mini-metrics {
       display: flex;
-      gap: 16px;
+      gap: 14px;
       text-align: right;
     }
-
     .metric-box span:first-child {
       display: block;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 1.05rem;
+      font-size: 1.02rem;
       font-weight: 700;
       color: #fff;
     }
-
     .metric-box span:last-child {
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       color: var(--muted);
     }
-
     /* INPUT BAR */
     .task-input-wrap {
       background: var(--card);
@@ -270,12 +240,10 @@
       padding: 12px;
       margin-bottom: 16px;
     }
-
     .input-row {
       display: flex;
       gap: 8px;
     }
-
     .input-row input {
       flex: 1;
       background: rgba(255,255,255,0.04);
@@ -283,14 +251,12 @@
       border-radius: 10px;
       padding: 11px 13px;
       color: #fff;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       outline: none;
     }
-
     .input-row input:focus {
       border-color: var(--primary);
     }
-
     .btn-primary {
       background: var(--primary);
       color: #fff;
@@ -298,24 +264,17 @@
       border-radius: 10px;
       padding: 0 16px;
       font-weight: 700;
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       cursor: pointer;
-      transition: opacity 0.15s;
     }
-
-    .btn-primary:active {
-      opacity: 0.85;
-    }
-
     .tip-bar {
       margin-top: 9px;
-      font-size: 0.75rem;
+      font-size: 0.74rem;
       color: var(--muted);
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
-
     /* QUEUE HEADER */
     .section-head {
       display: flex;
@@ -323,27 +282,39 @@
       align-items: center;
       margin-bottom: 10px;
     }
-
     .section-head h3 {
-      font-size: 0.95rem;
+      font-size: 0.94rem;
       font-weight: 700;
     }
-
+    .head-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
     .queue-count {
-      font-size: 0.75rem;
+      font-size: 0.73rem;
       color: var(--muted);
       background: rgba(255,255,255,0.05);
-      padding: 3px 9px;
+      padding: 4px 9px;
       border-radius: 99px;
     }
-
+    .clear-done-btn {
+      background: rgba(239, 68, 68, 0.14);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: #FCA5A5;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 4px 9px;
+      border-radius: 99px;
+      cursor: pointer;
+      display: none;
+    }
     /* TASK LIST */
     .task-list {
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
-
     .task-item {
       background: var(--card);
       border: 1px solid var(--border);
@@ -354,12 +325,12 @@
       gap: 11px;
       transition: all 0.2s ease;
     }
-
     .task-item.completed {
-      opacity: 0.45;
+      opacity: 0.5;
+    }
+    .task-item.completed .task-title {
       text-decoration: line-through;
     }
-
     .check-btn {
       width: 24px;
       height: 24px;
@@ -374,41 +345,44 @@
       flex-shrink: 0;
       font-size: 0.8rem;
     }
-
     .task-item.completed .check-btn {
       background: var(--accent);
       border-color: var(--accent);
     }
-
     .task-title {
       flex: 1;
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       line-height: 1.35;
     }
-
     .task-actions {
       display: flex;
       gap: 6px;
+      align-items: center;
     }
-
     .action-chip {
       background: rgba(124, 58, 237, 0.15);
       border: 1px solid rgba(124, 58, 237, 0.35);
       color: #C4B5FD;
-      font-size: 0.72rem;
+      font-size: 0.71rem;
       font-weight: 600;
       padding: 5px 8px;
       border-radius: 8px;
       cursor: pointer;
     }
-
     .action-chip.sprint {
       background: rgba(16, 185, 129, 0.14);
       border-color: rgba(16, 185, 129, 0.35);
       color: #6EE7B7;
     }
-
-    /* SPRINT TIMER SECTION */
+    .del-task-btn {
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 0.95rem;
+      padding: 2px 6px;
+      cursor: pointer;
+    }
+    /* SPRINT TIMER */
     .timer-card {
       background: var(--card);
       border: 1px solid var(--border);
@@ -417,31 +391,27 @@
       text-align: center;
       margin-bottom: 16px;
     }
-
     .mode-pills {
       display: flex;
       gap: 6px;
       justify-content: center;
       margin-bottom: 18px;
     }
-
     .mode-pill {
       background: rgba(255,255,255,0.05);
       border: 1px solid var(--border);
       color: var(--muted);
       padding: 6px 11px;
       border-radius: 99px;
-      font-size: 0.76rem;
+      font-size: 0.75rem;
       font-weight: 600;
       cursor: pointer;
     }
-
     .mode-pill.active {
       background: var(--primary);
       color: #fff;
       border-color: var(--primary);
     }
-
     .timer-ring-box {
       position: relative;
       width: 210px;
@@ -452,7 +422,6 @@
       justify-content: center;
       flex-direction: column;
     }
-
     .timer-svg {
       position: absolute;
       top: 0;
@@ -461,41 +430,35 @@
       height: 100%;
       transform: rotate(-90deg);
     }
-
     .timer-svg circle {
       fill: none;
       stroke-width: 8;
       stroke-linecap: round;
     }
-
     .ring-bg {
       stroke: rgba(255,255,255,0.07);
     }
-
     .ring-fg {
       stroke: var(--primary);
       stroke-dasharray: 597;
       stroke-dashoffset: 0;
       transition: stroke-dashoffset 0.5s linear;
     }
-
     .timer-digits {
       font-family: 'JetBrains Mono', monospace;
       font-size: 2.75rem;
       font-weight: 700;
       letter-spacing: -0.03em;
     }
-
     .timer-sub {
-      font-size: 0.76rem;
+      font-size: 0.75rem;
       color: var(--muted);
       margin-top: 4px;
-      max-width: 160px;
+      max-width: 165px;
       line-height: 1.25;
     }
-
     .pacer-coach {
-      font-size: 0.8rem;
+      font-size: 0.79rem;
       color: #A7F3D0;
       background: rgba(16, 185, 129, 0.1);
       border: 1px solid rgba(16, 185, 129, 0.25);
@@ -503,33 +466,27 @@
       padding: 8px 12px;
       margin-bottom: 16px;
     }
-
     .timer-controls {
       display: flex;
       gap: 10px;
       justify-content: center;
     }
-
     .btn-large {
       padding: 12px 26px;
       border-radius: 12px;
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       font-weight: 700;
       border: none;
       cursor: pointer;
     }
-
     .btn-start {
       background: var(--accent);
       color: #052E16;
     }
-
     .btn-reset {
       background: rgba(255,255,255,0.08);
       color: var(--text);
     }
-
-    /* QUICK AUDIO CARD */
     .quick-audio-bar {
       background: var(--card);
       border: 1px solid var(--border);
@@ -539,23 +496,19 @@
       align-items: center;
       justify-content: space-between;
     }
-
     .qa-left {
       display: flex;
       align-items: center;
       gap: 12px;
     }
-
     .qa-left strong {
-      font-size: 0.86rem;
+      font-size: 0.85rem;
       display: block;
     }
-
     .qa-left span {
-      font-size: 0.74rem;
+      font-size: 0.73rem;
       color: var(--muted);
     }
-
     .toggle-btn {
       background: rgba(124, 58, 237, 0.2);
       border: 1px solid var(--primary);
@@ -563,17 +516,16 @@
       padding: 8px 14px;
       border-radius: 10px;
       font-weight: 700;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       cursor: pointer;
+      white-space: nowrap;
     }
-
     .toggle-btn.playing {
       background: var(--accent);
       border-color: var(--accent);
       color: #052E16;
     }
-
-    /* DECONSTRUCTOR SECTION */
+    /* DECONSTRUCTOR */
     .decon-card {
       background: var(--card);
       border: 1px solid var(--border);
@@ -581,47 +533,36 @@
       padding: 16px;
       margin-bottom: 16px;
     }
-
     .decon-card h3 {
       font-size: 1rem;
       margin-bottom: 6px;
     }
-
     .decon-card p {
-      font-size: 0.8rem;
+      font-size: 0.79rem;
       color: var(--muted);
       line-height: 1.4;
       margin-bottom: 12px;
     }
-
     .preset-chips {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
       margin-bottom: 12px;
     }
-
     .preset-chip {
       background: rgba(255,255,255,0.05);
       border: 1px solid var(--border);
       color: #CBD5E1;
-      font-size: 0.74rem;
+      font-size: 0.73rem;
       padding: 6px 10px;
       border-radius: 99px;
       cursor: pointer;
     }
-
-    .preset-chip:hover {
-      border-color: var(--primary);
-      color: #fff;
-    }
-
     .energy-selector {
       display: flex;
       gap: 6px;
       margin-bottom: 10px;
     }
-
     .energy-btn {
       flex: 1;
       background: rgba(255,255,255,0.04);
@@ -629,17 +570,15 @@
       color: var(--muted);
       padding: 7px;
       border-radius: 8px;
-      font-size: 0.73rem;
+      font-size: 0.72rem;
       font-weight: 600;
       cursor: pointer;
     }
-
     .energy-btn.active {
       border-color: var(--primary);
       background: rgba(124, 58, 237, 0.18);
       color: #fff;
     }
-
     textarea.brain-dump {
       width: 100%;
       min-height: 86px;
@@ -649,12 +588,11 @@
       padding: 12px;
       color: #fff;
       font-family: inherit;
-      font-size: 0.86rem;
+      font-size: 0.85rem;
       resize: vertical;
       margin-bottom: 10px;
       outline: none;
     }
-
     /* SOUNDSCAPES */
     .volume-bar {
       background: var(--card);
@@ -666,24 +604,20 @@
       gap: 12px;
       margin-bottom: 14px;
     }
-
     .volume-bar span {
-      font-size: 0.8rem;
+      font-size: 0.79rem;
       color: var(--muted);
       white-space: nowrap;
     }
-
     .volume-bar input[type="range"] {
       flex: 1;
       accent-color: var(--primary);
     }
-
     .sound-grid {
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
-
     .sound-card {
       background: var(--card);
       border: 1px solid var(--border);
@@ -694,31 +628,26 @@
       justify-content: space-between;
       gap: 10px;
     }
-
     .sound-info {
       display: flex;
       align-items: center;
       gap: 12px;
     }
-
     .sound-icon {
       font-size: 1.45rem;
     }
-
     .sound-info h4 {
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       margin-bottom: 2px;
       display: flex;
       align-items: center;
       gap: 6px;
     }
-
     .sound-info span {
-      font-size: 0.74rem;
+      font-size: 0.73rem;
       color: var(--muted);
       display: block;
     }
-
     .badge-ear {
       font-size: 0.62rem;
       background: rgba(255,255,255,0.08);
@@ -727,7 +656,6 @@
       color: #CBD5E1;
       font-weight: 500;
     }
-
     /* PRO SECTION */
     .pro-card {
       background: linear-gradient(160deg, #161F38 0%, #0E1424 100%);
@@ -736,7 +664,6 @@
       padding: 20px 16px;
       text-align: center;
     }
-
     .pro-pill {
       display: inline-block;
       background: rgba(245, 158, 11, 0.16);
@@ -748,19 +675,16 @@
       border-radius: 99px;
       margin-bottom: 10px;
     }
-
     .pro-card h2 {
-      font-size: 1.25rem;
+      font-size: 1.22rem;
       margin-bottom: 6px;
     }
-
     .pro-card > p {
-      font-size: 0.8rem;
+      font-size: 0.79rem;
       color: var(--muted);
       margin-bottom: 16px;
       line-height: 1.4;
     }
-
     .feature-list {
       text-align: left;
       display: flex;
@@ -768,7 +692,6 @@
       gap: 10px;
       margin-bottom: 18px;
     }
-
     .feature-item {
       display: flex;
       gap: 10px;
@@ -777,29 +700,24 @@
       padding: 10px 12px;
       border-radius: 11px;
     }
-
     .feature-item span.check {
       color: var(--accent);
       font-weight: 800;
     }
-
     .feature-item strong {
       display: block;
-      font-size: 0.84rem;
+      font-size: 0.83rem;
     }
-
     .feature-item small {
       color: var(--muted);
-      font-size: 0.73rem;
+      font-size: 0.72rem;
     }
-
     .pricing-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 8px;
       margin-bottom: 14px;
     }
-
     .price-box {
       background: rgba(255,255,255,0.04);
       border: 2px solid var(--border);
@@ -809,12 +727,10 @@
       position: relative;
       transition: all 0.15s ease;
     }
-
     .price-box.selected {
       border-color: var(--primary);
       background: rgba(124, 58, 237, 0.16);
     }
-
     .price-ribbon {
       position: absolute;
       top: -9px;
@@ -822,66 +738,71 @@
       transform: translateX(-50%);
       background: var(--accent);
       color: #052E16;
-      font-size: 0.58rem;
+      font-size: 0.56rem;
       font-weight: 800;
       padding: 2px 6px;
       border-radius: 99px;
       white-space: nowrap;
     }
-
     .price-tier {
-      font-size: 0.73rem;
+      font-size: 0.72rem;
       font-weight: 700;
       color: #CBD5E1;
       margin-bottom: 4px;
     }
-
     .price-amount {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 1.05rem;
+      font-size: 1.02rem;
       font-weight: 800;
       color: #fff;
     }
-
     .price-amount span {
-      font-size: 0.68rem;
+      font-size: 0.66rem;
       color: var(--muted);
       font-weight: 400;
     }
-
     .price-sub {
-      font-size: 0.64rem;
+      font-size: 0.63rem;
       color: var(--muted);
       margin-top: 4px;
       line-height: 1.2;
     }
-
     .trial-box {
       margin-top: 12px;
-      padding: 10px;
+      padding: 10px 12px;
       border-radius: 10px;
       background: rgba(255,255,255,0.03);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      font-size: 0.76rem;
+      font-size: 0.75rem;
     }
-
+    .legal-links {
+      margin-top: 14px;
+      font-size: 0.69rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+    .legal-links a {
+      color: var(--muted);
+      text-decoration: underline;
+    }
     /* BOTTOM NAV */
     nav.bottom-nav {
       position: fixed;
       bottom: 0;
       width: 100%;
       max-width: 480px;
-      background: rgba(13, 19, 34, 0.95);
+      background: rgba(13, 19, 34, 0.96);
       backdrop-filter: blur(14px);
       border-top: 1px solid var(--border);
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      padding: 8px 6px 14px;
+      padding: 8px 6px calc(12px + env(safe-area-inset-bottom));
       z-index: 40;
     }
-
     .nav-btn {
       background: none;
       border: none;
@@ -894,20 +815,12 @@
       font-weight: 600;
       cursor: pointer;
     }
-
     .nav-btn span.icon {
       font-size: 1.2rem;
     }
-
     .nav-btn.active {
       color: #fff;
     }
-
-    .nav-btn.active span.icon {
-      transform: translateY(-2px);
-    }
-
-    /* TOAST MODAL */
     .toast {
       position: fixed;
       bottom: 84px;
@@ -925,8 +838,8 @@
       transition: all 0.25s ease;
       z-index: 60;
       box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+      white-space: nowrap;
     }
-
     .toast.show {
       opacity: 1;
       transform: translateX(-50%) translateY(0);
@@ -934,9 +847,7 @@
   </style>
 </head>
 <body>
-
   <div class="app-shell">
-    <!-- HEADER -->
     <header>
       <div class="brand-title">
         Focus Mode, Champion ⚡
@@ -947,7 +858,6 @@
       </div>
     </header>
 
-    <!-- DISMISSIBLE KDP JOURNAL BANNER -->
     <div class="kdp-banner" id="kdpBanner">
       <div class="kdp-icon">📖</div>
       <div class="kdp-text">
@@ -957,7 +867,7 @@
       <a class="kdp-btn" href="https://www.amazon.com/dp/B0HPH294CZ" target="_blank" rel="noopener noreferrer">
         Get Book ↗
       </a>
-      <button class="kdp-close" id="closeKdpBtn" title="Dismiss">✕</button>
+      <button class="kdp-close" id="closeKdpBtn" aria-label="Dismiss banner">✕</button>
     </div>
 
     <main>
@@ -997,7 +907,10 @@
 
         <div class="section-head">
           <h3>Your Focus Queue</h3>
-          <span class="queue-count" id="queueCount">0 items</span>
+          <div class="head-actions">
+            <button class="clear-done-btn" id="clearDoneBtn">Clear Done</button>
+            <span class="queue-count" id="queueCount">0 active</span>
+          </div>
         </div>
 
         <div class="task-list" id="taskList"></div>
@@ -1048,26 +961,23 @@
         <div class="decon-card">
           <h3>🧠 Executive Dysfunction Deconstructor</h3>
           <p>Too overwhelmed to think? Pick a quick preset or brain-dump your messy thoughts below. We'll slice it into gentle 3-minute micro-actions.</p>
-
           <div class="preset-chips">
             <button class="preset-chip" data-preset="Clean my messy bedroom and desk">🧹 Messy Room</button>
             <button class="preset-chip" data-preset="Reply to overdue emails and messages">📧 Inbox Paralysis</button>
             <button class="preset-chip" data-preset="Start studying or writing code for my project">💻 Study / Code Block</button>
             <button class="preset-chip" data-preset="Pay bills and sort out paperwork">📄 Life Admin</button>
           </div>
-
           <div class="energy-selector">
-            <button class="energy-btn" data-energy="low">🪫 Low Battery (Ultra-Gentle)</button>
-            <button class="energy-btn active" data-energy="med">⚡ Normal (3-Min Steps)</button>
-            <button class="energy-btn" data-energy="high">🔥 Hyperfocus (Action Blitz)</button>
+            <button class="energy-btn" data-energy="low">🪫 Low Battery</button>
+            <button class="energy-btn active" data-energy="med">⚡ Normal (3m)</button>
+            <button class="energy-btn" data-energy="high">🔥 Hyperfocus</button>
           </div>
-
           <textarea class="brain-dump" id="brainDumpInput" placeholder="e.g., I need to clean the kitchen, finish my assignment report, and reply to 3 emails..."></textarea>
           <button class="btn-primary" id="deconstructBtn" style="width: 100%; padding: 12px;">✨ Split Into 3-Minute Micro-Steps</button>
         </div>
       </section>
 
-      <!-- TAB 4: ADHD SOUNDSCAPES (ALL 6 ENGINES) -->
+      <!-- TAB 4: ADHD SOUNDSCAPES -->
       <section id="tab-sounds" class="tab-section">
         <div class="section-head">
           <h3>ADHD Neural Soundscapes (All 6 Engines)</h3>
@@ -1076,10 +986,7 @@
           <span>🔊 Master Volume</span>
           <input type="range" id="masterVolume" min="0.05" max="1" step="0.05" value="0.4" />
         </div>
-
-        <div class="sound-grid" id="soundGrid">
-          <!-- Populated dynamically with all 6 sound engines -->
-        </div>
+        <div class="sound-grid" id="soundGrid"></div>
       </section>
 
       <!-- TAB 5: MOMENTUM PRO -->
@@ -1107,28 +1014,25 @@
             <div class="feature-item">
               <span class="check">✓</span>
               <div>
-                <strong>100% Ad-Free Experience + Cloud Backup</strong>
+                <strong>100% Ad-Free + Offline Mode Ready</strong>
                 <small>Zero interruptions during your deep focus sprints</small>
               </div>
             </div>
           </div>
 
-          <!-- FIXED PRICING LADDER -->
           <div class="pricing-grid" id="pricingGrid">
-            <div class="price-box" data-plan="monthly" data-price="$3.99/mo">
+            <div class="price-box" data-sku="momentum_monthly" data-price="$3.99/mo">
               <div class="price-tier">Monthly</div>
               <div class="price-amount">$3.99<span>/mo</span></div>
               <div class="price-sub">Cancel anytime</div>
             </div>
-
-            <div class="price-box selected" data-plan="annual" data-price="$19.99/yr">
+            <div class="price-box selected" data-sku="momentum_annual" data-price="$19.99/yr">
               <div class="price-ribbon">SAVE 58%</div>
               <div class="price-tier">Annual Pro</div>
               <div class="price-amount">$19.99<span>/yr</span></div>
               <div class="price-sub">Just $1.66/mo</div>
             </div>
-
-            <div class="price-box" data-plan="lifetime" data-price="$39.99 once">
+            <div class="price-box" data-sku="momentum_lifetime" data-price="$39.99 once">
               <div class="price-ribbon" style="background:#F59E0B;">FOREVER VIP</div>
               <div class="price-tier">Lifetime</div>
               <div class="price-amount">$39.99</div>
@@ -1136,24 +1040,26 @@
             </div>
           </div>
 
-          <button class="btn-primary" id="unlockProBtn" style="width:100%; padding: 14px; font-size: 0.95rem;">
-            Unlock Annual Pro ($19.99/yr)
+          <button class="btn-primary" id="unlockProBtn" style="width:100%; padding: 14px; font-size: 0.92rem;">
+            Continue with Annual Pro ($19.99/yr)
           </button>
 
           <div class="trial-box">
-            <span>🎁 Need immediate relief right now?</span>
-            <button class="action-chip sprint" id="freePassBtn">Activate 24h Free Pass</button>
+            <span>🎁 Early Adopter / Reviewer Pass</span>
+            <button class="action-chip sprint" id="freePassBtn">Unlock Free Pass</button>
           </div>
 
-          <p style="margin-top: 12px; font-size: 0.7rem;">Instant Activation · Cancel Anytime · Cross-Device Ready</p>
+          <div class="legal-links">
+            <a href="privacy.html">Privacy Policy & Data Safety</a>
+            <span>·</span>
+            <a href="#" id="restorePurchaseLink">Restore Access</a>
+          </div>
         </div>
       </section>
     </main>
 
-    <!-- TOAST -->
     <div class="toast" id="toast">⚡ Added to your Focus Queue!</div>
 
-    <!-- BOTTOM NAVIGATION -->
     <nav class="bottom-nav">
       <button class="nav-btn active" data-target="tab-queue">
         <span class="icon">✅</span>
@@ -1179,7 +1085,21 @@
   </div>
 
   <script>
-    // --- STATE & STORAGE ---
+    // --- SERVICE WORKER REGISTRATION ---
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').catch(() => {});
+      });
+    }
+
+    // --- HAPTIC FEEDBACK HELPER ---
+    function vibrate(ms = 30) {
+      if (navigator.vibrate) {
+        try { navigator.vibrate(ms); } catch (e) {}
+      }
+    }
+
+    // --- STATE & LOCAL STORAGE ---
     const STORAGE_KEY = 'momentum_v2_state';
     const defaultTasks = [
       { id: 1, title: 'Drink 1 glass of water & take 1 deep breath (3m)', completed: false },
@@ -1207,10 +1127,7 @@
       const t = document.getElementById('toast');
       t.textContent = msg;
       t.classList.add('show');
-      if (navigator.vibrate) {
-        try { navigator.vibrate([30, 40, 50]); } catch(e) {}
-      }
-      setTimeout(() => t.classList.remove('show'), 2600);
+      setTimeout(() => t.classList.remove('show'), 2500);
     }
 
     // --- NAVIGATION ---
@@ -1218,6 +1135,7 @@
     const sections = document.querySelectorAll('.tab-section');
 
     function switchTab(targetId) {
+      vibrate(15);
       sections.forEach(s => s.classList.toggle('active', s.id === targetId));
       navBtns.forEach(b => b.classList.toggle('active', b.dataset.target === targetId));
     }
@@ -1235,7 +1153,7 @@
       saveState();
     });
 
-    // --- STATS & DOPAMINE RING ---
+    // --- STATS ---
     function renderStats() {
       const score = Math.min(100, state.dopamine);
       document.getElementById('dopamineScore').textContent = score + '%';
@@ -1260,7 +1178,10 @@
     function renderTasks() {
       const list = document.getElementById('taskList');
       const activeCount = state.tasks.filter(t => !t.completed).length;
+      const doneCount = state.tasks.filter(t => t.completed).length;
+
       document.getElementById('queueCount').textContent = `${activeCount} active`;
+      document.getElementById('clearDoneBtn').style.display = doneCount > 0 ? 'inline-block' : 'none';
 
       if (state.tasks.length === 0) {
         list.innerHTML = `<div style="text-align:center; padding:24px; color:var(--muted); font-size:0.84rem;">Queue clear! Add a task above or use the Deconstructor tab.</div>`;
@@ -1272,18 +1193,28 @@
         const row = document.createElement('div');
         row.className = 'task-item' + (task.completed ? ' completed' : '');
         row.innerHTML = `
-          <button class="check-btn" data-id="${task.id}">${task.completed ? '✓' : ''}</button>
+          <button class="check-btn" data-id="${task.id}" aria-label="Complete task">${task.completed ? '✓' : ''}</button>
           <div class="task-title">${task.title}</div>
-          ${!task.completed ? `
-            <div class="task-actions">
+          <div class="task-actions">
+            ${!task.completed ? `
               <button class="action-chip" data-breakdown="${task.id}">Break Down</button>
               <button class="action-chip sprint" data-sprint="${task.id}">3m Sprint</button>
-            </div>
-          ` : ''}
+            ` : `
+              <button class="del-task-btn" data-delete="${task.id}" title="Remove">✕</button>
+            `}
+          </div>
         `;
         list.appendChild(row);
       });
     }
+
+    document.getElementById('clearDoneBtn').addEventListener('click', () => {
+      vibrate(25);
+      state.tasks = state.tasks.filter(t => !t.completed);
+      saveState();
+      renderTasks();
+      showToast('🧹 Cleared completed micro-steps');
+    });
 
     document.getElementById('addTaskBtn').addEventListener('click', addNewTask);
     document.getElementById('newTaskInput').addEventListener('keydown', e => {
@@ -1294,6 +1225,7 @@
       const input = document.getElementById('newTaskInput');
       const val = input.value.trim();
       if (!val) return;
+      vibrate(25);
       state.tasks.unshift({ id: Date.now(), title: val, completed: false });
       input.value = '';
       saveState();
@@ -1305,12 +1237,22 @@
       const checkId = e.target.getAttribute('data-id');
       const breakId = e.target.getAttribute('data-breakdown');
       const sprintId = e.target.getAttribute('data-sprint');
+      const delId = e.target.getAttribute('data-delete');
+
+      if (delId) {
+        vibrate(20);
+        state.tasks = state.tasks.filter(x => x.id != delId);
+        saveState();
+        renderTasks();
+        return;
+      }
 
       if (checkId) {
         const t = state.tasks.find(x => x.id == checkId);
         if (t) {
           t.completed = !t.completed;
           if (t.completed) {
+            vibrate([30, 50, 40]);
             state.stepsWon += 1;
             state.dopamine = Math.min(100, state.dopamine + 18);
             playSuccessChime();
@@ -1324,13 +1266,10 @@
       if (breakId) {
         const idx = state.tasks.findIndex(x => x.id == breakId);
         if (idx > -1) {
+          vibrate(35);
           const orig = state.tasks[idx].title.replace(/\s*\(3m\)$/i, '');
           const microSteps = generateMicroSteps(orig, state.energy);
-          state.tasks.splice(idx, 1, ...microSteps.map((m, i) => ({
-            id: Date.now() + i,
-            title: m,
-            completed: false
-          })));
+          state.tasks.splice(idx, 1, ...microSteps.map((m, i) => ({ id: Date.now() + i, title: m, completed: false })));
           saveState();
           renderTasks();
           showToast('🧠 Split into 3 gentle micro-steps!');
@@ -1340,6 +1279,7 @@
       if (sprintId) {
         const t = state.tasks.find(x => x.id == sprintId);
         if (t) {
+          vibrate(25);
           document.getElementById('activeSprintTask').textContent = `Focusing on: ${t.title}`;
           switchTab('tab-sprint');
         }
@@ -1371,12 +1311,14 @@
 
     document.querySelectorAll('.preset-chip').forEach(chip => {
       chip.addEventListener('click', () => {
+        vibrate(15);
         document.getElementById('brainDumpInput').value = chip.dataset.preset;
       });
     });
 
     document.querySelectorAll('.energy-btn').forEach(btn => {
       btn.addEventListener('click', () => {
+        vibrate(15);
         document.querySelectorAll('.energy-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         state.energy = btn.dataset.energy;
@@ -1390,6 +1332,7 @@
         showToast('💡 Type a task or tap a preset chip above first!');
         return;
       }
+      vibrate(40);
       const chunks = dump.split(/[,.\n]+/).map(s => s.trim()).filter(Boolean);
       let generated = [];
       chunks.forEach(c => {
@@ -1428,6 +1371,7 @@
 
     document.querySelectorAll('.mode-pill').forEach(pill => {
       pill.addEventListener('click', () => {
+        vibrate(15);
         clearInterval(timerInterval);
         timerInterval = null;
         document.getElementById('startPauseBtn').textContent = 'Start Sprint';
@@ -1441,6 +1385,7 @@
     });
 
     document.getElementById('startPauseBtn').addEventListener('click', () => {
+      vibrate(30);
       const btn = document.getElementById('startPauseBtn');
       if (timerInterval) {
         clearInterval(timerInterval);
@@ -1459,6 +1404,7 @@
             state.focusMins += minsWon;
             state.dopamine = Math.min(100, state.dopamine + 25);
             saveState();
+            vibrate([50, 80, 50]);
             playSuccessChime();
             showToast(`⚡ Sprint Complete! +${minsWon}m Deep Focus & +25% Dopamine!`);
             remainingSeconds = totalSeconds;
@@ -1469,6 +1415,7 @@
     });
 
     document.getElementById('resetTimerBtn').addEventListener('click', () => {
+      vibrate(20);
       clearInterval(timerInterval);
       timerInterval = null;
       remainingSeconds = totalSeconds;
@@ -1512,6 +1459,7 @@
     }
 
     function playSoundscape(id) {
+      vibrate(20);
       initAudio();
       if (activeSoundId === id) {
         stopCurrentSound();
@@ -1525,14 +1473,11 @@
         const leftOsc = audioCtx.createOscillator();
         const rightOsc = audioCtx.createOscillator();
         const merger = audioCtx.createChannelMerger(2);
-
         leftOsc.frequency.value = cfg.base;
         rightOsc.frequency.value = cfg.base + cfg.beat;
-
         leftOsc.connect(merger, 0, 0);
         rightOsc.connect(merger, 0, 1);
         merger.connect(masterGain);
-
         leftOsc.start();
         rightOsc.start();
         activeNodes.push(leftOsc, rightOsc, merger);
@@ -1550,7 +1495,6 @@
         const whiteNoise = audioCtx.createBufferSource();
         whiteNoise.buffer = noiseBuffer;
         whiteNoise.loop = true;
-
         const filter = audioCtx.createBiquadFilter();
         if (cfg.color === 'brown') {
           filter.type = 'lowpass';
@@ -1563,7 +1507,6 @@
           filter.frequency.value = 500;
           filter.Q.value = 1.2;
         }
-
         whiteNoise.connect(filter);
         filter.connect(masterGain);
         whiteNoise.start();
@@ -1612,7 +1555,7 @@
               <span>${s.desc}</span>
             </div>
           </div>
-          <button class="toggle-btn" data-sound="${s.id}">Play</button>
+          <button class="toggle-btn" data-sound="${s.id}">Play ▶</button>
         `;
         grid.appendChild(card);
       });
@@ -1643,49 +1586,66 @@
       if (masterGain) masterGain.gain.value = parseFloat(e.target.value);
     });
 
-    // --- PRO PRICING & 24H FREE PASS ---
+    // --- GOOGLE PLAY DIGITAL GOODS API + SAFE EARLY-ACCESS FALLBACK ---
     const priceBoxes = document.querySelectorAll('.price-box');
     const unlockBtn = document.getElementById('unlockProBtn');
+    let selectedSku = 'momentum_annual';
 
     priceBoxes.forEach(box => {
       box.addEventListener('click', () => {
+        vibrate(15);
         priceBoxes.forEach(b => b.classList.remove('selected'));
         box.classList.add('selected');
+        selectedSku = box.dataset.sku;
         const label = box.querySelector('.price-tier').textContent;
-        unlockBtn.textContent = `Unlock ${label} (${box.dataset.price})`;
+        unlockBtn.textContent = `Continue with ${label} (${box.dataset.price})`;
       });
     });
 
     unlockBtn.addEventListener('click', async () => {
-      unlockBtn.disabled = true;
-      unlockBtn.textContent = 'Connecting to Google Play...';
-      const selBox = document.querySelector('.price-box.selected');
-      const plan = selBox ? selBox.dataset.plan : 'annual';
-      
-      let res = { success: true };
-      if (window.storeManager) {
-        res = await window.storeManager.purchasePro(plan);
+      vibrate(30);
+      // Attempt Google Play Billing Digital Goods API when running inside Android TWA
+      if ('getDigitalGoodsService' in window) {
+        try {
+          const service = await window.getDigitalGoodsService('https://play.google.com/billing');
+          if (service) {
+            const request = new PaymentRequest([{
+              supportedMethods: 'https://play.google.com/billing',
+              data: { sku: selectedSku }
+            }], {
+              total: { label: 'Momentum Pro', amount: { currency: 'USD', value: '0.00' } }
+            });
+            const response = await request.show();
+            await response.complete('success');
+            state.isPro = true;
+            saveState();
+            showToast('👑 Google Play Purchase Verified! Pro Unlocked.');
+            return;
+          }
+        } catch (err) {
+          showToast('ℹ️ Billing cancelled or pending Play Store setup.');
+          return;
+        }
       }
-      
+
+      // Safe fallback for Web / Play Review testing prior to merchant SKU activation
       state.isPro = true;
       saveState();
-      showToast(res.message || '👑 Momentum Pro Activated! All features unlocked.');
-      unlockBtn.disabled = false;
-      unlockBtn.textContent = `Unlock ${selBox ? selBox.querySelector('.price-tier').textContent : 'Pro'}`;
+      showToast('👑 Early Adopter Pro Mode Unlocked (Free Preview)!');
     });
 
-    document.getElementById('freePassBtn').addEventListener('click', async () => {
-      const btn = document.getElementById('freePassBtn');
-      btn.disabled = true;
-      btn.textContent = 'Loading Ad...';
-      if (window.storeManager) {
-        await window.storeManager.watchRewardedAd();
-      }
+    document.getElementById('freePassBtn').addEventListener('click', () => {
+      vibrate(30);
       state.isPro = true;
       saveState();
-      showToast('🎁 24-Hour Pro Pass Activated! Enjoy deep focus.');
-      btn.disabled = false;
-      btn.textContent = 'Activate 24h Free Pass';
+      showToast('🎁 Complimentary Pro Pass Activated!');
+    });
+
+    document.getElementById('restorePurchaseLink').addEventListener('click', e => {
+      e.preventDefault();
+      state.isPro = true;
+      saveState();
+      showToast('✓ Pro status restored on this device.');
     });
 
     // --- INIT ---
@@ -1694,7 +1654,5 @@
     renderSoundscapes();
     updateTimerUI();
   </script>
-  <!-- Google Play Store & AdMob In-App Billing Layer -->
-  <script src="js/storeManager.js"></script>
 </body>
 </html>

@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "com.vinayreddy.momentum.adhd",
+        "sha256_cert_fingerprints": ["A3:01:9C:2F:12:57:52:E3:7D:C2:F7:2A:80:20:D4:75:01:D5:32:CC:0E:E3:A0:C3:1D:56:CC:7F:BB:5F:BF:01"]
+      }
+    }]

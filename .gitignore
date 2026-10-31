@@ -11,5 +11,8 @@
 __pycache__/
 .venv/
 **/.venv/
-
 store-config.js
+
+# Private digital product assets (not served via GitHub Pages)
+private-assets/
+private/

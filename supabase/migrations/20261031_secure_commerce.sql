@@ -45,3 +45,12 @@ values ('paid-products','paid-products',false,52428800)
 on conflict(id) do update set public=false;
 -- No storage.objects SELECT policy: clients cannot list or read private files directly.
 -- Only edge functions with service role issue short-lived signed URLs after entitlement checks.
+
+-- Insert product definitions for trading suite, clipstudio suite, and momentum pro
+insert into public.products(id, price_usd_cents, paypal_enabled)
+values 
+  ('ai_trading_bot_team', 4900, true),
+  ('ai_clipstudio_suite', 3900, true),
+  ('momentum_pro_monthly', 399, false),
+  ('momentum_pro_annual', 2999, false)
+on conflict (id) do update set price_usd_cents = excluded.price_usd_cents;

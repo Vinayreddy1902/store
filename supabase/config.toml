@@ -1,0 +1,6 @@
+[functions.create-paypal-order]
+verify_jwt = false
+[functions.capture-paypal-order]
+verify_jwt = false
+[functions.download-product]
+verify_jwt = false

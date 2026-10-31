@@ -521,7 +521,7 @@ document.addEventListener('DOMContentLoaded', () => {
     subscribeProBtn.disabled = true;
     subscribeProBtn.textContent = 'Connecting to Google Play...';
     const result = await window.storeManager.purchasePro(selectedPlan);
-    showDopamineToast('Momentum Pro Activated! 👑', result.message || 'Lifetime VIP & Soundscapes Unlocked!', '👑');
+    showDopamineToast(result.success ? 'Momentum Pro Activated! 👑' : 'Purchase unavailable', result.success ? result.message : (result.error || 'Verification required'), result.success ? '👑' : '⚠️');
     subscribeProBtn.disabled = false;
     subscribeProBtn.textContent = 'Unlock Momentum Pro 🚀';
     updateProUI();
@@ -531,7 +531,7 @@ document.addEventListener('DOMContentLoaded', () => {
     watchRewardedAdBtn.disabled = true;
     watchRewardedAdBtn.textContent = 'Loading Rewarded Ad...';
     const res = await window.storeManager.watchRewardedAd();
-    showDopamineToast('24h Pro Unlocked! 📺', 'Enjoy unlimited AI deconstruction & all soundscapes today.', '🎁');
+    showDopamineToast(res.success ? '24h Pro Unlocked! 📺' : 'Reward unavailable', res.success ? 'Enjoy your verified reward.' : (res.error || 'Verification required'), res.success ? '🎁' : '⚠️');
     watchRewardedAdBtn.disabled = false;
     watchRewardedAdBtn.textContent = '📺 Watch a 15s Ad to Unlock Pro Today';
     updateProUI();

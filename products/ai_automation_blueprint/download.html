@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <style>
     :root {
       --bg: #090d16;
@@ -57,6 +58,26 @@
       color: var(--text-muted);
       font-size: 16px;
     }
+    .auth-banner {
+      background: rgba(99, 102, 241, 0.1);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      border-radius: 14px;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+    }
+    .auth-banner button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
     .bundle-grid {
       display: flex;
       flex-direction: column;
@@ -104,10 +125,17 @@
       align-items: center;
       gap: 8px;
       transition: all 0.2s;
+      cursor: pointer;
+      border: none;
     }
     .btn-download:hover {
       background: #4f46e5;
       transform: translateY(-1px);
+    }
+    .btn-download:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
     }
     .btn-download.green {
       background: #10b981;
@@ -156,7 +184,12 @@
     <div class="success-header">
       <div class="check-icon">✓</div>
       <h1>Order Confirmed & Deliverables Unlocked</h1>
-      <p class="sub">Thank you for your purchase! All 4 components of your 2026 AI Automation & YouTube Blueprint are ready below.</p>
+      <p class="sub">Access your verified digital deliverables via secure, authenticated 60-second download links.</p>
+    </div>
+
+    <div id="authBanner" class="auth-banner">
+      <span id="authStatusText">Checking authentication session...</span>
+      <button id="authBtn" onclick="handleAuthAction()">Sign In</button>
     </div>
 
     <div class="bundle-grid">
@@ -166,9 +199,9 @@
           <h2>📘 1. Complete eBook (Interactive Reader & Printable PDF)</h2>
           <p>The complete 8-chapter guide with typography styling. Open in browser and press <code>Cmd+P</code> to save as PDF.</p>
         </div>
-        <a href="eBook_Reader_Printable.html" target="_blank" class="btn-download green">
-          📖 Open / Save PDF
-        </a>
+        <button class="btn-download" onclick="requestDownload('ai_automation_blueprint', 'ebook', this)">
+          📥 Download Reader
+        </button>
       </div>
 
       <!-- Item 2: Markdown Master Source File -->
@@ -177,9 +210,9 @@
           <h2>📄 2. Markdown Raw Source File (.md)</h2>
           <p>Full uncompressed Markdown file with all 8 chapters, code snippets, and checklists for personal editing or note-taking.</p>
         </div>
-        <a href="eBook_AI_Automation_YouTube_Blueprint.md" download="eBook_AI_Automation_YouTube_Blueprint.md" class="btn-download">
-          ⬇️ Download .MD
-        </a>
+        <button class="btn-download" onclick="requestDownload('ai_automation_blueprint', 'source', this)">
+          📥 Download Markdown
+        </button>
       </div>
 
       <!-- Item 3: Studio Neural Audio Master -->
@@ -188,20 +221,20 @@
           <h2>🎧 3. Chapter 1 Audio Narration (.mp3)</h2>
           <p>Studio-quality neural narration demonstrating <code>edge-tts</code> audio calibration for cash-cow YouTube channels.</p>
         </div>
-        <a href="chapter1_preview.mp3" download="Chapter1_AI_Automation_Audiobook.mp3" class="btn-download">
-          🎵 Download MP3
-        </a>
+        <button class="btn-download" onclick="requestDownload('ai_automation_blueprint', 'audio', this)">
+          📥 Download Audio
+        </button>
       </div>
 
-      <!-- Item 4: 6-Agent AI Paper Trading Suite Access -->
+      <!-- Item 4: Full ZIP Deliverables Bundle -->
       <div class="bundle-card">
         <div class="item-info">
-          <h2>🤖 4. Live Store & Trading Desk Access</h2>
-          <p>Explore the live 6-Agent AI Paper Trading Simulator and digital tools ecosystem.</p>
+          <h2>📦 4. Complete Master Deliverables ZIP Archive</h2>
+          <p>Download the entire bundle including reader, source files, audio preview, and assets in one verified package.</p>
         </div>
-        <a href="../../store.html" target="_blank" class="btn-download">
-          🌐 Open Store
-        </a>
+        <button class="btn-download green" onclick="requestDownload('ai_automation_blueprint', 'bundle', this)">
+          📥 Download Bundle (.zip)
+        </button>
       </div>
     </div>
 
@@ -227,5 +260,93 @@ ffmpeg -y -i input.mp4 -t 17.5 \
     </div>
   </div>
 
+  <script>
+    // Configuration fallback or environment injection
+    const SUPABASE_CONFIG = window.STORE_SUPABASE_CONFIG || {
+      url: window.localStorage.getItem('supabase_url') || '',
+      anonKey: window.localStorage.getItem('supabase_anon_key') || ''
+    };
+
+    let supabase = null;
+    let currentSession = null;
+
+    if (window.supabase && SUPABASE_CONFIG.url && SUPABASE_CONFIG.anonKey) {
+      supabase = window.supabase.createClient(SUPABASE_CONFIG.url, SUPABASE_CONFIG.anonKey);
+    }
+
+    async function initAuth() {
+      const banner = document.getElementById('authBanner');
+      const statusText = document.getElementById('authStatusText');
+      const authBtn = document.getElementById('authBtn');
+
+      if (!supabase) {
+        statusText.textContent = '🔒 Secure Backend Connection Pending Configuration';
+        authBtn.style.display = 'none';
+        return;
+      }
+
+      const { data: { session } } = await supabase.auth.getSession();
+      currentSession = session;
+
+      if (session) {
+        statusText.textContent = `Signed in as ${session.user.email || 'Verified Customer'}`;
+        authBtn.textContent = 'Sign Out';
+      } else {
+        statusText.textContent = 'Sign in with your purchase email to unlock downloads.';
+        authBtn.textContent = 'Sign In';
+      }
+    }
+
+    async function handleAuthAction() {
+      if (!supabase) return;
+      if (currentSession) {
+        await supabase.auth.signOut();
+        window.location.reload();
+      } else {
+        const email = prompt('Enter your email to receive a secure login link:');
+        if (email) {
+          const { error } = await supabase.auth.signInWithOtp({ email });
+          if (error) alert('Error: ' + error.message);
+          else alert('Magic sign-in link sent to your email.');
+        }
+      }
+    }
+
+    async function requestDownload(productId, fileId, buttonEl) {
+      if (!supabase || !currentSession) {
+        alert('Please sign in with your purchase account to access verified files.');
+        return;
+      }
+
+      const originalText = buttonEl.textContent;
+      buttonEl.disabled = true;
+      buttonEl.textContent = 'Verifying Entitlement...';
+
+      try {
+        const res = await fetch(`${SUPABASE_CONFIG.url}/functions/v1/download-product`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${currentSession.access_token}`
+          },
+          body: JSON.stringify({ product_id: productId, file_id: fileId })
+        });
+
+        const data = await res.json();
+        if (!res.ok || data.error) {
+          alert('Access Denied: ' + (data.error || 'No active entitlement found for this product.'));
+        } else if (data.url) {
+          window.location.href = data.url;
+        }
+      } catch (err) {
+        alert('Network error while requesting download: ' + err.message);
+      } finally {
+        buttonEl.disabled = false;
+        buttonEl.textContent = originalText;
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', initAuth);
+  </script>
 </body>
 </html>

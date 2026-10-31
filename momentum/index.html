@@ -1602,50 +1602,18 @@
       });
     });
 
-    unlockBtn.addEventListener('click', async () => {
-      vibrate(30);
-      // Attempt Google Play Billing Digital Goods API when running inside Android TWA
-      if ('getDigitalGoodsService' in window) {
-        try {
-          const service = await window.getDigitalGoodsService('https://play.google.com/billing');
-          if (service) {
-            const request = new PaymentRequest([{
-              supportedMethods: 'https://play.google.com/billing',
-              data: { sku: selectedSku }
-            }], {
-              total: { label: 'Momentum Pro', amount: { currency: 'USD', value: '0.00' } }
-            });
-            const response = await request.show();
-            await response.complete('success');
-            state.isPro = true;
-            saveState();
-            showToast('👑 Google Play Purchase Verified! Pro Unlocked.');
-            return;
-          }
-        } catch (err) {
-          showToast('ℹ️ Billing cancelled or pending Play Store setup.');
-          return;
-        }
-      }
-
-      // Safe fallback for Web / Play Review testing prior to merchant SKU activation
-      state.isPro = true;
-      saveState();
-      showToast('👑 Early Adopter Pro Mode Unlocked (Free Preview)!');
+    // Paid entitlements must be verified by a backend before activation.
+    // Disable all preview, complimentary and restore shortcuts in production.
+    state.isPro = false;
+    saveState();
+    unlockBtn.addEventListener('click', () => {
+      showToast('Purchases are temporarily unavailable pending secure verification.');
     });
-
-    document.getElementById('freePassBtn').addEventListener('click', () => {
-      vibrate(30);
-      state.isPro = true;
-      saveState();
-      showToast('🎁 Complimentary Pro Pass Activated!');
-    });
-
+    document.getElementById('freePassBtn').disabled = true;
+    document.getElementById('freePassBtn').style.display = 'none';
     document.getElementById('restorePurchaseLink').addEventListener('click', e => {
       e.preventDefault();
-      state.isPro = true;
-      saveState();
-      showToast('✓ Pro status restored on this device.');
+      showToast('Restore purchases is unavailable until verification is configured.');
     });
 
     // --- INIT ---

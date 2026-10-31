@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ViewVault // YouTube Outlier Radar & 1-Video Monetization Engine</title>
+  <!-- Google AdSense Verification (pub-6724048129406847) -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6724048129406847" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #07090e;
+      --surface: #0e121b;
+      --card: #141926;
+      --border: rgba(255, 255, 255, 0.08);
+      --primary: #ff0033;
+      --accent-cyan: #00f0ff;
+      --accent-gold: #ffb800;
+      --accent-green: #10b981;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-image: radial-gradient(circle at 50% 0%, rgba(255, 0, 51, 0.12) 0%, transparent 60%);
+    }
+
+    header {
+      padding: 1.25rem 2rem;
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+      background: rgba(7, 9, 14, 0.85);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 800;
+      font-size: 1.2rem;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-badge {
+      background: linear-gradient(135deg, var(--primary), #ff5e00);
+      color: #fff;
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 800;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .nav-link:hover { color: #fff; }
+
+    .btn-upgrade {
+      background: linear-gradient(135deg, #ff0033, #d9002c);
+      color: #fff;
+      text-decoration: none;
+      padding: 0.5rem 1.25rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+
+    .btn-upgrade:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(255, 0, 51, 0.35);
+    }
+
+    main {
+      flex: 1;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(0, 240, 255, 0.1);
+      border: 1px solid rgba(0, 240, 255, 0.3);
+      color: var(--accent-cyan);
+      padding: 0.35rem 1rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    /* Featured Channel Funnel Box */
+    .featured-funnel-card {
+      background: linear-gradient(145deg, #161b2b, #0e121c);
+      border: 1px solid rgba(0, 240, 255, 0.3);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 3rem;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 2rem;
+      align-items: center;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    @media (max-width: 850px) {
+      .featured-funnel-card { grid-template-columns: 1fr; }
+    }
+
+    .funnel-tag {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid var(--accent-green);
+      color: var(--accent-green);
+      padding: 0.25rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: inline-block;
+      margin-bottom: 0.75rem;
+    }
+
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+    }
+
+    /* Outlier Database Grid */
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .outlier-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 3rem;
+    }
+
+    .outlier-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .outlier-box:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent-cyan);
+    }
+
+    .outlier-metric {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+      background: var(--card);
+      padding: 0.75rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+      text-align: center;
+    }
+
+    .metric-val {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.15rem;
+    }
+
+    .metric-sub {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-top: 0.2rem;
+    }
+
+    /* Monetization Offer Card */
+    .offer-card {
+      background: linear-gradient(135deg, rgba(255, 0, 51, 0.15), rgba(14, 18, 27, 0.95));
+      border: 1px solid rgba(255, 0, 51, 0.4);
+      border-radius: 16px;
+      padding: 2.5rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .offer-price {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 3rem;
+      font-weight: 800;
+      margin: 1rem 0;
+      color: #fff;
+    }
+
+    .btn-buy-primary {
+      background: linear-gradient(135deg, #ff0033, #d9002c);
+      color: #fff;
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-buy-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(255, 0, 51, 0.4);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <span>⚡ VIEWVAULT</span>
+    <span class="brand-badge">OUTLIER RADAR</span>
+  </div>
+  <div class="nav-links">
+    <a href="index.html" class="nav-link">← Creator Store</a>
+    <a href="clipping_studio.html" class="nav-link">AI Clipper</a>
+    <a href="pay.html?product=outlier_blueprint&amount=19" class="btn-upgrade">Get Pro Blueprint ($19)</a>
+  </div>
+</header>
+
+<main>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-badge">⚡ Algorithmic Intelligence Engine</div>
+    <h1>Find YouTube Channels That Monetized With 1 Video</h1>
+    <p>
+      ViewVault reverse-engineers high-velocity algorithmic breakouts. Discover how creators bypass the cold-start bandit and hit 4,000 watch hours in under 10 days.
+    </p>
+  </section>
+
+  <!-- Featured Breakthrough Funnel: Forensic Dossier -->
+  <section class="featured-funnel-card">
+    <div>
+      <span class="funnel-tag">🔥 LIVE BREAKOUT CASE STUDY</span>
+      <h2 style="font-size: 1.6rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.5px;">
+        Forensic Dossier: The 48-Hour Pathology Breakthrough
+      </h2>
+      <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.25rem;">
+        Episode 04 examines the medical toxicology case of an indestructible amoebic parasite. Built with the 4-act clinical retention framework and zero-truncation mobile packaging.
+      </p>
+      <div style="display: flex; gap: 0.75rem; align-items: center;">
+        <a href="https://www.youtube.com/watch?v=Dx7gJD_TRFA" target="_blank" style="background: #ff0033; color: white; padding: 0.65rem 1.25rem; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 0.9rem;">
+          ▶ Watch on YouTube
+        </a>
+        <a href="https://www.youtube.com/@ForensicDossier-Cases?sub_confirmation=1" target="_blank" style="background: rgba(255,255,255,0.08); border: 1px solid var(--border); color: white; padding: 0.65rem 1.25rem; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 0.9rem;">
+          + Subscribe
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/Dx7gJD_TRFA" title="Forensic Dossier Episode 04" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Verified Outlier Database -->
+  <div class="section-title">
+    <h3 style="font-size: 1.35rem; font-weight: 800;">Verified 1-Video &lt;10-Day Monetization Outliers</h3>
+    <span style="color: var(--accent-cyan); font-weight: 700; font-size: 0.85rem;">Updated Live</span>
+  </div>
+
+  <div class="outlier-grid">
+    <!-- Card 1: Fern -->
+    <div class="outlier-box">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <strong style="font-size: 1.15rem;">Fern (@Fern-TV)</strong>
+        <span style="background: rgba(16, 185, 129, 0.15); color: var(--accent-green); font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: 4px;">3.5 Days to YPP</span>
+      </div>
+      <p style="font-size: 0.85rem; color: var(--accent-gold); margin: 0.5rem 0;">"The German Megaproject That Never Was" (22.4m)</p>
+      <div class="outlier-metric">
+        <div>
+          <div class="metric-val">340k</div>
+          <div class="metric-sub">Views (Day 10)</div>
+        </div>
+        <div>
+          <div class="metric-val" style="color: var(--accent-green);">28.5k</div>
+          <div class="metric-sub">Watch Hours</div>
+        </div>
+        <div>
+          <div class="metric-val" style="color: var(--accent-cyan);">14.2k</div>
+          <div class="metric-sub">Subscribers</div>
+        </div>
+      </div>
+      <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+        Crafted a 22-minute documentary before uploading video #1. 62% retention (13.8 mins/view) cleared 4,000 hours with just 20,000 views.
+      </p>
+    </div>
+
+    <!-- Card 2: Dodford -->
+    <div class="outlier-box">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <strong style="font-size: 1.15rem;">Dodford (@dodford)</strong>
+        <span style="background: rgba(16, 185, 129, 0.15); color: var(--accent-green); font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: 4px;">4.0 Days to YPP</span>
+      </div>
+      <p style="font-size: 0.85rem; color: var(--accent-gold); margin: 0.5rem 0;">"How Atlanta Changed TV Forever" (18.0m)</p>
+      <div class="outlier-metric">
+        <div>
+          <div class="metric-val">410k</div>
+          <div class="metric-sub">Views (Day 10)</div>
+        </div>
+        <div>
+          <div class="metric-val" style="color: var(--accent-green);">30.7k</div>
+          <div class="metric-sub">Watch Hours</div>
+        </div>
+        <div>
+          <div class="metric-val" style="color: var(--accent-cyan);">19.5k</div>
+          <div class="metric-sub">Subscribers</div>
+        </div>
+      </div>
+      <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+        High CTR (14.2%) and trailer-grade motion graphics triggered YouTube's Browse algorithm on Day 2 of release.
+      </p>
+    </div>
+
+    <!-- Card 3: Syrax -->
+    <div class="outlier-box">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <strong style="font-size: 1.15rem;">Syrax (@Syrax)</strong>
+        <span style="background: rgba(16, 185, 129, 0.15); color: var(--accent-green); font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: 4px;">5.0 Days to YPP</span>
+      </div>
+      <p style="font-size: 0.85rem; color: var(--accent-gold); margin: 0.5rem 0;">"How To Fix Discord Error Instantly" (9.5m)</p>
+      <div class="outlier-metric">
+        <div>
+          <div class="metric-val">180k</div>
+          <div class="metric-sub">Views (Day 10)</div>
+        </div>
+        <div>
+          <div class="metric-val" style="color: var(--accent-green);">8.5k</div>
+          <div class="metric-sub">Watch Hours</div>
+        </div>
+        <div>
+          <div class="metric-val" style="color: var(--accent-cyan);">3.2k</div>
+          <div class="metric-sub">Subscribers</div>
+        </div>
+      </div>
+      <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+        Published within 45 minutes of a breaking global outage. Captured 100% of search volume with 0 competing videos.
+      </p>
+    </div>
+  </div>
+
+  <!-- Direct Monetization Offer -->
+  <section class="offer-card">
+    <span style="background: rgba(255, 0, 51, 0.2); color: #ff0033; font-size: 0.8rem; font-weight: 800; padding: 0.3rem 0.8rem; border-radius: 50px;">
+      ⚡ DIGITAL MONETIZATION PLAYBOOK
+    </span>
+    <h2 style="font-size: 2.25rem; font-weight: 800; margin-top: 1rem;">The 1-Video Monetization & Outlier Playbook</h2>
+    <p style="color: var(--text-muted); max-width: 600px; margin: 0.75rem auto; font-size: 1rem; line-height: 1.6;">
+      Get the exact reverse-engineered blueprints, 4-act script templates, thumbnail psychological frameworks, and the 3-upload Partner Program policy bypass checklist.
+    </p>
+    <div class="offer-price">$19 <span style="font-size: 1.1rem; color: var(--text-muted); font-weight: 500;">one-time</span></div>
+    <a href="pay.html?product=outlier_blueprint&amount=19" class="btn-buy-primary">
+      Get Instant Access ($19) →
+    </a>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2026 Apex Digital Vault & Forensic Dossier. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

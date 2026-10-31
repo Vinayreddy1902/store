@@ -20,6 +20,7 @@ export function allowedOrigin(req:Request) {
  const origin=req.headers.get("origin") || "";
  return origin && origin === Deno.env.get("STOREFRONT_ORIGIN") ? origin : "";
 }
+export function trustedRequest(req:Request) { const origin=req.headers.get("origin"); return !origin || !!allowedOrigin(req); }
 export function cors(req:Request) {
  const origin=allowedOrigin(req);
  return {"Access-Control-Allow-Origin":origin,"Access-Control-Allow-Headers":"authorization, apikey, content-type","Access-Control-Allow-Methods":"POST, OPTIONS","Vary":"Origin"};

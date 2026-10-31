@@ -9,10 +9,10 @@
 
 class StoreManager {
   constructor() {
-    this.isPro = localStorage.getItem('momentum_is_pro') === 'true';
-    this.proExpiry = parseInt(localStorage.getItem('momentum_pro_expiry') || '0', 10);
-    this._verifyIntegrity();
-    this._checkExpiry();
+    // A trusted backend must provide entitlements; never trust persisted flags.
+    localStorage.removeItem('momentum_is_pro');
+    localStorage.removeItem('momentum_pro_expiry');
+    localStorage.removeItem('momentum_pro_sig');
   }
 
   // No client-side signature can prove payment. Entitlements must be

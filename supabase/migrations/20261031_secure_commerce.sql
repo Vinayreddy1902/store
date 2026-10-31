@@ -3,9 +3,8 @@ create table if not exists public.products (
  id text primary key, price_usd_cents integer not null check(price_usd_cents > 0),
  paypal_enabled boolean not null default false
 );
-insert into public.products(id,price_usd_cents,paypal_enabled)
-values ('ai_automation_blueprint',2900,true)
-on conflict (id) do update set price_usd_cents=excluded.price_usd_cents;
+-- Populate products and verified prices manually before enabling checkout.
+-- No default price is assumed for any product.
 
 create table if not exists public.checkout_orders (
  id uuid primary key default gen_random_uuid(),

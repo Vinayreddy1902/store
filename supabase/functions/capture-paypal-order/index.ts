@@ -1,6 +1,7 @@
-import {admin,currentUser,env,paypalAccessToken,response,cors} from "../_shared/core.ts";
+import {admin,currentUser,env,paypalAccessToken,response,cors,trustedRequest} from "../_shared/core.ts";
 Deno.serve(async req=>{
  if(req.method==="OPTIONS")return new Response(null,{headers:cors(req)});
+ if(!trustedRequest(req))return response(req,{error:"Origin not allowed"},403);
  if(req.method!=="POST")return response(req,{error:"Method not allowed"},405);
  try {
  const user=await currentUser(req);if(!user)return response(req,{error:"Sign in required"},401);

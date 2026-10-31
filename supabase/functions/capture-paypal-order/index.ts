@@ -22,9 +22,9 @@ Deno.serve(async req=>{
  const capture=unit?.payments?.captures?.find((c:any)=>c.status==="COMPLETED");
  const {data:product}=await db.from("products").select("price_usd_cents").eq("id",order.product_id).single();
  const amount=(Number(product?.price_usd_cents||0)/100).toFixed(2);
- if(details.status!=="COMPLETED"||!capture||unit?.custom_id!==order.id||
+ if(details.id!==order_id||details.intent!=="CAPTURE"||details.status!=="COMPLETED"||!capture||unit?.custom_id!==order.id||
     unit?.amount?.currency_code!=="USD"||unit?.amount?.value!==amount||
-    capture.amount?.currency_code!=="USD"||capture.amount?.value!==amount)
+    capture.amount?.currency_code!=="USD"||capture.amount?.value!==amount||!capture.id
    return response(req,{error:"Payment not verified"},409);
  // A unique provider transaction ID makes retries idempotent.
  const {error:grantError}=await db.from("entitlements").upsert({
